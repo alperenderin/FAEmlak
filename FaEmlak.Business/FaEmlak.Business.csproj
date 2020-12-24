@@ -4,4 +4,12 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Concrete\" />
+    <Folder Include="Abstract\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FAEmlak.Entity\FAEmlak.Entity.csproj" />
+    <ProjectReference Include="..\FAEmlak.Data\FAEmlak.Data.csproj" />
+  </ItemGroup>
 </Project>

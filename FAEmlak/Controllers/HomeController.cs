@@ -6,21 +6,26 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using FAEmlak.Models;
+using FAEmlak.Business.Abstract;
 
 namespace FAEmlak.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IPropertyService _propertyService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IPropertyService propertyService)
         {
-            _logger = logger;
+            _propertyService = propertyService;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var model = new PropertyModel()
+            {
+                properties = _propertyService.GetProperties()
+            };
+            return View(model);
         }
 
         public IActionResult Privacy()
