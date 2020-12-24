@@ -4,14 +4,16 @@ using FAEmlak.Data.Concrete.EFCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FAEmlak.Data.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20201224171403_InitialModel")]
+    partial class InitialModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -67,29 +69,11 @@ namespace FAEmlak.Data.Migrations
                     b.Property<int>("Area")
                         .HasColumnType("int");
 
-                    b.Property<byte>("BathroomCount")
-                        .HasColumnType("tinyint");
-
-                    b.Property<byte>("BuildingAge")
-                        .HasColumnType("tinyint");
-
                     b.Property<DateTime>("Created")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<byte>("FloorCount")
-                        .HasColumnType("tinyint");
-
-                    b.Property<bool>("HasBalcony")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("HasStuff")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsInSite")
-                        .HasColumnType("bit");
 
                     b.Property<int>("Price")
                         .HasColumnType("int");
@@ -102,9 +86,6 @@ namespace FAEmlak.Data.Migrations
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
-
-                    b.Property<byte>("WhichFloor")
-                        .HasColumnType("tinyint");
 
                     b.HasKey("PropertyId");
 

@@ -5,9 +5,6 @@ namespace FAEmlak.Entity
 {
     public class Photo
     {
-        public Photo()
-        {
-        }
         [Key]
         public long PhotoId { get; set; }
 

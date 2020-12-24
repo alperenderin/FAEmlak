@@ -1,6 +1,7 @@
 ﻿using System;
 using FAEmlak.Entity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace FAEmlak.Data.Concrete.EFCore
 {
@@ -11,9 +12,9 @@ namespace FAEmlak.Data.Concrete.EFCore
 
         }
 
-        public DbSet<City> Cities { get; set; }
         public DbSet<Photo> Photos { get; set; }
         public DbSet<Property> Properties { get; set; }
-
+        public DbSet<State> States { get; set; }
+        public DbSet<City> Cities { get; set; }
     }
 }

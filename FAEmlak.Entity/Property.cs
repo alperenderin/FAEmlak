@@ -11,6 +11,7 @@ namespace FAEmlak.Entity
             Created = DateTime.UtcNow;
         }
 
+        [Key]
         public int PropertyId { get; set; }
         public int Price { get; set; }
         public int Area { get; set; }
@@ -20,13 +21,16 @@ namespace FAEmlak.Entity
         public PropertyStatus Status { get; set; }
         public DateTime Created { get; internal set; }
 
-        public long CityId { get; set; }
-        public City City { get; set; }
+        public bool HasBalcony { get; set; }
+        public bool HasStuff { get; set; }
+        public byte BuildingAge { get; set; }
+        public byte BathroomCount { get; set; }
+        public bool IsInSite { get; set; }
+        public byte FloorCount { get; set; }
+        public byte WhichFloor { get; set; } 
 
-
-        public long StateId { get; set; }
+        public int StateId { get; set; }
         public State State { get; set; }
-
 
         public List<Photo> Photos { get; set; }  
     }
