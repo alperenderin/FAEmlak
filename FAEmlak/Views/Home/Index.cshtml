@@ -3,13 +3,160 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    @foreach (var ilan in Model.properties)
-    {
-        <div class="col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
-            @ilan.Description
+<div class="row mb-5">
+    <div class="col-md-3 d-flex flex-column">
+        <h5>Real Estate</h5>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Konut (5242)</li>
+            <li class="list-group-item">İşyeri (2133)</li>
+            <li class="list-group-item">Arsa (2133)</li>
+            <li class="list-group-item">Bina (213)</li>
+        </ul>
+    </div>
+    <div class="col-md-9" style="background: url('https://www.sahibinden.com/assets/images/emlak-konut-1150:28df29ee426dfc1b128b555510884fcd.png'); background-size: 100% auto;">
+        
+    </div>
+</div>
+<div class="row d-flex flex-column">
+    <div class="col-md-12">
+        <h5>Emlak Vitrini</h5>
+        <div class="mixed-property d-flex flex-row flex-wrap">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card">
+                    <img class="card-img" src="https://cdn02.hemlak.com/S3g3ckwvTXNPekZ5WkVQVXk4N2owSzduR2FkUDlvRnd3SFhZUkR6NHl6SjZEdmhFaldiQ2JmWFVsRnk0TlRmNUFyOC9PUm15Q3pERFlMYnBKdnQxQkdHUTFrc0N1RVZPeGVWc3RncWtnVVk9.jpg" alt="Vans">
+                    <div class="card-img-overlay d-flex justify-content-end">
+                        <a href="#" class="card-link text-danger like">
+                            <i class="fa fa-heart"></i>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title">SAHRAYICEDİT E5 METROYA YAKIN GENÇ BİNADA GENİŞ KOMBİLİ 3+1</h6>
+                        <h6 class="card-subtitle text-muted">Satılık</h6>
+                        <div class="buy d-flex justify-content-between align-items-center">
+                            <div class="price text-success"><h5 class="mt-2">125.000₺</h5></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card">
+                    <img class="card-img" src="https://cdn02.hemlak.com/S3g3ckwvTXNPekZ5WkVQVXk4N2owSzduR2FkUDlvRnd3SFhZUkR6NHl6SjZEdmhFaldiQ2JmWFVsRnk0TlRmNUFyOC9PUm15Q3pERFlMYnBKdnQxQkdHUTFrc0N1RVZPeGVWc3RncWtnVVk9.jpg" alt="Vans">
+                    <div class="card-img-overlay d-flex justify-content-end">
+                        <a href="#" class="card-link text-danger like">
+                            <i class="fa fa-heart"></i>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title">SAHRAYICEDİT E5 METROYA YAKIN GENÇ BİNADA GENİŞ KOMBİLİ 3+1</h6>
+                        <h6 class="card-subtitle text-muted">Satılık</h6>
+                        <div class="buy d-flex justify-content-between align-items-center">
+                            <div class="price text-success"><h5 class="mt-2">125.000₺</h5></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card">
+                    <img class="card-img" src="https://cdn02.hemlak.com/S3g3ckwvTXNPekZ5WkVQVXk4N2owSzduR2FkUDlvRnd3SFhZUkR6NHl6SjZEdmhFaldiQ2JmWFVsRnk0TlRmNUFyOC9PUm15Q3pERFlMYnBKdnQxQkdHUTFrc0N1RVZPeGVWc3RncWtnVVk9.jpg" alt="Vans">
+                    <div class="card-img-overlay d-flex justify-content-end">
+                        <a href="#" class="card-link text-danger like">
+                            <i class="fa fa-heart"></i>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title">SAHRAYICEDİT E5 METROYA YAKIN GENÇ BİNADA GENİŞ KOMBİLİ 3+1</h6>
+                        <h6 class="card-subtitle text-muted">Satılık</h6>
+                        <div class="buy d-flex justify-content-between align-items-center">
+                            <div class="price text-success"><h5 class="mt-2">125.000₺</h5></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card">
+                    <img class="card-img" src="https://cdn02.hemlak.com/S3g3ckwvTXNPekZ5WkVQVXk4N2owSzduR2FkUDlvRnd3SFhZUkR6NHl6SjZEdmhFaldiQ2JmWFVsRnk0TlRmNUFyOC9PUm15Q3pERFlMYnBKdnQxQkdHUTFrc0N1RVZPeGVWc3RncWtnVVk9.jpg" alt="Vans">
+                    <div class="card-img-overlay d-flex justify-content-end">
+                        <a href="#" class="card-link text-danger like">
+                            <i class="fa fa-heart"></i>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title">SAHRAYICEDİT E5 METROYA YAKIN GENÇ BİNADA GENİŞ KOMBİLİ 3+1</h6>
+                        <h6 class="card-subtitle text-muted">Satılık</h6>
+                        <div class="buy d-flex justify-content-between align-items-center">
+                            <div class="price text-success"><h5 class="mt-2">125.000₺</h5></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card">
+                    <img class="card-img" src="https://cdn02.hemlak.com/S3g3ckwvTXNPekZ5WkVQVXk4N2owSzduR2FkUDlvRnd3SFhZUkR6NHl6SjZEdmhFaldiQ2JmWFVsRnk0TlRmNUFyOC9PUm15Q3pERFlMYnBKdnQxQkdHUTFrc0N1RVZPeGVWc3RncWtnVVk9.jpg" alt="Vans">
+                    <div class="card-img-overlay d-flex justify-content-end">
+                        <a href="#" class="card-link text-danger like">
+                            <i class="fa fa-heart"></i>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title">SAHRAYICEDİT E5 METROYA YAKIN GENÇ BİNADA GENİŞ KOMBİLİ 3+1</h6>
+                        <h6 class="card-subtitle text-muted">Satılık</h6>
+                        <div class="buy d-flex justify-content-between align-items-center">
+                            <div class="price text-success"><h5 class="mt-2">125.000₺</h5></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card">
+                    <img class="card-img" src="https://cdn02.hemlak.com/S3g3ckwvTXNPekZ5WkVQVXk4N2owSzduR2FkUDlvRnd3SFhZUkR6NHl6SjZEdmhFaldiQ2JmWFVsRnk0TlRmNUFyOC9PUm15Q3pERFlMYnBKdnQxQkdHUTFrc0N1RVZPeGVWc3RncWtnVVk9.jpg" alt="Vans">
+                    <div class="card-img-overlay d-flex justify-content-end">
+                        <a href="#" class="card-link text-danger like">
+                            <i class="fa fa-heart"></i>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title">SAHRAYICEDİT E5 METROYA YAKIN GENÇ BİNADA GENİŞ KOMBİLİ 3+1</h6>
+                        <h6 class="card-subtitle text-muted">Satılık</h6>
+                        <div class="buy d-flex justify-content-between align-items-center">
+                            <div class="price text-success"><h5 class="mt-2">125.000₺</h5></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card">
+                    <img class="card-img" src="https://cdn02.hemlak.com/S3g3ckwvTXNPekZ5WkVQVXk4N2owSzduR2FkUDlvRnd3SFhZUkR6NHl6SjZEdmhFaldiQ2JmWFVsRnk0TlRmNUFyOC9PUm15Q3pERFlMYnBKdnQxQkdHUTFrc0N1RVZPeGVWc3RncWtnVVk9.jpg" alt="Vans">
+                    <div class="card-img-overlay d-flex justify-content-end">
+                        <a href="#" class="card-link text-danger like">
+                            <i class="fa fa-heart"></i>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title" stlye="">SAHRAYICEDİT E5 METROYA YAKIN GENÇ BİNADA GENİŞ KOMBİLİ 3+1</h6>
+                        <h6 class="card-subtitle text-muted">Satılık</h6>
+                        <div class="buy d-flex justify-content-between align-items-center">
+                            <div class="price text-success"><h5 class="mt-2">125.000₺</h5></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card">
+                    <img class="card-img" src="https://cdn02.hemlak.com/S3g3ckwvTXNPekZ5WkVQVXk4N2owSzduR2FkUDlvRnd3SFhZUkR6NHl6SjZEdmhFaldiQ2JmWFVsRnk0TlRmNUFyOC9PUm15Q3pERFlMYnBKdnQxQkdHUTFrc0N1RVZPeGVWc3RncWtnVVk9.jpg" alt="Vans">
+                    <div class="card-img-overlay d-flex justify-content-end">
+                        <a href="#" class="card-link text-danger like">
+                            <i class="fa fa-heart"></i>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title">SAHRAYICEDİT E5 METROYA YAKIN GENÇ BİNADA GENİŞ KOMBİLİ 3+1</h6>
+                        <h6 class="card-subtitle text-muted">Satılık</h6>
+                        <div class="buy d-flex justify-content-between align-items-center">
+                            <div class="price text-success"><h5 class="mt-2">125.000₺</h5></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    }
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>
 </div>

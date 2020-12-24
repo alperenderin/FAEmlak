@@ -3,9 +3,9 @@ namespace FAEmlak.Entity
 {
     public enum PropertyType
     {
-        Flat = 0,
-        DetachedHouse,
+        Residental = 0,
+        Commercial,
         Land,
-        Recidence
+        Buildings
     }
 }
