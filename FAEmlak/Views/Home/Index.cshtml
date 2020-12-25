@@ -1,4 +1,6 @@
 ﻿@model FAEmlak.Models.PropertyModel
+@using FAEmlak.Helpers
+@using FAEmlak.Entity
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -7,156 +9,121 @@
     <div class="col-md-3 d-flex flex-column">
         <h5>Real Estate</h5>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">Konut (5242)</li>
-            <li class="list-group-item">İşyeri (2133)</li>
-            <li class="list-group-item">Arsa (2133)</li>
-            <li class="list-group-item">Bina (213)</li>
+            @foreach (PropertyType propertyType in Enum.GetValues(typeof(PropertyType)))
+            {
+                String title = EnumHelper<FAEmlak.Entity.PropertyType>.GetDisplayValue(propertyType);
+                <li class="list-group-item">@title</li>
+            }
         </ul>
     </div>
     <div class="col-md-9" style="background: url('https://www.sahibinden.com/assets/images/emlak-konut-1150:28df29ee426dfc1b128b555510884fcd.png'); background-size: 100% auto;">
-        
+        <div class="container py-5 my-5">
+            <div class="row">
+                <div class="col-md-12 search-menu">
+                    <div class="nav nav-pills" id="nav-tab" role="tablist">
+                        <a class="nav-link mr-2" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">İşyeri</a>
+                        <a class="nav-link mr-2" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Konut</a>
+                        <a class="nav-link mr-2" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Arsa</a>
+                        <a class="nav-link mr-2" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Bina</a>
+                    </div>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <div class="card">
+                                <div class="card-body d-flex flex-row">
+                                    <div class="col-md-2 px-2">
+                                        <div class="form-group ">
+                                            <select id="inputState" class="form-control">
+                                                <option selected>Satılık</option>
+                                                <option>Kiralık</option>
+                                                <option>Günlük Kiralık</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 px-2">
+                                        <div class="form-group">
+                                            <select id="inputState" class="form-control">
+                                                <option selected>Konut</option>
+                                                <option>BMW</option>
+                                                <option>Audi</option>
+                                                <option>Maruti</option>
+                                                <option>Tesla</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 px-2">
+                                        <div class="form-group ">
+                                            <select id="inputState" class="form-control">
+                                                <option selected>İl</option>
+                                                <option>City</option>
+                                                <option>Jazz</option>
+                                                <option>Brio</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 px-2">
+                                        <div class="form-group ">
+                                            <select id="inputState" class="form-control">
+                                                <option selected>İlçe</option>
+                                                <option>New Delhi</option>
+                                                <option>Banglore</option>
+                                                <option>Chennai</option>
+                                                <option>Jaipur</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 px-2">
+                                        <div class="form-group ">
+                                            <select id="inputState" class="form-control">
+                                                <option selected>Oda Sayısı</option>
+                                                <option>1 Lac-5 Lac</option>
+                                                <option>5 Lac-10 Lac</option>
+                                                <option>10 Lac-15 Lac</option>
+                                                <option>15 Lac-20 Lac</option>
+                                                <option>20 Lac-25 Lac</option>
+                                                <option>25 Lac & Above</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 px-2">
+                                        <button type="button" class="btn btn-dark">Ara</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <div class="row d-flex flex-column">
     <div class="col-md-12">
         <h5>Emlak Vitrini</h5>
         <div class="mixed-property d-flex flex-row flex-wrap">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="card">
-                    <img class="card-img" src="https://cdn02.hemlak.com/S3g3ckwvTXNPekZ5WkVQVXk4N2owSzduR2FkUDlvRnd3SFhZUkR6NHl6SjZEdmhFaldiQ2JmWFVsRnk0TlRmNUFyOC9PUm15Q3pERFlMYnBKdnQxQkdHUTFrc0N1RVZPeGVWc3RncWtnVVk9.jpg" alt="Vans">
-                    <div class="card-img-overlay d-flex justify-content-end">
-                        <a href="#" class="card-link text-danger like">
-                            <i class="fa fa-heart"></i>
-                        </a>
-                    </div>
-                    <div class="card-body">
-                        <h6 class="card-title">SAHRAYICEDİT E5 METROYA YAKIN GENÇ BİNADA GENİŞ KOMBİLİ 3+1</h6>
-                        <h6 class="card-subtitle text-muted">Satılık</h6>
-                        <div class="buy d-flex justify-content-between align-items-center">
-                            <div class="price text-success"><h5 class="mt-2">125.000₺</h5></div>
+            @foreach (var property in Model.properties)
+            {
+                var propType = EnumHelper<FAEmlak.Entity.PropertyType>.GetDisplayValue(property.PropertyType);
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <img class="card-img" src="https://cdn02.hemlak.com/S3g3ckwvTXNPekZ5WkVQVXk4N2owSzduR2FkUDlvRnd3SFhZUkR6NHl6SjZEdmhFaldiQ2JmWFVsRnk0TlRmNUFyOC9PUm15Q3pERFlMYnBKdnQxQkdHUTFrc0N1RVZPeGVWc3RncWtnVVk9.jpg" alt="Vans">
+                        <div class="card-img-overlay d-flex justify-content-end">
+                            <a href="#" class="card-link text-danger like">
+                                <i class="fa fa-heart"></i>
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title">@property.Title</h6>
+                            <h6 class="card-subtitle text-muted">@propType</h6>
+                            <div class="buy d-flex justify-content-between align-items-center">
+                                <div class="price text-success"><h5 class="mt-2">@property.Price₺</h5></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="card">
-                    <img class="card-img" src="https://cdn02.hemlak.com/S3g3ckwvTXNPekZ5WkVQVXk4N2owSzduR2FkUDlvRnd3SFhZUkR6NHl6SjZEdmhFaldiQ2JmWFVsRnk0TlRmNUFyOC9PUm15Q3pERFlMYnBKdnQxQkdHUTFrc0N1RVZPeGVWc3RncWtnVVk9.jpg" alt="Vans">
-                    <div class="card-img-overlay d-flex justify-content-end">
-                        <a href="#" class="card-link text-danger like">
-                            <i class="fa fa-heart"></i>
-                        </a>
-                    </div>
-                    <div class="card-body">
-                        <h6 class="card-title">SAHRAYICEDİT E5 METROYA YAKIN GENÇ BİNADA GENİŞ KOMBİLİ 3+1</h6>
-                        <h6 class="card-subtitle text-muted">Satılık</h6>
-                        <div class="buy d-flex justify-content-between align-items-center">
-                            <div class="price text-success"><h5 class="mt-2">125.000₺</h5></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="card">
-                    <img class="card-img" src="https://cdn02.hemlak.com/S3g3ckwvTXNPekZ5WkVQVXk4N2owSzduR2FkUDlvRnd3SFhZUkR6NHl6SjZEdmhFaldiQ2JmWFVsRnk0TlRmNUFyOC9PUm15Q3pERFlMYnBKdnQxQkdHUTFrc0N1RVZPeGVWc3RncWtnVVk9.jpg" alt="Vans">
-                    <div class="card-img-overlay d-flex justify-content-end">
-                        <a href="#" class="card-link text-danger like">
-                            <i class="fa fa-heart"></i>
-                        </a>
-                    </div>
-                    <div class="card-body">
-                        <h6 class="card-title">SAHRAYICEDİT E5 METROYA YAKIN GENÇ BİNADA GENİŞ KOMBİLİ 3+1</h6>
-                        <h6 class="card-subtitle text-muted">Satılık</h6>
-                        <div class="buy d-flex justify-content-between align-items-center">
-                            <div class="price text-success"><h5 class="mt-2">125.000₺</h5></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="card">
-                    <img class="card-img" src="https://cdn02.hemlak.com/S3g3ckwvTXNPekZ5WkVQVXk4N2owSzduR2FkUDlvRnd3SFhZUkR6NHl6SjZEdmhFaldiQ2JmWFVsRnk0TlRmNUFyOC9PUm15Q3pERFlMYnBKdnQxQkdHUTFrc0N1RVZPeGVWc3RncWtnVVk9.jpg" alt="Vans">
-                    <div class="card-img-overlay d-flex justify-content-end">
-                        <a href="#" class="card-link text-danger like">
-                            <i class="fa fa-heart"></i>
-                        </a>
-                    </div>
-                    <div class="card-body">
-                        <h6 class="card-title">SAHRAYICEDİT E5 METROYA YAKIN GENÇ BİNADA GENİŞ KOMBİLİ 3+1</h6>
-                        <h6 class="card-subtitle text-muted">Satılık</h6>
-                        <div class="buy d-flex justify-content-between align-items-center">
-                            <div class="price text-success"><h5 class="mt-2">125.000₺</h5></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="card">
-                    <img class="card-img" src="https://cdn02.hemlak.com/S3g3ckwvTXNPekZ5WkVQVXk4N2owSzduR2FkUDlvRnd3SFhZUkR6NHl6SjZEdmhFaldiQ2JmWFVsRnk0TlRmNUFyOC9PUm15Q3pERFlMYnBKdnQxQkdHUTFrc0N1RVZPeGVWc3RncWtnVVk9.jpg" alt="Vans">
-                    <div class="card-img-overlay d-flex justify-content-end">
-                        <a href="#" class="card-link text-danger like">
-                            <i class="fa fa-heart"></i>
-                        </a>
-                    </div>
-                    <div class="card-body">
-                        <h6 class="card-title">SAHRAYICEDİT E5 METROYA YAKIN GENÇ BİNADA GENİŞ KOMBİLİ 3+1</h6>
-                        <h6 class="card-subtitle text-muted">Satılık</h6>
-                        <div class="buy d-flex justify-content-between align-items-center">
-                            <div class="price text-success"><h5 class="mt-2">125.000₺</h5></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="card">
-                    <img class="card-img" src="https://cdn02.hemlak.com/S3g3ckwvTXNPekZ5WkVQVXk4N2owSzduR2FkUDlvRnd3SFhZUkR6NHl6SjZEdmhFaldiQ2JmWFVsRnk0TlRmNUFyOC9PUm15Q3pERFlMYnBKdnQxQkdHUTFrc0N1RVZPeGVWc3RncWtnVVk9.jpg" alt="Vans">
-                    <div class="card-img-overlay d-flex justify-content-end">
-                        <a href="#" class="card-link text-danger like">
-                            <i class="fa fa-heart"></i>
-                        </a>
-                    </div>
-                    <div class="card-body">
-                        <h6 class="card-title">SAHRAYICEDİT E5 METROYA YAKIN GENÇ BİNADA GENİŞ KOMBİLİ 3+1</h6>
-                        <h6 class="card-subtitle text-muted">Satılık</h6>
-                        <div class="buy d-flex justify-content-between align-items-center">
-                            <div class="price text-success"><h5 class="mt-2">125.000₺</h5></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="card">
-                    <img class="card-img" src="https://cdn02.hemlak.com/S3g3ckwvTXNPekZ5WkVQVXk4N2owSzduR2FkUDlvRnd3SFhZUkR6NHl6SjZEdmhFaldiQ2JmWFVsRnk0TlRmNUFyOC9PUm15Q3pERFlMYnBKdnQxQkdHUTFrc0N1RVZPeGVWc3RncWtnVVk9.jpg" alt="Vans">
-                    <div class="card-img-overlay d-flex justify-content-end">
-                        <a href="#" class="card-link text-danger like">
-                            <i class="fa fa-heart"></i>
-                        </a>
-                    </div>
-                    <div class="card-body">
-                        <h6 class="card-title" stlye="">SAHRAYICEDİT E5 METROYA YAKIN GENÇ BİNADA GENİŞ KOMBİLİ 3+1</h6>
-                        <h6 class="card-subtitle text-muted">Satılık</h6>
-                        <div class="buy d-flex justify-content-between align-items-center">
-                            <div class="price text-success"><h5 class="mt-2">125.000₺</h5></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="card">
-                    <img class="card-img" src="https://cdn02.hemlak.com/S3g3ckwvTXNPekZ5WkVQVXk4N2owSzduR2FkUDlvRnd3SFhZUkR6NHl6SjZEdmhFaldiQ2JmWFVsRnk0TlRmNUFyOC9PUm15Q3pERFlMYnBKdnQxQkdHUTFrc0N1RVZPeGVWc3RncWtnVVk9.jpg" alt="Vans">
-                    <div class="card-img-overlay d-flex justify-content-end">
-                        <a href="#" class="card-link text-danger like">
-                            <i class="fa fa-heart"></i>
-                        </a>
-                    </div>
-                    <div class="card-body">
-                        <h6 class="card-title">SAHRAYICEDİT E5 METROYA YAKIN GENÇ BİNADA GENİŞ KOMBİLİ 3+1</h6>
-                        <h6 class="card-subtitle text-muted">Satılık</h6>
-                        <div class="buy d-flex justify-content-between align-items-center">
-                            <div class="price text-success"><h5 class="mt-2">125.000₺</h5></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            }
         </div>
     </div>
 </div>

@@ -16,7 +16,7 @@ namespace FAEmlak.Data.Concrete.EFCore
 
         public List<Property> GetProperties()
         {
-            var Properties = ApplicationContext.Properties.Include(i => i.Photos).ToList();
+            var Properties = ApplicationContext.Properties.Include(i => i.State).ThenInclude(i => i.City).ToList();
             return Properties;
         }
 

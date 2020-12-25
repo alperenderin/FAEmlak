@@ -28,5 +28,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Identity\" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
 </Project>

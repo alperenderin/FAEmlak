@@ -13,13 +13,13 @@ namespace FAEmlak.Entity
 
         [Key]
         public int PropertyId { get; set; }
+        public string Title { get; set; }
         public int Price { get; set; }
         public int Area { get; set; }
         public string Description { get; set; }
 
         public PropertyType PropertyType { get; set; }
         public PropertyStatus Status { get; set; }
-        public DateTime Created { get; internal set; }
 
         public bool HasBalcony { get; set; }
         public bool HasStuff { get; set; }
@@ -32,6 +32,10 @@ namespace FAEmlak.Entity
         public int StateId { get; set; }
         public State State { get; set; }
 
-        public List<Photo> Photos { get; set; }  
+        public List<Photo> Photos { get; set; }
+
+        public DateTime Created { get; internal set; }
+
     }
 }
+
