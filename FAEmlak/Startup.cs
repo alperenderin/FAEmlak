@@ -99,6 +99,11 @@ namespace FAEmlak
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                   name: "cars",
+                   pattern: "category/{propertyType}/{propertyCategory}",
+                   defaults: new { controller = "Category", action = "ListCategories" });
+
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });

@@ -20,6 +20,17 @@ namespace FAEmlak.Data.Concrete.EFCore
             return Properties;
         }
 
+        public List<Property> GetPropertiesByTypeAndCategory(PropertyType Type, PropertyCategory Category)
+        {
+            var Properties = ApplicationContext.Properties.
+                Include(i => i.State).
+                ThenInclude(i => i.City).
+                Where(i => i.PropertyType == Type).
+                Where(i => i.PropertyCategory == Category).ToList();
+
+            return Properties;
+        }
+
         private ApplicationContext ApplicationContext
         {
             get { return Context as ApplicationContext; }

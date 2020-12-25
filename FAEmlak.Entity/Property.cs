@@ -19,6 +19,7 @@ namespace FAEmlak.Entity
         public string Description { get; set; }
 
         public PropertyType PropertyType { get; set; }
+        public PropertyCategory PropertyCategory { get; set; }
         public PropertyStatus Status { get; set; }
 
         public bool HasBalcony { get; set; }

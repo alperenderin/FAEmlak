@@ -40,7 +40,28 @@ namespace FAEmlak.Data.Concrete.EFCore
                 Price = 850000,
                 Area = 125,
                 Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultricies commodo vehicula. Vestibulum pharetra ullamcorper ante, sit amet molestie eros imperdiet consequat. Integer dapibus urna vulputate consequat posuere. Aliquam erat volutpat. Integer non malesuada lectus. Vivamus ut mattis leo. Sed ornare nunc diam, eu sollicitudin est luctus at. Integer ante mauris, imperdiet vitae leo sit amet, semper pharetra lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+                PropertyType = PropertyType.Commercial,
+                PropertyCategory = PropertyCategory.ForSale,
+                Status = PropertyStatus.Active,
+                HasBalcony = true,
+                BathroomCount = 1,
+                BuildingAge = 26,
+                FloorCount = 13,
+                WhichFloor = 2,
+                HasStuff = false,
+                IsInSite = true,
+                StateId = 2
+            });
+
+            modelBuilder.Entity<Property>().HasData(new Property
+            {
+                PropertyId = 2,
+                Title = "Uğurmumcu Süper Bina Süper Fırsat",
+                Price = 516152,
+                Area = 125,
+                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultricies commodo vehicula. Vestibulum pharetra ullamcorper ante, sit amet molestie eros imperdiet consequat. Integer dapibus urna vulputate consequat posuere. Aliquam erat volutpat. Integer non malesuada lectus. Vivamus ut mattis leo. Sed ornare nunc diam, eu sollicitudin est luctus at. Integer ante mauris, imperdiet vitae leo sit amet, semper pharetra lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
                 PropertyType = PropertyType.Buildings,
+                PropertyCategory = PropertyCategory.ForSale,
                 Status = PropertyStatus.Active,
                 HasBalcony = true,
                 BathroomCount = 1,
