@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace FAEMlak.Data.Migrations
+namespace FAEmlak.Data.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
     partial class ApplicationContextModelSnapshot : ModelSnapshot
@@ -137,7 +137,7 @@ namespace FAEMlak.Data.Migrations
                             Area = 125,
                             BathroomCount = (byte)1,
                             BuildingAge = (byte)26,
-                            Created = new DateTime(2020, 12, 25, 15, 35, 2, 786, DateTimeKind.Utc).AddTicks(4710),
+                            Created = new DateTime(2020, 12, 25, 17, 52, 38, 91, DateTimeKind.Utc).AddTicks(230),
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultricies commodo vehicula. Vestibulum pharetra ullamcorper ante, sit amet molestie eros imperdiet consequat. Integer dapibus urna vulputate consequat posuere. Aliquam erat volutpat. Integer non malesuada lectus. Vivamus ut mattis leo. Sed ornare nunc diam, eu sollicitudin est luctus at. Integer ante mauris, imperdiet vitae leo sit amet, semper pharetra lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
                             FloorCount = (byte)13,
                             HasBalcony = true,
@@ -157,7 +157,7 @@ namespace FAEMlak.Data.Migrations
                             Area = 125,
                             BathroomCount = (byte)1,
                             BuildingAge = (byte)26,
-                            Created = new DateTime(2020, 12, 25, 15, 35, 2, 787, DateTimeKind.Utc).AddTicks(740),
+                            Created = new DateTime(2020, 12, 25, 17, 52, 38, 91, DateTimeKind.Utc).AddTicks(9427),
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultricies commodo vehicula. Vestibulum pharetra ullamcorper ante, sit amet molestie eros imperdiet consequat. Integer dapibus urna vulputate consequat posuere. Aliquam erat volutpat. Integer non malesuada lectus. Vivamus ut mattis leo. Sed ornare nunc diam, eu sollicitudin est luctus at. Integer ante mauris, imperdiet vitae leo sit amet, semper pharetra lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
                             FloorCount = (byte)13,
                             HasBalcony = true,

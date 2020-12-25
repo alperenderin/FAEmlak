@@ -8,14 +8,71 @@
 <div class="row mb-5">
     <div class="col-md-3 d-flex flex-column">
         <h5>Real Estate</h5>
-        <ul class="list-group list-group-flush">
-            @foreach (PropertyType propertyType in Enum.GetValues(typeof(PropertyType)))
-            {
-                String title = EnumHelper<FAEmlak.Entity.PropertyType>.GetDisplayValue(propertyType);
-                <li class="list-group-item">@title</li>
-            }
-        </ul>
+        @*<ul class="list-group list-group-flush">
+                @foreach (PropertyType propertyType in Enum.GetValues(typeof(PropertyType)))
+                {
+                    String title = EnumHelper<FAEmlak.Entity.PropertyType>.GetDisplayValue(propertyType);
+                    <li class="list-group-item">@title</li>
+                }
+            </ul>*@
+
+        <div id="accordion">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Isyeri
+                        </button>
+                    </h5>
+                </div>
+
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                        <a asp-action="LeftPanelFilter"  asp-route-id="0" >Satilik</a>
+                    </div>
+                </div>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                        <a asp-action="LeftPanelFilter" asp-route-id="1">Kiralik</a>
+                    </div>
+                </div>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                        <a asp-action="LeftPanelFilter" asp-route-id="2">Gunluk</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                           Title-2
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                        SubTitle-1
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Title-3
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                    <div class="card-body">
+                        SubTitle-1
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    @* ============================================================================================================================================================================================================ *@
     <div class="col-md-9" style="background: url('https://www.sahibinden.com/assets/images/emlak-konut-1150:28df29ee426dfc1b128b555510884fcd.png'); background-size: 100% auto;">
         <div class="container py-5 my-5">
             <div class="row">
