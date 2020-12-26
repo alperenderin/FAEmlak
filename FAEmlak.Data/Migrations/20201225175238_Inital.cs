@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace FAEMlak.Data.Migrations
+namespace FAEmlak.Data.Migrations
 {
-    public partial class InitialModel : Migration
+    public partial class Inital : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -51,6 +51,7 @@ namespace FAEMlak.Data.Migrations
                     Area = table.Column<int>(nullable: false),
                     Description = table.Column<string>(nullable: true),
                     PropertyType = table.Column<int>(nullable: false),
+                    PropertyCategory = table.Column<int>(nullable: false),
                     Status = table.Column<int>(nullable: false),
                     HasBalcony = table.Column<bool>(nullable: false),
                     HasStuff = table.Column<bool>(nullable: false),
@@ -123,8 +124,13 @@ namespace FAEMlak.Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "Properties",
-                columns: new[] { "PropertyId", "Area", "BathroomCount", "BuildingAge", "Created", "Description", "FloorCount", "HasBalcony", "HasStuff", "IsInSite", "Price", "PropertyType", "StateId", "Status", "Title", "WhichFloor" },
-                values: new object[] { 1, 125, (byte)1, (byte)26, new DateTime(2020, 12, 25, 8, 27, 58, 329, DateTimeKind.Utc).AddTicks(8190), "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultricies commodo vehicula. Vestibulum pharetra ullamcorper ante, sit amet molestie eros imperdiet consequat. Integer dapibus urna vulputate consequat posuere. Aliquam erat volutpat. Integer non malesuada lectus. Vivamus ut mattis leo. Sed ornare nunc diam, eu sollicitudin est luctus at. Integer ante mauris, imperdiet vitae leo sit amet, semper pharetra lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.", (byte)13, true, false, true, 850000, 3, 2, 0, "SAHRAYICEDİT İNTAŞ SİTESİNDE PARK MANZARALI 3+1 DAİRE", (byte)2 });
+                columns: new[] { "PropertyId", "Area", "BathroomCount", "BuildingAge", "Created", "Description", "FloorCount", "HasBalcony", "HasStuff", "IsInSite", "Price", "PropertyCategory", "PropertyType", "StateId", "Status", "Title", "WhichFloor" },
+                values: new object[] { 1, 125, (byte)1, (byte)26, new DateTime(2020, 12, 25, 17, 52, 38, 91, DateTimeKind.Utc).AddTicks(230), "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultricies commodo vehicula. Vestibulum pharetra ullamcorper ante, sit amet molestie eros imperdiet consequat. Integer dapibus urna vulputate consequat posuere. Aliquam erat volutpat. Integer non malesuada lectus. Vivamus ut mattis leo. Sed ornare nunc diam, eu sollicitudin est luctus at. Integer ante mauris, imperdiet vitae leo sit amet, semper pharetra lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.", (byte)13, true, false, true, 850000, 0, 1, 2, 0, "SAHRAYICEDİT İNTAŞ SİTESİNDE PARK MANZARALI 3+1 DAİRE", (byte)2 });
+
+            migrationBuilder.InsertData(
+                table: "Properties",
+                columns: new[] { "PropertyId", "Area", "BathroomCount", "BuildingAge", "Created", "Description", "FloorCount", "HasBalcony", "HasStuff", "IsInSite", "Price", "PropertyCategory", "PropertyType", "StateId", "Status", "Title", "WhichFloor" },
+                values: new object[] { 2, 125, (byte)1, (byte)26, new DateTime(2020, 12, 25, 17, 52, 38, 91, DateTimeKind.Utc).AddTicks(9427), "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultricies commodo vehicula. Vestibulum pharetra ullamcorper ante, sit amet molestie eros imperdiet consequat. Integer dapibus urna vulputate consequat posuere. Aliquam erat volutpat. Integer non malesuada lectus. Vivamus ut mattis leo. Sed ornare nunc diam, eu sollicitudin est luctus at. Integer ante mauris, imperdiet vitae leo sit amet, semper pharetra lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.", (byte)13, true, false, true, 516152, 0, 3, 2, 0, "Uğurmumcu Süper Bina Süper Fırsat", (byte)2 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Photos_PropertyId1",

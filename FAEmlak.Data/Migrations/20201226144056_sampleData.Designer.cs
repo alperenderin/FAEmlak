@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace FAEMlak.Data.Migrations
+namespace FAEmlak.Data.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20201225082758_InitialModel")]
-    partial class InitialModel
+    [Migration("20201226144056_sampleData")]
+    partial class sampleData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -108,6 +108,9 @@ namespace FAEMlak.Data.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
+                    b.Property<int>("PropertyCategory")
+                        .HasColumnType("int");
+
                     b.Property<int>("PropertyType")
                         .HasColumnType("int");
 
@@ -136,17 +139,158 @@ namespace FAEMlak.Data.Migrations
                             Area = 125,
                             BathroomCount = (byte)1,
                             BuildingAge = (byte)26,
-                            Created = new DateTime(2020, 12, 25, 8, 27, 58, 329, DateTimeKind.Utc).AddTicks(8190),
+                            Created = new DateTime(2020, 12, 26, 14, 40, 56, 226, DateTimeKind.Utc).AddTicks(3799),
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultricies commodo vehicula. Vestibulum pharetra ullamcorper ante, sit amet molestie eros imperdiet consequat. Integer dapibus urna vulputate consequat posuere. Aliquam erat volutpat. Integer non malesuada lectus. Vivamus ut mattis leo. Sed ornare nunc diam, eu sollicitudin est luctus at. Integer ante mauris, imperdiet vitae leo sit amet, semper pharetra lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
                             FloorCount = (byte)13,
                             HasBalcony = true,
                             HasStuff = false,
                             IsInSite = true,
                             Price = 850000,
-                            PropertyType = 3,
+                            PropertyCategory = 0,
+                            PropertyType = 1,
                             StateId = 2,
                             Status = 0,
                             Title = "SAHRAYICEDİT İNTAŞ SİTESİNDE PARK MANZARALI 3+1 DAİRE",
+                            WhichFloor = (byte)2
+                        },
+                        new
+                        {
+                            PropertyId = 2,
+                            Area = 125,
+                            BathroomCount = (byte)1,
+                            BuildingAge = (byte)26,
+                            Created = new DateTime(2020, 12, 26, 14, 40, 56, 226, DateTimeKind.Utc).AddTicks(9025),
+                            Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultricies commodo vehicula. Vestibulum pharetra ullamcorper ante, sit amet molestie eros imperdiet consequat. Integer dapibus urna vulputate consequat posuere. Aliquam erat volutpat. Integer non malesuada lectus. Vivamus ut mattis leo. Sed ornare nunc diam, eu sollicitudin est luctus at. Integer ante mauris, imperdiet vitae leo sit amet, semper pharetra lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+                            FloorCount = (byte)13,
+                            HasBalcony = true,
+                            HasStuff = false,
+                            IsInSite = true,
+                            Price = 516152,
+                            PropertyCategory = 0,
+                            PropertyType = 3,
+                            StateId = 2,
+                            Status = 0,
+                            Title = "Uğurmumcu Süper Bina Süper Fırsat",
+                            WhichFloor = (byte)2
+                        },
+                        new
+                        {
+                            PropertyId = 3,
+                            Area = 120,
+                            BathroomCount = (byte)1,
+                            BuildingAge = (byte)26,
+                            Created = new DateTime(2020, 12, 26, 14, 40, 56, 226, DateTimeKind.Utc).AddTicks(9184),
+                            Description = "Isı Ve Ses Yalıtımı ile Yaz Kış Ferah ve Sessiz./nLed Spot ve Dekoratif Işıklandırma ile Şık ve Kullanış﻿lı﻿.",
+                            FloorCount = (byte)10,
+                            HasBalcony = true,
+                            HasStuff = false,
+                            IsInSite = true,
+                            Price = 220000,
+                            PropertyCategory = 0,
+                            PropertyType = 3,
+                            StateId = 2,
+                            Status = 0,
+                            Title = "BEYLİKDÜZÜ KALEDEN HAFTANIN EN AVANTAJLI SATILIK 2+1 DAİRESİ !!!",
+                            WhichFloor = (byte)5
+                        },
+                        new
+                        {
+                            PropertyId = 4,
+                            Area = 100,
+                            BathroomCount = (byte)2,
+                            BuildingAge = (byte)16,
+                            Created = new DateTime(2020, 12, 26, 14, 40, 56, 226, DateTimeKind.Utc).AddTicks(9207),
+                            Description = "Betonarme Taşıyıcı Sistemleri/nIsı Yalıtımıyla Donatılmış Dış cephe Kaplama",
+                            FloorCount = (byte)13,
+                            HasBalcony = true,
+                            HasStuff = false,
+                            IsInSite = true,
+                            Price = 419000,
+                            PropertyCategory = 1,
+                            PropertyType = 1,
+                            StateId = 2,
+                            Status = 0,
+                            Title = "ROTA YAPI'DAN İSKANLI,OTOPARKLI BUTİK SİTEDE 2+1 SATILIK DAİRE",
+                            WhichFloor = (byte)2
+                        },
+                        new
+                        {
+                            PropertyId = 5,
+                            Area = 105,
+                            BathroomCount = (byte)1,
+                            BuildingAge = (byte)26,
+                            Created = new DateTime(2020, 12, 26, 14, 40, 56, 226, DateTimeKind.Utc).AddTicks(9226),
+                            Description = "Araçlarınız Binici Fiyatından Takas Yapılabilir",
+                            FloorCount = (byte)13,
+                            HasBalcony = true,
+                            HasStuff = false,
+                            IsInSite = true,
+                            Price = 547452,
+                            PropertyCategory = 2,
+                            PropertyType = 2,
+                            StateId = 2,
+                            Status = 0,
+                            Title = "BEYLİKDÜZÜ'NDE DENİZ MANZARALI GENİŞ ULTRA LÜX DUBLEX FIRSATI",
+                            WhichFloor = (byte)2
+                        },
+                        new
+                        {
+                            PropertyId = 6,
+                            Area = 105,
+                            BathroomCount = (byte)1,
+                            BuildingAge = (byte)26,
+                            Created = new DateTime(2020, 12, 26, 14, 40, 56, 226, DateTimeKind.Utc).AddTicks(9246),
+                            Description = "Araçlarınız Binici Fiyatından Takas Yapılabilir",
+                            FloorCount = (byte)2,
+                            HasBalcony = true,
+                            HasStuff = false,
+                            IsInSite = true,
+                            Price = 134899,
+                            PropertyCategory = 1,
+                            PropertyType = 0,
+                            StateId = 2,
+                            Status = 0,
+                            Title = "BEYLİKDÜZÜNDE 35BİN NAKİT AYLIK 1450 TL ÖDEME İLE SATILIK DAİRE",
+                            WhichFloor = (byte)1
+                        },
+                        new
+                        {
+                            PropertyId = 7,
+                            Area = 115,
+                            BathroomCount = (byte)1,
+                            BuildingAge = (byte)26,
+                            Created = new DateTime(2020, 12, 26, 14, 40, 56, 226, DateTimeKind.Utc).AddTicks(9263),
+                            Description = "200m2 Yaşam Alanına Sahiptir.",
+                            FloorCount = (byte)1,
+                            HasBalcony = true,
+                            HasStuff = false,
+                            IsInSite = true,
+                            Price = 220000,
+                            PropertyCategory = 1,
+                            PropertyType = 0,
+                            StateId = 2,
+                            Status = 0,
+                            Title = "YILIN SON FIRSAT KELEPİR DAİRESİ 2+1 SATILIK DAİRE",
+                            WhichFloor = (byte)1
+                        },
+                        new
+                        {
+                            PropertyId = 8,
+                            Area = 105,
+                            BathroomCount = (byte)1,
+                            BuildingAge = (byte)26,
+                            Created = new DateTime(2020, 12, 26, 14, 40, 56, 226, DateTimeKind.Utc).AddTicks(9279),
+                            Description = "Dairemiz Merkezi Konumda Olup Oldukça geniş Ve Kullanışlı Bir Dairedir..",
+                            FloorCount = (byte)5,
+                            HasBalcony = true,
+                            HasStuff = false,
+                            IsInSite = true,
+                            Price = 315000,
+                            PropertyCategory = 2,
+                            PropertyType = 2,
+                            StateId = 2,
+                            Status = 0,
+                            Title = "Emlakoffice 3+1 200m2 Merkezde Satılık Geniş Daire",
                             WhichFloor = (byte)2
                         });
                 });
