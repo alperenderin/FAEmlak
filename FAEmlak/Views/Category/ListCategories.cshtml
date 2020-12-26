@@ -5,19 +5,223 @@
     ViewData["Title"] = "Category Page";
 }
 
+
 <div class="row">
+
     <div class="col-md-2">
-        <div class="row">
-            <h5>Fiyat</h5>
-            <div class="d-flex" >
-                <input type="text" class="form-control" />
-                -
-                <input type="text" class="form-control" />
+        <div id="accordion">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Adres
+                        </button>
+                    </h5>
+                </div>
+
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="sel1">Il</label>
+                            <select class="form-control" id="sel1">
+                                <option>Adana</option>
+                                <option>Adiyaman</option>
+                                <option>Afyon</option>
+                                <option>Agri</option>
+                            </select>
+                            <label for="sel1">Ilce</label>
+                            <select class="form-control" id="sel1">
+                                <option>---</option>
+                                <option>---</option>
+                                <option>---</option>
+                                <option>---</option>
+                            </select>
+                            <label for="sel1">Semt/Mahalle</label>
+                            <select class="form-control" id="sel1">
+                                <option>---</option>
+                                <option>---</option>
+                                <option>---</option>
+                                <option>---</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Fiyat
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                        <label for="sel1">Max -</label>
+                        <label for="sel1" style="text-align: right">Min</label>
+                        <div class="d-flex">
+                            <input type="text" class="form-control" />
+                            -
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Metrekare
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                    <div class="card-body">
+                        <label for="sel1">Max -</label>
+                        <label for="sel1" style="text-align: right">Min</label>
+                        <div class="d-flex">
+                            <input type="text" class="form-control" />
+                            -
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" id="headingThird">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThird" aria-expanded="false" aria-controls="collapseThird">
+                            Oda Sayısı
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseThird" class="collapse" aria-labelledby="headingThird" data-parent="#accordion">
+                    <div class="card-body">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" value="1">1 Odalı
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" value="2">2 Odalı
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" value="3" disabled>3 Odalı
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" value="4" disabled>4 Odalı
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" value="5" disabled>5 Odalı
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" id="headingFifth">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFifth" aria-expanded="false" aria-controls="collapseFifth">
+                            Bulundugu Kat
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseFifth" class="collapse" aria-labelledby="headingFifth" data-parent="#accordion">
+                    <div class="card-body">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" value="1">1.Kat
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" value="2">2.Kat
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" value="3" disabled>3.Kat
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" value="4" disabled>4.Kat
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" value="5" disabled>5.Kat
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" id="headingSixth">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSixth" aria-expanded="false" aria-controls="collapseSixth">
+                            Esyali Mi
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseSixth" class="collapse" aria-labelledby="headingSixth" data-parent="#accordion">
+                    <div class="card-body">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                            <label class="form-check-label" for="exampleRadios1">
+                                Evet
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                            <label class="form-check-label" for="exampleRadios2">
+                                Hayir
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" id="headingSeventh">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeventh" aria-expanded="false" aria-controls="collapseSeventh">
+                            Site Icerisinde Mi
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseSeventh" class="collapse" aria-labelledby="headingSeventh" data-parent="#accordion">
+                    <div class="card-body">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                            <label class="form-check-label" for="exampleRadios1">
+                                Evet
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                            <label class="form-check-label" for="exampleRadios2">
+                                Hayir
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-
     </div>
-
     <div class="col-md-10">
         <table class="table" cellspacing="0">
             <thead>
