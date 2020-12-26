@@ -72,6 +72,126 @@ namespace FAEmlak.Data.Concrete.EFCore
                 IsInSite = true,
                 StateId = 2
             });
+
+            modelBuilder.Entity<Property>().HasData(new Property
+            {
+                PropertyId = 3,
+                Title = "BEYLİKDÜZÜ KALEDEN HAFTANIN EN AVANTAJLI SATILIK 2+1 DAİRESİ !!!",
+                Price = 220000,
+                Area = 120,
+                Description = "Isı Ve Ses Yalıtımı ile Yaz Kış Ferah ve Sessiz./nLed Spot ve Dekoratif Işıklandırma ile Şık ve Kullanış﻿lı﻿.",
+                PropertyType = PropertyType.Buildings,
+                PropertyCategory = PropertyCategory.ForSale,
+                Status = PropertyStatus.Active,
+                HasBalcony = true,
+                BathroomCount = 1,
+                BuildingAge = 26,
+                FloorCount = 10,
+                WhichFloor = 5,
+                HasStuff = false,
+                IsInSite = true,
+                StateId = 2
+            });
+
+            modelBuilder.Entity<Property>().HasData(new Property
+            {
+                PropertyId = 4,
+                Title = "ROTA YAPI'DAN İSKANLI,OTOPARKLI BUTİK SİTEDE 2+1 SATILIK DAİRE",
+                Price = 419000,
+                Area = 100,
+                Description = "Betonarme Taşıyıcı Sistemleri/nIsı Yalıtımıyla Donatılmış Dış cephe Kaplama",
+                PropertyType = PropertyType.Commercial,
+                PropertyCategory = PropertyCategory.ForRent,
+                Status = PropertyStatus.Active,
+                HasBalcony = true,
+                BathroomCount = 2,
+                BuildingAge = 16,
+                FloorCount = 13,
+                WhichFloor = 2,
+                HasStuff = false,
+                IsInSite = true,
+                StateId = 2
+            });
+
+            modelBuilder.Entity<Property>().HasData(new Property
+            {
+                PropertyId = 5,
+                Title = "BEYLİKDÜZÜ'NDE DENİZ MANZARALI GENİŞ ULTRA LÜX DUBLEX FIRSATI",
+                Price = 547452,
+                Area = 105,
+                Description = "Araçlarınız Binici Fiyatından Takas Yapılabilir",
+                PropertyType = PropertyType.Land,
+                PropertyCategory = PropertyCategory.DailyRental,
+                Status = PropertyStatus.Active,
+                HasBalcony = true,
+                BathroomCount = 1,
+                BuildingAge = 26,
+                FloorCount = 13,
+                WhichFloor = 2,
+                HasStuff = false,
+                IsInSite = true,
+                StateId = 2
+            });
+
+            modelBuilder.Entity<Property>().HasData(new Property
+            {
+                PropertyId = 6,
+                Title = "BEYLİKDÜZÜNDE 35BİN NAKİT AYLIK 1450 TL ÖDEME İLE SATILIK DAİRE",
+                Price = 134899,
+                Area = 105,
+                Description = "Araçlarınız Binici Fiyatından Takas Yapılabilir",
+                PropertyCategory = PropertyCategory.ForRent,
+                PropertyType = PropertyType.Residental,
+                Status = PropertyStatus.Active,
+                HasBalcony = true,
+                BathroomCount = 1,
+                BuildingAge = 26,
+                FloorCount = 2,
+                WhichFloor = 1,
+                HasStuff = false,
+                IsInSite = true,
+                StateId = 2
+            });
+
+            modelBuilder.Entity<Property>().HasData(new Property
+            {
+                PropertyId = 7,
+                Title = "YILIN SON FIRSAT KELEPİR DAİRESİ 2+1 SATILIK DAİRE",
+                Price = 220000,
+                Area = 115,
+                Description = "200m2 Yaşam Alanına Sahiptir.",
+                PropertyCategory = PropertyCategory.ForRent,
+                PropertyType = PropertyType.Residental,
+                Status = PropertyStatus.Active,
+                HasBalcony = true,
+                BathroomCount = 1,
+                BuildingAge = 26,
+                FloorCount = 1,
+                WhichFloor = 1,
+                HasStuff = false,
+                IsInSite = true,
+                StateId = 2
+            });
+
+            modelBuilder.Entity<Property>().HasData(new Property
+            {
+                PropertyId = 8,
+                Title = "Emlakoffice 3+1 200m2 Merkezde Satılık Geniş Daire",
+                Price = 315000,
+                Area = 105,
+                Description = "Dairemiz Merkezi Konumda Olup Oldukça geniş Ve Kullanışlı Bir Dairedir..",
+                PropertyType = PropertyType.Land,
+                PropertyCategory = PropertyCategory.DailyRental,
+                Status = PropertyStatus.Active,
+                HasBalcony = true,
+                BathroomCount = 1,
+                BuildingAge = 26,
+                FloorCount = 5,
+                WhichFloor = 2,
+                HasStuff = false,
+                IsInSite = true,
+                StateId = 2
+            });
         }
     }
 }

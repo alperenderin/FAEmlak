@@ -1,6 +1,7 @@
 ﻿using System;
 using FAEmlak.Business.Abstract;
 using FAEmlak.Entity;
+using FAEmlak.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FAEmlak.Controllers
@@ -22,10 +23,10 @@ namespace FAEmlak.Controllers
                 PropertyType type = (PropertyType)Enum.Parse(typeof(PropertyType), propertyType);
                 PropertyCategory category = (PropertyCategory)Enum.Parse(typeof(PropertyCategory), propertyCategory);
 
-                var properties = _propertyService.GetPropertiesByTypeAndCategory(type, category);
+                var model = new ListCategoriesModel();
+                model.properties = _propertyService.GetPropertiesByTypeAndCategory(type, category);
 
-
-                return View();
+                return View(model);
             }
             catch (Exception ex)
             {
