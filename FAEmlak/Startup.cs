@@ -36,7 +36,7 @@ namespace FAEmlak
             services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("FAEmlak.Data")));
             services.AddDbContext<IdentityAppContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("FAEmlak")));
 
-            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationContext>().AddDefaultTokenProviders();
+            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<IdentityAppContext>().AddDefaultTokenProviders();
             services.Configure<IdentityOptions>(options =>
             {
                 // password
@@ -66,7 +66,7 @@ namespace FAEmlak
                 options.Cookie = new CookieBuilder
                 {
                     HttpOnly = true,
-                    Name = ".SellCar.Security.Cookie",
+                    Name = ".FAEemlak.Security.Cookie",
                     SameSite = SameSiteMode.Strict
                 };
             });

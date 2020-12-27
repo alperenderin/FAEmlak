@@ -31,5 +31,6 @@
     <Folder Include="Helpers\" />
     <Folder Include="Views\Category\" />
     <Folder Include="Views\Property\" />
+    <Folder Include="Views\Account\" />
   </ItemGroup>
 </Project>
