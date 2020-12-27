@@ -1,0 +1,147 @@
+﻿@model FAEmlak.Models.PropertyDetailViewModel
+@section Stylesheets {
+    <link href="~/lib/lightslider/css/lightslider.min.css" rel="stylesheet" />
+    <style>
+       td{
+           padding: 0 !important;
+       }
+    </style>
+}
+
+<div class="row d-flex flex justify-content-between mb-3" style="border-bottom: 1px solid black">
+    <h5>
+        @Model.Title
+    </h5>
+    <h6>Favorilerime Ekle</h6>
+</div>
+
+<div class="row">
+    <div class="col-md-9">
+        <div class="row">
+            <div class="col-md-8">
+                <ul id="lightSlider">
+                    <li data-thumb="https://i.imgur.com/KZpuufK.jpg"> <img src="https://i.imgur.com/KZpuufK.jpg" /> </li>
+                    <li data-thumb="https://i.imgur.com/GwiUmQA.jpg"> <img src="https://i.imgur.com/GwiUmQA.jpg" /> </li>
+                    <li data-thumb="https://i.imgur.com/DhKkTrG.jpg"> <img src="https://i.imgur.com/DhKkTrG.jpg" /> </li>
+                    <li data-thumb="https://i.imgur.com/kYWqL7k.jpg"> <img src="https://i.imgur.com/kYWqL7k.jpg" /> </li>
+                    <li data-thumb="https://i.imgur.com/c9uUysL.jpg"> <img src="https://i.imgur.com/c9uUysL.jpg" /> </li>
+                    <li data-thumb="https://i.imgur.com/KZpuufK.jpg"> <img src="https://i.imgur.com/KZpuufK.jpg" /> </li>
+                    <li data-thumb="https://i.imgur.com/GwiUmQA.jpg"> <img src="https://i.imgur.com/GwiUmQA.jpg" /> </li>
+                    <li data-thumb="https://i.imgur.com/DhKkTrG.jpg"> <img src="https://i.imgur.com/DhKkTrG.jpg" /> </li>
+                    <li data-thumb="https://i.imgur.com/kYWqL7k.jpg"> <img src="https://i.imgur.com/kYWqL7k.jpg" /> </li>
+                    <li data-thumb="https://i.imgur.com/c9uUysL.jpg"> <img src="https://i.imgur.com/c9uUysL.jpg" /> </li>
+                    <li data-thumb="https://i.imgur.com/KZpuufK.jpg"> <img src="https://i.imgur.com/KZpuufK.jpg" /> </li>
+                    <li data-thumb="https://i.imgur.com/GwiUmQA.jpg"> <img src="https://i.imgur.com/GwiUmQA.jpg" /> </li>
+                    <li data-thumb="https://i.imgur.com/DhKkTrG.jpg"> <img src="https://i.imgur.com/DhKkTrG.jpg" /> </li>
+                    <li data-thumb="https://i.imgur.com/kYWqL7k.jpg"> <img src="https://i.imgur.com/kYWqL7k.jpg" /> </li>
+                    <li data-thumb="https://i.imgur.com/c9uUysL.jpg"> <img src="https://i.imgur.com/c9uUysL.jpg" /> </li>
+                </ul>
+            </div>
+            <div class="col-md-4 d-flex flex-column">
+                <h5 class="mb-3">@Model.Price TL</h5>
+
+                <!--REPOSITORY DÜZENLENMELİ-->
+                <h6>İstanbul / Kartal</h6>
+
+                <table class="table table-hover mt-3">
+                    <tbody>
+                        <tr>
+                            <td><b>@Html.LabelFor(x => x.Created)</b></td>
+                            <td>@Model.Created.Date.ToString("dd/MM/yyyy")</td>
+                        </tr>
+                        <tr>
+                            <td><b>@Html.LabelFor(x => x.Area)</b></td>
+                            <td>@Model.Area</td>
+                        </tr>
+                        <tr>
+                            <td><b>Oda Sayısı</b></td>
+                            <td>3+1</td>
+                        </tr>
+                        <tr>
+                            <td><b>@Html.LabelFor(x => x.BuildingAge)</b></td>
+                            <td>@Model.BuildingAge</td>
+                        </tr>
+                        <tr>
+                            <td><b>@Html.LabelFor(x => x.FloorCount)</b></td>
+                            <td>@Model.FloorCount</td>
+                        </tr>
+                        <tr>
+                            <td><b>@Html.LabelFor(x => x.WhichFloor)</b></td>
+                            <td>@Model.WhichFloor</td>
+                        </tr>
+                        <tr>
+                            <td><b>@Html.LabelFor(x => x.BathroomCount)</b></td>
+                            <td>@Model.BathroomCount</td>
+                        </tr>
+                        <tr>
+                            <td><b>@Html.LabelFor(x => x.HasBalcony)</b></td>
+                            <td>@(Model.HasBalcony ? "Var" : "Yok")</td>
+                        </tr>
+                        <tr>
+                            <td><b>@Html.LabelFor(x => x.HasStuff)</b></td>
+                            <td>@(Model.HasStuff ? "Evet" : "Hayır")</td>
+                        </tr>
+                        <tr>
+                            <td><b>@Html.LabelFor(x => x.IsInSite)</b></td>
+                            <td>@(Model.IsInSite ? "Evet" : "Evet")</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 main-section text-center">
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 col-12 profile-header"></div>
+        </div>
+        <div class="row user-detail">
+            <div class="col-lg-12 col-sm-12 col-12">
+                <img src="/demo/man01.png" class="rounded-circle img-thumbnail">
+                <h5>John Addison</h5>
+                <p><i class="fa fa-map-marker" aria-hidden="true"></i> New Jersey, USA.</p>
+
+                <hr>
+                <a href="#" class="btn btn-success btn-sm">Follow</a>
+                <a href="#" class="btn btn-info btn-sm">Send Messege</a>
+
+                <hr>
+                <span>Lorem ips consectetur adipisium ,eiusmod tempor incididuin reprehendeanim.</span>
+            </div>
+        </div>
+        <div class="row user-social-detail">
+            <div class="col-lg-12 col-sm-12 col-12">
+                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-12 search-menu">
+        <div class="nav nav-pills" id="nav-tab" role="tablist">
+            <a class="nav-link mr-2 active" id="nav-profile-tab" data-toggle="tab" href="#description" role="tab" aria-controls="nav-profile" aria-selected="false">İşyeri</a>
+            <a class="nav-link mr-2" id="nav-home-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="nav-home" aria-selected="true">Konut</a>
+        </div>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="home-tab">
+                @Model.Description
+            </div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript" src="~/lib/lightslider/js/lightslider.min.js"></script>
+    <script>
+        $('#lightSlider').lightSlider({
+            gallery: true,
+            item: 1,
+            loop: true,
+            slideMargin: 0,
+            thumbItem: 9
+        });
+    </script>
+}

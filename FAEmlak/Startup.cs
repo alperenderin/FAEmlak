@@ -34,6 +34,7 @@ namespace FAEmlak
         {
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("FAEmlak.Data")));
+            services.AddDbContext<IdentityAppContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("FAEmlak")));
 
             services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationContext>().AddDefaultTokenProviders();
             services.Configure<IdentityOptions>(options =>

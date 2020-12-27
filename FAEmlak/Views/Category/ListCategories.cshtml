@@ -238,11 +238,11 @@
                 @foreach (var property in Model.properties)
                 {
                     <tr>
-                        <td><a href="#">@property.Title</a></td>
+                        <td><a asp-controller="Property" asp-action="Detail" asp-route-Id="@property.PropertyId">@property.Title</a></td>
                         <td>@property.Area</td>
                         <td>---</td>
                         <td>@property.Price</td>
-                        <td>@property.Created</td>
+                        <td>@property.Created.Date.ToString("dd/MM/yyyy")</td>
                         <td>@property.State.City.Name / @property.State.Name</td>
                     </tr>
                 }

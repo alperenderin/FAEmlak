@@ -30,5 +30,6 @@
     <Folder Include="Identity\" />
     <Folder Include="Helpers\" />
     <Folder Include="Views\Category\" />
+    <Folder Include="Views\Property\" />
   </ItemGroup>
 </Project>
