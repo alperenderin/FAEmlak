@@ -8,5 +8,6 @@ namespace FAEmlak.Data.Abstract
     {
         List<FavoriteItem> GetFavoriteItems(String UserId);
         bool IsFavorite(String UserId, int PropertyId);
+        FavoriteItem GetByUserIdAndPropertyId(String UserId, int PropertyId);
     }
 }

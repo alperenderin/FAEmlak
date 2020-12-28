@@ -16,11 +16,11 @@
     </h5>
     @if (Model.IsFavorite)
     {
-        <a href="#" id="removeFromFavorite"><h6 id="remove-favorite">Favorilerimden Çıkar</h6></a>
+        <a href="#" id="RemoveFromFavorite"><h6 id="remove-favorite">Favorilerimden Çıkar</h6></a>
     }
     else
     {
-        <a href="#" id="addToFavorite"><h6 id="add-favorite">Favorilerime Ekle</h6></a>
+        <a href="#" id="AddToFavorite"><h6 id="add-favorite">Favorilerime Ekle</h6></a>
     }
 </div>
 
@@ -146,20 +146,38 @@
     <script type="text/javascript" src="~/lib/lightslider/js/lightslider.min.js"></script>
     <script>
         $(document).ready(function () {
-            $("#addToFavorite").click(function (e) {
+            $("#AddToFavorite").click(function (e) {
                 e.preventDefault();
                 $.ajax({
                     type: "POST",
                     url: "@Url.Action("AddFavorite", "Favorites", new { PropertyId = Model.ProductId })",
                     dataType: "text",
                     success: function (msg) {
-                        $("#add-favorite").text("Favorilerimden Çıkar");
+                        $("#add-favorite").attr("id", "remove-favorite").text("Favorilerimden Çıkar");
+                        $("#AddToFavorite").attr("id", "RemoveFromFavorite");
                     },
                     error: function (req, status, error) {
                         console.log(msg);
                     }
                 });
             });
+
+            $("#RemoveFromFavorite").click(function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("RemoveFavorite", "Favorites", new { PropertyId = Model.ProductId })",
+                    dataType: "text",
+                    success: function (msg) {
+                        $("#remove-favorite").attr("id", "add-favorite").text("Favorilerime Ekle");
+                        $("#RemoveFromFavorite").attr("id", "AddToFavorite");
+                    },
+                    error: function (req, status, error) {
+                        console.log(msg);
+                    }
+                });
+            });
+
             $('#lightSlider').lightSlider({
                 gallery: true,
                 item: 1,

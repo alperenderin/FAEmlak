@@ -10,6 +10,7 @@ namespace FAEmlak.Business.Abstract
         void Update(FavoriteItem entity);
         void Delete(FavoriteItem deneme);
         FavoriteItem GetById(int id);
+        FavoriteItem GetByUserIdAndPropertyId(String UserId, int PropertyId);
         List<FavoriteItem> GetFavoriteItems(String UserId);
         bool IsFavorite(String UserId, int PropertyId);
     }

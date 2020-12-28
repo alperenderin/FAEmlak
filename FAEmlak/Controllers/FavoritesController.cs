@@ -43,16 +43,43 @@ namespace FAEmlak.Controllers
                     var property = _propertyService.GetById(PropertyId);
                     if (property != null)
                     {
-                        _favoriteItemService.Create(new Entity.FavoriteItem
+                        if (!_favoriteItemService.IsFavorite(userId, PropertyId))
                         {
-                            UserId = userId,
-                            PropertyId = PropertyId,
-                        });
-                        return Ok();
+                            _favoriteItemService.Create(new Entity.FavoriteItem
+                            {
+                                UserId = userId,
+                                PropertyId = PropertyId,
+                            });
+                            return Ok();
+                        }
                     }
                 }
             }
             return NotFound();
         }
+
+        [HttpPost]
+        public IActionResult RemoveFavorite(int PropertyId)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var userId = _userManager.GetUserId(User);
+                if (userId != null)
+                {
+                    var property = _propertyService.GetById(PropertyId);
+                    if (property != null)
+                    {
+                        if (_favoriteItemService.IsFavorite(userId, PropertyId))
+                        {
+                            var favoriteItem = _favoriteItemService.GetByUserIdAndPropertyId(userId, PropertyId);
+                            _favoriteItemService.Delete(favoriteItem);
+                            return Ok();
+                        }
+                    }
+                }
+            }
+            return NotFound();
+        }
+
     }
 }

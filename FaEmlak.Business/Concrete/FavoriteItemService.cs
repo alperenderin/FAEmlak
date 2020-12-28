@@ -44,5 +44,10 @@ namespace FAEmlak.Business.Concrete
         {
             return _unitOfWork.FavoriteItems.IsFavorite(UserId, PropertyId);
         }
+
+        public FavoriteItem GetByUserIdAndPropertyId(string UserId, int PropertyId)
+        {
+            return _unitOfWork.FavoriteItems.GetByUserIdAndPropertyId(UserId, PropertyId);
+        }
     }
 }

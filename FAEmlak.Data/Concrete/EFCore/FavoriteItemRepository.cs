@@ -25,6 +25,11 @@ namespace FAEmlak.Data.Concrete.EFCore
             return ApplicationContext.FavoriteItems.Any(i => (i.UserId == UserId) && i.PropertyId == PropertyId );
         }
 
+        public FavoriteItem GetByUserIdAndPropertyId(string UserId, int PropertyId)
+        {
+            return ApplicationContext.FavoriteItems.Where(i => (i.UserId == UserId) && i.PropertyId == PropertyId).FirstOrDefault();
+        }
+
         private ApplicationContext ApplicationContext
         {
             get { return Context as ApplicationContext; }
