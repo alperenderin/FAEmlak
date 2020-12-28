@@ -1,10 +1,12 @@
 ﻿@model FAEmlak.Models.PropertyDetailViewModel
+@using FAEmlak.Helpers
+
 @section Stylesheets {
     <link href="~/lib/lightslider/css/lightslider.min.css" rel="stylesheet" />
     <style>
-       td{
-           padding: 0 !important;
-       }
+        td {
+            padding: 0 !important;
+        }
     </style>
 }
 
@@ -54,8 +56,8 @@
                             <td>@Model.Area</td>
                         </tr>
                         <tr>
-                            <td><b>Oda Sayısı</b></td>
-                            <td>3+1</td>
+                            <td><b>@Html.LabelFor(x => x.RoomCount)</b></td>
+                            <td>@(EnumHelper<FAEmlak.Entity.RoomCount>.GetDisplayValue(Model.RoomCount))</td>
                         </tr>
                         <tr>
                             <td><b>@Html.LabelFor(x => x.BuildingAge)</b></td>

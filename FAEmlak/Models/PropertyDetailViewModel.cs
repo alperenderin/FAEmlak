@@ -17,6 +17,8 @@ namespace FAEmlak.Models
         public PropertyType PropertyType { get; set; }
         public PropertyCategory PropertyCategory { get; set; }
         public PropertyStatus Status { get; set; }
+        [DisplayName("Oda Sayısı")]
+        public RoomCount RoomCount { get; set; }
 
         [DisplayName("Balkon")]
         public bool HasBalcony { get; set; }
