@@ -9,6 +9,7 @@ namespace FAEmlak.Data
     {
         private readonly ApplicationContext _context;
         private PropertyRepository _propertyRepository;
+        private FavoriteItemRepository _favoriteItemRepository;
 
         public UnitOfWork(ApplicationContext context) 
         {
@@ -16,6 +17,7 @@ namespace FAEmlak.Data
         }
 
         public IPropertyRepository Properties => _propertyRepository = _propertyRepository ?? new PropertyRepository(_context);
+        public IFavoriteItemRepository FavoriteItems => _favoriteItemRepository = _favoriteItemRepository ?? new FavoriteItemRepository(_context);
 
         public async Task<int> CommitAsync()
         {

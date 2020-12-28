@@ -73,6 +73,7 @@ namespace FAEmlak
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IPropertyService, PropertyService>();
+            services.AddTransient<IFavoriteItemService, FavoriteItemService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

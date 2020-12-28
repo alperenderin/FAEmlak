@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FAEmlak.Data.Migrations
 {
-    public partial class Inital : Migration
+    public partial class FavoriteItem : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -75,6 +75,26 @@ namespace FAEmlak.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "FavoriteItems",
+                columns: table => new
+                {
+                    FavoriteItemId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<string>(nullable: true),
+                    PropertyId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FavoriteItems", x => x.FavoriteItemId);
+                    table.ForeignKey(
+                        name: "FK_FavoriteItems_Properties_PropertyId",
+                        column: x => x.PropertyId,
+                        principalTable: "Properties",
+                        principalColumn: "PropertyId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Photos",
                 columns: table => new
                 {
@@ -125,12 +145,22 @@ namespace FAEmlak.Data.Migrations
             migrationBuilder.InsertData(
                 table: "Properties",
                 columns: new[] { "PropertyId", "Area", "BathroomCount", "BuildingAge", "Created", "Description", "FloorCount", "HasBalcony", "HasStuff", "IsInSite", "Price", "PropertyCategory", "PropertyType", "StateId", "Status", "Title", "WhichFloor" },
-                values: new object[] { 1, 125, (byte)1, (byte)26, new DateTime(2020, 12, 25, 17, 52, 38, 91, DateTimeKind.Utc).AddTicks(230), "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultricies commodo vehicula. Vestibulum pharetra ullamcorper ante, sit amet molestie eros imperdiet consequat. Integer dapibus urna vulputate consequat posuere. Aliquam erat volutpat. Integer non malesuada lectus. Vivamus ut mattis leo. Sed ornare nunc diam, eu sollicitudin est luctus at. Integer ante mauris, imperdiet vitae leo sit amet, semper pharetra lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.", (byte)13, true, false, true, 850000, 0, 1, 2, 0, "SAHRAYICEDİT İNTAŞ SİTESİNDE PARK MANZARALI 3+1 DAİRE", (byte)2 });
+                values: new object[,]
+                {
+                    { 1, 125, (byte)1, (byte)26, new DateTime(2020, 12, 28, 11, 5, 43, 297, DateTimeKind.Utc).AddTicks(1443), "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultricies commodo vehicula. Vestibulum pharetra ullamcorper ante, sit amet molestie eros imperdiet consequat. Integer dapibus urna vulputate consequat posuere. Aliquam erat volutpat. Integer non malesuada lectus. Vivamus ut mattis leo. Sed ornare nunc diam, eu sollicitudin est luctus at. Integer ante mauris, imperdiet vitae leo sit amet, semper pharetra lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.", (byte)13, true, false, true, 850000, 0, 1, 2, 0, "SAHRAYICEDİT İNTAŞ SİTESİNDE PARK MANZARALI 3+1 DAİRE", (byte)2 },
+                    { 2, 125, (byte)1, (byte)26, new DateTime(2020, 12, 28, 11, 5, 43, 298, DateTimeKind.Utc).AddTicks(1869), "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultricies commodo vehicula. Vestibulum pharetra ullamcorper ante, sit amet molestie eros imperdiet consequat. Integer dapibus urna vulputate consequat posuere. Aliquam erat volutpat. Integer non malesuada lectus. Vivamus ut mattis leo. Sed ornare nunc diam, eu sollicitudin est luctus at. Integer ante mauris, imperdiet vitae leo sit amet, semper pharetra lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.", (byte)13, true, false, true, 516152, 0, 3, 2, 0, "Uğurmumcu Süper Bina Süper Fırsat", (byte)2 },
+                    { 3, 120, (byte)1, (byte)26, new DateTime(2020, 12, 28, 11, 5, 43, 298, DateTimeKind.Utc).AddTicks(2113), "Isı Ve Ses Yalıtımı ile Yaz Kış Ferah ve Sessiz./nLed Spot ve Dekoratif Işıklandırma ile Şık ve Kullanış﻿lı﻿.", (byte)10, true, false, true, 220000, 0, 3, 2, 0, "BEYLİKDÜZÜ KALEDEN HAFTANIN EN AVANTAJLI SATILIK 2+1 DAİRESİ !!!", (byte)5 },
+                    { 4, 100, (byte)2, (byte)16, new DateTime(2020, 12, 28, 11, 5, 43, 298, DateTimeKind.Utc).AddTicks(2155), "Betonarme Taşıyıcı Sistemleri/nIsı Yalıtımıyla Donatılmış Dış cephe Kaplama", (byte)13, true, false, true, 419000, 1, 1, 2, 0, "ROTA YAPI'DAN İSKANLI,OTOPARKLI BUTİK SİTEDE 2+1 SATILIK DAİRE", (byte)2 },
+                    { 5, 105, (byte)1, (byte)26, new DateTime(2020, 12, 28, 11, 5, 43, 298, DateTimeKind.Utc).AddTicks(2191), "Araçlarınız Binici Fiyatından Takas Yapılabilir", (byte)13, true, false, true, 547452, 2, 2, 2, 0, "BEYLİKDÜZÜ'NDE DENİZ MANZARALI GENİŞ ULTRA LÜX DUBLEX FIRSATI", (byte)2 },
+                    { 6, 105, (byte)1, (byte)26, new DateTime(2020, 12, 28, 11, 5, 43, 298, DateTimeKind.Utc).AddTicks(2233), "Araçlarınız Binici Fiyatından Takas Yapılabilir", (byte)2, true, false, true, 134899, 1, 0, 2, 0, "BEYLİKDÜZÜNDE 35BİN NAKİT AYLIK 1450 TL ÖDEME İLE SATILIK DAİRE", (byte)1 },
+                    { 7, 115, (byte)1, (byte)26, new DateTime(2020, 12, 28, 11, 5, 43, 298, DateTimeKind.Utc).AddTicks(2270), "200m2 Yaşam Alanına Sahiptir.", (byte)1, true, false, true, 220000, 1, 0, 2, 0, "YILIN SON FIRSAT KELEPİR DAİRESİ 2+1 SATILIK DAİRE", (byte)1 },
+                    { 8, 105, (byte)1, (byte)26, new DateTime(2020, 12, 28, 11, 5, 43, 298, DateTimeKind.Utc).AddTicks(2305), "Dairemiz Merkezi Konumda Olup Oldukça geniş Ve Kullanışlı Bir Dairedir..", (byte)5, true, false, true, 315000, 2, 2, 2, 0, "Emlakoffice 3+1 200m2 Merkezde Satılık Geniş Daire", (byte)2 }
+                });
 
-            migrationBuilder.InsertData(
-                table: "Properties",
-                columns: new[] { "PropertyId", "Area", "BathroomCount", "BuildingAge", "Created", "Description", "FloorCount", "HasBalcony", "HasStuff", "IsInSite", "Price", "PropertyCategory", "PropertyType", "StateId", "Status", "Title", "WhichFloor" },
-                values: new object[] { 2, 125, (byte)1, (byte)26, new DateTime(2020, 12, 25, 17, 52, 38, 91, DateTimeKind.Utc).AddTicks(9427), "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultricies commodo vehicula. Vestibulum pharetra ullamcorper ante, sit amet molestie eros imperdiet consequat. Integer dapibus urna vulputate consequat posuere. Aliquam erat volutpat. Integer non malesuada lectus. Vivamus ut mattis leo. Sed ornare nunc diam, eu sollicitudin est luctus at. Integer ante mauris, imperdiet vitae leo sit amet, semper pharetra lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.", (byte)13, true, false, true, 516152, 0, 3, 2, 0, "Uğurmumcu Süper Bina Süper Fırsat", (byte)2 });
+            migrationBuilder.CreateIndex(
+                name: "IX_FavoriteItems_PropertyId",
+                table: "FavoriteItems",
+                column: "PropertyId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Photos_PropertyId1",
@@ -150,6 +180,9 @@ namespace FAEmlak.Data.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "FavoriteItems");
+
             migrationBuilder.DropTable(
                 name: "Photos");
 

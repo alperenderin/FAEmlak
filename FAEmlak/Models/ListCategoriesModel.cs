@@ -7,6 +7,6 @@ namespace FAEmlak.Models
 {
     public class ListCategoriesModel
     {
-            public System.Collections.Generic.List<Entity.Property> properties;
+        public List<Entity.Property> properties;
     }
 }

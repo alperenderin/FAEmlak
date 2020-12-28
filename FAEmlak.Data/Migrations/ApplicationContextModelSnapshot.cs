@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace FAEMlak.Data.Migrations
+namespace FAEmlak.Data.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
     partial class ApplicationContextModelSnapshot : ModelSnapshot
@@ -44,6 +44,26 @@ namespace FAEMlak.Data.Migrations
                             CityId = 2,
                             Name = "Ankara"
                         });
+                });
+
+            modelBuilder.Entity("FAEmlak.Entity.FavoriteItem", b =>
+                {
+                    b.Property<int>("FavoriteItemId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("PropertyId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("FavoriteItemId");
+
+                    b.HasIndex("PropertyId");
+
+                    b.ToTable("FavoriteItems");
                 });
 
             modelBuilder.Entity("FAEmlak.Entity.Photo", b =>
@@ -137,7 +157,7 @@ namespace FAEMlak.Data.Migrations
                             Area = 125,
                             BathroomCount = (byte)1,
                             BuildingAge = (byte)26,
-                            Created = new DateTime(2020, 12, 27, 16, 5, 7, 215, DateTimeKind.Utc).AddTicks(4100),
+                            Created = new DateTime(2020, 12, 28, 11, 5, 43, 297, DateTimeKind.Utc).AddTicks(1443),
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultricies commodo vehicula. Vestibulum pharetra ullamcorper ante, sit amet molestie eros imperdiet consequat. Integer dapibus urna vulputate consequat posuere. Aliquam erat volutpat. Integer non malesuada lectus. Vivamus ut mattis leo. Sed ornare nunc diam, eu sollicitudin est luctus at. Integer ante mauris, imperdiet vitae leo sit amet, semper pharetra lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
                             FloorCount = (byte)13,
                             HasBalcony = true,
@@ -157,7 +177,7 @@ namespace FAEMlak.Data.Migrations
                             Area = 125,
                             BathroomCount = (byte)1,
                             BuildingAge = (byte)26,
-                            Created = new DateTime(2020, 12, 27, 16, 5, 7, 216, DateTimeKind.Utc).AddTicks(190),
+                            Created = new DateTime(2020, 12, 28, 11, 5, 43, 298, DateTimeKind.Utc).AddTicks(1869),
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultricies commodo vehicula. Vestibulum pharetra ullamcorper ante, sit amet molestie eros imperdiet consequat. Integer dapibus urna vulputate consequat posuere. Aliquam erat volutpat. Integer non malesuada lectus. Vivamus ut mattis leo. Sed ornare nunc diam, eu sollicitudin est luctus at. Integer ante mauris, imperdiet vitae leo sit amet, semper pharetra lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
                             FloorCount = (byte)13,
                             HasBalcony = true,
@@ -177,7 +197,7 @@ namespace FAEMlak.Data.Migrations
                             Area = 120,
                             BathroomCount = (byte)1,
                             BuildingAge = (byte)26,
-                            Created = new DateTime(2020, 12, 27, 16, 5, 7, 216, DateTimeKind.Utc).AddTicks(340),
+                            Created = new DateTime(2020, 12, 28, 11, 5, 43, 298, DateTimeKind.Utc).AddTicks(2113),
                             Description = "Isı Ve Ses Yalıtımı ile Yaz Kış Ferah ve Sessiz./nLed Spot ve Dekoratif Işıklandırma ile Şık ve Kullanış﻿lı﻿.",
                             FloorCount = (byte)10,
                             HasBalcony = true,
@@ -197,7 +217,7 @@ namespace FAEMlak.Data.Migrations
                             Area = 100,
                             BathroomCount = (byte)2,
                             BuildingAge = (byte)16,
-                            Created = new DateTime(2020, 12, 27, 16, 5, 7, 216, DateTimeKind.Utc).AddTicks(350),
+                            Created = new DateTime(2020, 12, 28, 11, 5, 43, 298, DateTimeKind.Utc).AddTicks(2155),
                             Description = "Betonarme Taşıyıcı Sistemleri/nIsı Yalıtımıyla Donatılmış Dış cephe Kaplama",
                             FloorCount = (byte)13,
                             HasBalcony = true,
@@ -217,7 +237,7 @@ namespace FAEMlak.Data.Migrations
                             Area = 105,
                             BathroomCount = (byte)1,
                             BuildingAge = (byte)26,
-                            Created = new DateTime(2020, 12, 27, 16, 5, 7, 216, DateTimeKind.Utc).AddTicks(470),
+                            Created = new DateTime(2020, 12, 28, 11, 5, 43, 298, DateTimeKind.Utc).AddTicks(2191),
                             Description = "Araçlarınız Binici Fiyatından Takas Yapılabilir",
                             FloorCount = (byte)13,
                             HasBalcony = true,
@@ -237,7 +257,7 @@ namespace FAEMlak.Data.Migrations
                             Area = 105,
                             BathroomCount = (byte)1,
                             BuildingAge = (byte)26,
-                            Created = new DateTime(2020, 12, 27, 16, 5, 7, 216, DateTimeKind.Utc).AddTicks(500),
+                            Created = new DateTime(2020, 12, 28, 11, 5, 43, 298, DateTimeKind.Utc).AddTicks(2233),
                             Description = "Araçlarınız Binici Fiyatından Takas Yapılabilir",
                             FloorCount = (byte)2,
                             HasBalcony = true,
@@ -257,7 +277,7 @@ namespace FAEMlak.Data.Migrations
                             Area = 115,
                             BathroomCount = (byte)1,
                             BuildingAge = (byte)26,
-                            Created = new DateTime(2020, 12, 27, 16, 5, 7, 216, DateTimeKind.Utc).AddTicks(510),
+                            Created = new DateTime(2020, 12, 28, 11, 5, 43, 298, DateTimeKind.Utc).AddTicks(2270),
                             Description = "200m2 Yaşam Alanına Sahiptir.",
                             FloorCount = (byte)1,
                             HasBalcony = true,
@@ -277,7 +297,7 @@ namespace FAEMlak.Data.Migrations
                             Area = 105,
                             BathroomCount = (byte)1,
                             BuildingAge = (byte)26,
-                            Created = new DateTime(2020, 12, 27, 16, 5, 7, 216, DateTimeKind.Utc).AddTicks(530),
+                            Created = new DateTime(2020, 12, 28, 11, 5, 43, 298, DateTimeKind.Utc).AddTicks(2305),
                             Description = "Dairemiz Merkezi Konumda Olup Oldukça geniş Ve Kullanışlı Bir Dairedir..",
                             FloorCount = (byte)5,
                             HasBalcony = true,
@@ -373,6 +393,15 @@ namespace FAEMlak.Data.Migrations
                             CityId = 2,
                             Name = "Etimesgut"
                         });
+                });
+
+            modelBuilder.Entity("FAEmlak.Entity.FavoriteItem", b =>
+                {
+                    b.HasOne("FAEmlak.Entity.Property", "Property")
+                        .WithMany()
+                        .HasForeignKey("PropertyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("FAEmlak.Entity.Photo", b =>

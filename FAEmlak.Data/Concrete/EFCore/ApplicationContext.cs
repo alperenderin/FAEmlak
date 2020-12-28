@@ -16,6 +16,7 @@ namespace FAEmlak.Data.Concrete.EFCore
         public DbSet<Property> Properties { get; set; }
         public DbSet<State> States { get; set; }
         public DbSet<City> Cities { get; set; }
+        public DbSet<FavoriteItem>  FavoriteItems{ get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
