@@ -11,5 +11,6 @@ namespace FAEmlak.Business.Abstract
         void Delete(FavoriteItem deneme);
         FavoriteItem GetById(int id);
         List<FavoriteItem> GetFavoriteItems(String UserId);
+        bool IsFavorite(String UserId, int PropertyId);
     }
 }

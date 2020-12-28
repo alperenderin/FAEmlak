@@ -14,11 +14,13 @@ namespace FAEmlak.Controllers
     {
         private readonly IFavoriteItemService _favoriteItemService;
         private readonly UserManager<User> _userManager;
+        private readonly IPropertyService _propertyService;
 
-        public FavoritesController(IFavoriteItemService favoriteItemService, UserManager<User> userManager)
+        public FavoritesController(IFavoriteItemService favoriteItemService, UserManager<User> userManager, IPropertyService propertyService)
         {
             _favoriteItemService = favoriteItemService;
             _userManager = userManager;
+            _propertyService = propertyService;
         }
 
         public IActionResult Index()
@@ -28,6 +30,29 @@ namespace FAEmlak.Controllers
             return View(new ListFavoriteItemsModel {
                 favoriteItems = favoriteItems
             });
+        }
+
+        [HttpPost]
+        public IActionResult AddFavorite(int PropertyId)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var userId = _userManager.GetUserId(User);
+                if (userId != null)
+                {
+                    var property = _propertyService.GetById(PropertyId);
+                    if (property != null)
+                    {
+                        _favoriteItemService.Create(new Entity.FavoriteItem
+                        {
+                            UserId = userId,
+                            PropertyId = PropertyId,
+                        });
+                        return Ok();
+                    }
+                }
+            }
+            return NotFound();
         }
     }
 }

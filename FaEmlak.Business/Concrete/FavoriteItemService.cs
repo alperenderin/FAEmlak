@@ -39,5 +39,10 @@ namespace FAEmlak.Business.Concrete
         {
             throw new NotImplementedException();
         }
+
+        public bool IsFavorite(string UserId, int PropertyId)
+        {
+            return _unitOfWork.FavoriteItems.IsFavorite(UserId, PropertyId);
+        }
     }
 }

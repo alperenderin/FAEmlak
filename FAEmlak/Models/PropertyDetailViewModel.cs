@@ -7,6 +7,11 @@ namespace FAEmlak.Models
 {
     public class PropertyDetailViewModel
     {
+        public Property property { get; set; }
+        public bool IsFavorite { get; set; }
+
+
+        public int ProductId { get; set; }
         public string Title { get; set; }
         public int Price { get; set; }
 

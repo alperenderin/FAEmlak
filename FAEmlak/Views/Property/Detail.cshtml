@@ -14,7 +14,14 @@
     <h5>
         @Model.Title
     </h5>
-    <h6>Favorilerime Ekle</h6>
+    @if (Model.IsFavorite)
+    {
+        <a href="#" id="removeFromFavorite"><h6 id="remove-favorite">Favorilerimden Çıkar</h6></a>
+    }
+    else
+    {
+        <a href="#" id="addToFavorite"><h6 id="add-favorite">Favorilerime Ekle</h6></a>
+    }
 </div>
 
 <div class="row">
@@ -138,12 +145,29 @@
 @section Scripts {
     <script type="text/javascript" src="~/lib/lightslider/js/lightslider.min.js"></script>
     <script>
-        $('#lightSlider').lightSlider({
-            gallery: true,
-            item: 1,
-            loop: true,
-            slideMargin: 0,
-            thumbItem: 9
+        $(document).ready(function () {
+            $("#addToFavorite").click(function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("AddFavorite", "Favorites", new { PropertyId = Model.ProductId })",
+                    dataType: "text",
+                    success: function (msg) {
+                        $("#add-favorite").text("Favorilerimden Çıkar");
+                    },
+                    error: function (req, status, error) {
+                        console.log(msg);
+                    }
+                });
+            });
+            $('#lightSlider').lightSlider({
+                gallery: true,
+                item: 1,
+                loop: true,
+                slideMargin: 0,
+                thumbItem: 9
+            });
         });
+
     </script>
 }
