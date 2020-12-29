@@ -21,7 +21,7 @@ namespace FAEmlak.Entity
         public PropertyType PropertyType { get; set; }
         public PropertyCategory PropertyCategory { get; set; }
         public PropertyStatus Status { get; set; }
-
+        public RoomCount RoomCount { get; set; }
         public bool HasBalcony { get; set; }
         public bool HasStuff { get; set; }
         public byte BuildingAge { get; set; }

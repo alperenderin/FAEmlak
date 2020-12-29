@@ -26,6 +26,9 @@
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Favorites" asp-action="Index">Favori İlanlarım</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">@User.Identity.Name</a>
                             </li>
                             <li class="nav-item">
@@ -35,7 +38,7 @@
                         else
                         {
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Üye Ol</a>
+                                <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Register">Üye Ol</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Login">Giriş Yap</a>

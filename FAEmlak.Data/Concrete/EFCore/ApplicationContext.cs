@@ -16,6 +16,7 @@ namespace FAEmlak.Data.Concrete.EFCore
         public DbSet<Property> Properties { get; set; }
         public DbSet<State> States { get; set; }
         public DbSet<City> Cities { get; set; }
+        public DbSet<FavoriteItem>  FavoriteItems{ get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -43,6 +44,7 @@ namespace FAEmlak.Data.Concrete.EFCore
                 PropertyType = PropertyType.Commercial,
                 PropertyCategory = PropertyCategory.ForSale,
                 Status = PropertyStatus.Active,
+                RoomCount  = RoomCount.ThreePlusOne,
                 HasBalcony = true,
                 BathroomCount = 1,
                 BuildingAge = 26,
@@ -63,6 +65,7 @@ namespace FAEmlak.Data.Concrete.EFCore
                 PropertyType = PropertyType.Buildings,
                 PropertyCategory = PropertyCategory.ForSale,
                 Status = PropertyStatus.Active,
+                RoomCount = RoomCount.One,
                 HasBalcony = true,
                 BathroomCount = 1,
                 BuildingAge = 26,
@@ -83,6 +86,7 @@ namespace FAEmlak.Data.Concrete.EFCore
                 PropertyType = PropertyType.Buildings,
                 PropertyCategory = PropertyCategory.ForSale,
                 Status = PropertyStatus.Active,
+                RoomCount = RoomCount.TwoPlusOne,
                 HasBalcony = true,
                 BathroomCount = 1,
                 BuildingAge = 26,
@@ -104,6 +108,7 @@ namespace FAEmlak.Data.Concrete.EFCore
                 PropertyCategory = PropertyCategory.ForRent,
                 Status = PropertyStatus.Active,
                 HasBalcony = true,
+                RoomCount = RoomCount.TwoPlusOne,
                 BathroomCount = 2,
                 BuildingAge = 16,
                 FloorCount = 13,
@@ -123,6 +128,7 @@ namespace FAEmlak.Data.Concrete.EFCore
                 PropertyType = PropertyType.Land,
                 PropertyCategory = PropertyCategory.DailyRental,
                 Status = PropertyStatus.Active,
+                RoomCount = RoomCount.FourPlusOne,
                 HasBalcony = true,
                 BathroomCount = 1,
                 BuildingAge = 26,
@@ -143,6 +149,7 @@ namespace FAEmlak.Data.Concrete.EFCore
                 PropertyCategory = PropertyCategory.ForRent,
                 PropertyType = PropertyType.Residental,
                 Status = PropertyStatus.Active,
+                RoomCount = RoomCount.One,
                 HasBalcony = true,
                 BathroomCount = 1,
                 BuildingAge = 26,
@@ -163,6 +170,7 @@ namespace FAEmlak.Data.Concrete.EFCore
                 PropertyCategory = PropertyCategory.ForRent,
                 PropertyType = PropertyType.Residental,
                 Status = PropertyStatus.Active,
+                RoomCount = RoomCount.TwoPlusOne,
                 HasBalcony = true,
                 BathroomCount = 1,
                 BuildingAge = 26,
@@ -183,6 +191,7 @@ namespace FAEmlak.Data.Concrete.EFCore
                 PropertyType = PropertyType.Land,
                 PropertyCategory = PropertyCategory.DailyRental,
                 Status = PropertyStatus.Active,
+                RoomCount = RoomCount.ThreePlusOne,
                 HasBalcony = true,
                 BathroomCount = 1,
                 BuildingAge = 26,

@@ -1,10 +1,12 @@
 ﻿@model FAEmlak.Models.PropertyDetailViewModel
+@using FAEmlak.Helpers
+
 @section Stylesheets {
     <link href="~/lib/lightslider/css/lightslider.min.css" rel="stylesheet" />
     <style>
-       td{
-           padding: 0 !important;
-       }
+        td {
+            padding: 0 !important;
+        }
     </style>
 }
 
@@ -12,7 +14,14 @@
     <h5>
         @Model.Title
     </h5>
-    <h6>Favorilerime Ekle</h6>
+    @if (Model.IsFavorite)
+    {
+        <a href="#" id="RemoveFromFavorite"><h6 id="remove-favorite">Favorilerimden Çıkar</h6></a>
+    }
+    else
+    {
+        <a href="#" id="AddToFavorite"><h6 id="add-favorite">Favorilerime Ekle</h6></a>
+    }
 </div>
 
 <div class="row">
@@ -54,8 +63,8 @@
                             <td>@Model.Area</td>
                         </tr>
                         <tr>
-                            <td><b>Oda Sayısı</b></td>
-                            <td>3+1</td>
+                            <td><b>@Html.LabelFor(x => x.RoomCount)</b></td>
+                            <td>@(EnumHelper<FAEmlak.Entity.RoomCount>.GetDisplayValue(Model.RoomCount))</td>
                         </tr>
                         <tr>
                             <td><b>@Html.LabelFor(x => x.BuildingAge)</b></td>
@@ -136,12 +145,47 @@
 @section Scripts {
     <script type="text/javascript" src="~/lib/lightslider/js/lightslider.min.js"></script>
     <script>
-        $('#lightSlider').lightSlider({
-            gallery: true,
-            item: 1,
-            loop: true,
-            slideMargin: 0,
-            thumbItem: 9
+        $(document).ready(function () {
+            $("#AddToFavorite").click(function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("AddFavorite", "Favorites", new { PropertyId = Model.ProductId })",
+                    dataType: "text",
+                    success: function (msg) {
+                        $("#add-favorite").attr("id", "remove-favorite").text("Favorilerimden Çıkar");
+                        $("#AddToFavorite").attr("id", "RemoveFromFavorite");
+                    },
+                    error: function (req, status, error) {
+                        console.log(msg);
+                    }
+                });
+            });
+
+            $("#RemoveFromFavorite").click(function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("RemoveFavorite", "Favorites", new { PropertyId = Model.ProductId })",
+                    dataType: "text",
+                    success: function (msg) {
+                        $("#remove-favorite").attr("id", "add-favorite").text("Favorilerime Ekle");
+                        $("#RemoveFromFavorite").attr("id", "AddToFavorite");
+                    },
+                    error: function (req, status, error) {
+                        console.log(msg);
+                    }
+                });
+            });
+
+            $('#lightSlider').lightSlider({
+                gallery: true,
+                item: 1,
+                loop: true,
+                slideMargin: 0,
+                thumbItem: 9
+            });
         });
+
     </script>
 }

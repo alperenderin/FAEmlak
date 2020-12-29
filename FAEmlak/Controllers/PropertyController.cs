@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using FAEmlak.Business.Abstract;
 using FAEmlak.Entity;
+using FAEmlak.Identity;
 using FAEmlak.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FAEmlak.Controllers
@@ -12,18 +14,29 @@ namespace FAEmlak.Controllers
     public class PropertyController : Controller
     {
         private readonly IPropertyService _propertyService;
-        public PropertyController(IPropertyService propertyService)
+        private readonly IFavoriteItemService _favoriteItemService;
+        private readonly UserManager<User> _userManager;
+
+        public PropertyController(IPropertyService propertyService, IFavoriteItemService favoriteItemService, UserManager<User> userManager)
         {
             _propertyService = propertyService;
+            _favoriteItemService = favoriteItemService;
+            _userManager = userManager;
         }
 
         [Route("[controller]/{id}/[action]")]
         public IActionResult Detail(int id)
         {
             Property _property = _propertyService.GetById(id);
+            var isFavorite = false;
+            if (User.Identity.IsAuthenticated)
+            {
+                isFavorite = _favoriteItemService.IsFavorite(_userManager.GetUserId(User), _property.PropertyId);
+            }
 
             return View(new PropertyDetailViewModel
             {
+                ProductId = _property.PropertyId,
                 Title = _property.Title,
                 Price = _property.Price,
                 BathroomCount = _property.BathroomCount,
@@ -32,7 +45,8 @@ namespace FAEmlak.Controllers
                 FloorCount = _property.FloorCount,
                 State = _property.State,
                 Created = _property.Created,
-                Description = _property.Description
+                Description = _property.Description,
+                IsFavorite = isFavorite
             }) ;
         }
     }

@@ -1,6 +1,9 @@
 ﻿using System;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using FAEmlak.Entity;
+using Microsoft.AspNetCore.Identity;
+using System.Collections.Generic;
 
 namespace FAEmlak.Identity
 {

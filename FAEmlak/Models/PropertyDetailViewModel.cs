@@ -7,6 +7,11 @@ namespace FAEmlak.Models
 {
     public class PropertyDetailViewModel
     {
+        public Property property { get; set; }
+        public bool IsFavorite { get; set; }
+
+
+        public int ProductId { get; set; }
         public string Title { get; set; }
         public int Price { get; set; }
 
@@ -17,6 +22,8 @@ namespace FAEmlak.Models
         public PropertyType PropertyType { get; set; }
         public PropertyCategory PropertyCategory { get; set; }
         public PropertyStatus Status { get; set; }
+        [DisplayName("Oda Sayısı")]
+        public RoomCount RoomCount { get; set; }
 
         [DisplayName("Balkon")]
         public bool HasBalcony { get; set; }
