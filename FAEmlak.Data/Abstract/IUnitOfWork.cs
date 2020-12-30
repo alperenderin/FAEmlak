@@ -7,6 +7,8 @@ namespace FAEmlak.Data.Abstract
     {
         IPropertyRepository Properties { get; }
         IFavoriteItemRepository FavoriteItems { get; }
+        ICityRepository Cities { get; }
+        IStateRepository States { get; }
         Task<int> CommitAsync();
     }
 }

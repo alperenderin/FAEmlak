@@ -10,6 +10,8 @@ namespace FAEmlak.Data
         private readonly ApplicationContext _context;
         private PropertyRepository _propertyRepository;
         private FavoriteItemRepository _favoriteItemRepository;
+        private CityRepository _cityRepository;
+        private StateRepository _stateRepository;
 
         public UnitOfWork(ApplicationContext context) 
         {
@@ -18,6 +20,8 @@ namespace FAEmlak.Data
 
         public IPropertyRepository Properties => _propertyRepository = _propertyRepository ?? new PropertyRepository(_context);
         public IFavoriteItemRepository FavoriteItems => _favoriteItemRepository = _favoriteItemRepository ?? new FavoriteItemRepository(_context);
+        public ICityRepository Cities => _cityRepository = _cityRepository ?? new CityRepository(_context);
+        public IStateRepository States => _stateRepository = _stateRepository ?? new StateRepository(_context);
 
         public async Task<int> CommitAsync()
         {

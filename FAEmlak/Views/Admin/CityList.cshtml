@@ -1,8 +1,8 @@
-﻿@model List<FAEmlak.Identity.User>
+﻿@model List<FAEmlak.Entity.City>
 @using FAEmlak.Helpers
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-    ViewData["Title"] = "Üyeler";
+    ViewData["Title"] = "İller";
 }
 
 @section Stylesheets{
@@ -23,8 +23,8 @@
                                     <i class="notika-icon notika-support"></i>
                                 </div>
                                 <div class="breadcomb-ctn">
-                                    <h2>Üyeler</h2>
-                                    <p>Sitedeki kullanıcıları burada listeyebilirsiniz.</p>
+                                    <h2>İller</h2>
+                                    <p>Sitedeki illeri burada listeyebilirsiniz.</p>
                                 </div>
                             </div>
                         </div>
@@ -45,10 +45,9 @@
                         <table id="data-table-basic" class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>Ad</th>
-                                    <th>Soyad</th>
-                                    <th>E-Posta</th>
-                                    <th>Oluşturma Tarihi</th>
+                                    <th>#</th>
+                                    <th>İl</th>
+                                    <th>İlçe Sayısı</th>
                                     <th>İşlemler</th>
                                 </tr>
                             </thead>
@@ -56,15 +55,14 @@
                                 @foreach (var item in Model)
                                 {
                                     <tr>
-                                        <td>@item.FirstName</td>
-                                        <td>@item.LastName</td>
-                                        <td>@item.Email</td>
-                                        <td>@item.Created.Date.ToString("dd/MM/yyyy")</td>
+                                        <td>@item.CityId</td>
+                                        <td>@item.Name</td>
+                                        <td>@item.States.Count</td>
                                         <td>
-                                            <a asp-controller="Admin" asp-action="EditUser" asp-route-UserName="@item.Email" style="font-size: 16px; margin-right: 10px">
+                                            <a asp-controller="Admin" asp-action="EditCity" asp-route-CityId="@item.CityId" style="font-size: 16px; margin-right: 10px">
                                                 <i class="fa fa-pencil" aria-hidden="true"></i>
                                             </a>
-                                            <a asp-controller="Admin" asp-action="DeleteUser" asp-route-UserId="@item.Id" style="font-size: 16px">
+                                            <a asp-controller="Admin" asp-action="DeleteCity" asp-route-CityId="@item.CityId" style="font-size: 16px">
                                                 <i class="fa fa-trash" aria-hidden="true"></i>
                                             </a>
                                         </td>
@@ -73,10 +71,9 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>Ad</th>
-                                    <th>Soyad</th>
-                                    <th>E-Posta</th>
-                                    <th>Oluşturma Tarihi</th>
+                                    <th>#</th>
+                                    <th>İl</th>
+                                    <th>İlçe Sayısı</th>
                                     <th>İşlemler</th>
                                 </tr>
                             </tfoot>

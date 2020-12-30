@@ -4,7 +4,7 @@
         <div class="card">
             <input type="hidden" name="ReturnUrl" value="@Model.ReturnUrl" />
             <article class="card-body">
-                <a href="" class="float-right btn btn-outline-primary">Sign up</a>
+                <a asp-controller="Account" asp-action="Login" class="float-right btn btn-outline-primary">Sign up</a>
                 <h4 class="card-title mb-4 mt-1">Sign in</h4>
                 <hr>
                 <form asp-controller="Account" asp-action="Login" method="post">
