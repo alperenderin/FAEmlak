@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using FAEmlak.Business.Abstract;
 using FAEmlak.Data;
 using FAEmlak.Data.Abstract;
@@ -43,6 +44,11 @@ namespace FAEmlak.Business.Concrete
         public List<Property> GetPropertiesByTypeAndCategory(PropertyType propertyType, PropertyCategory propertyCategory)
         {
             return _unitOfWork.Properties.GetPropertiesByTypeAndCategory(propertyType, propertyCategory);
+        }
+
+        public async Task<Property> GetPropertyByIdAsync(int id)
+        {
+            return await _unitOfWork.Properties.GetPropertyByIdAsync(id);
         }
     }
 }

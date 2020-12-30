@@ -1,6 +1,5 @@
 ﻿using FAEmlak.Business.Abstract;
 using FAEmlak.Data;
-using FAEmlak.Identity;
 using FAEmlak.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;

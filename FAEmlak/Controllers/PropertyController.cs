@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using FAEmlak.Business.Abstract;
 using FAEmlak.Data;
-using FAEmlak.Identity;
 using FAEmlak.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -25,9 +24,9 @@ namespace FAEmlak.Controllers
         }
 
         [Route("[controller]/{id}/[action]")]
-        public IActionResult Detail(int id)
+        public async Task<IActionResult> Detail(int id)
         {
-            Property _property = _propertyService.GetById(id);
+            Property _property = await _propertyService.GetPropertyByIdAsync(id);
             var isFavorite = false;
             if (User.Identity.IsAuthenticated)
             {
@@ -38,6 +37,7 @@ namespace FAEmlak.Controllers
             {
                 ProductId = _property.PropertyId,
                 Title = _property.Title,
+                user = _property.User,
                 Price = _property.Price,
                 BathroomCount = _property.BathroomCount,
                 BuildingAge = _property.BuildingAge,

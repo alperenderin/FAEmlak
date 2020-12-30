@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using FAEmlak.Data.Abstract;
 using Microsoft.EntityFrameworkCore;
 
@@ -28,6 +29,11 @@ namespace FAEmlak.Data.Concrete.EFCore
                 Where(i => i.PropertyCategory == Category).ToList();
 
             return Properties;
+        }
+
+        public async Task<Property> GetPropertyByIdAsync(int id)
+        {
+            return await ApplicationContext.Properties.Where(i => i.PropertyId == id).Include(i => i.State).ThenInclude(i => i.City).Include(i => i.User).FirstOrDefaultAsync();
         }
 
         private ApplicationContext ApplicationContext

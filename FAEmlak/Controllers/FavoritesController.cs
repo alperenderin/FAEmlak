@@ -1,5 +1,4 @@
 ﻿using FAEmlak.Business.Abstract;
-using FAEmlak.Identity;
 using FAEmlak.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;

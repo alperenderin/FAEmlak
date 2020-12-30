@@ -19,7 +19,7 @@ namespace FAEmlak.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("FAEmlak.Entity.City", b =>
+            modelBuilder.Entity("FAEmlak.Data.City", b =>
                 {
                     b.Property<int>("CityId")
                         .ValueGeneratedOnAdd()
@@ -46,7 +46,7 @@ namespace FAEmlak.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("FAEmlak.Entity.FavoriteItem", b =>
+            modelBuilder.Entity("FAEmlak.Data.FavoriteItem", b =>
                 {
                     b.Property<int>("FavoriteItemId")
                         .ValueGeneratedOnAdd()
@@ -66,7 +66,7 @@ namespace FAEmlak.Data.Migrations
                     b.ToTable("FavoriteItems");
                 });
 
-            modelBuilder.Entity("FAEmlak.Entity.Photo", b =>
+            modelBuilder.Entity("FAEmlak.Data.Photo", b =>
                 {
                     b.Property<long>("PhotoId")
                         .ValueGeneratedOnAdd()
@@ -89,7 +89,7 @@ namespace FAEmlak.Data.Migrations
                     b.ToTable("Photos");
                 });
 
-            modelBuilder.Entity("FAEmlak.Entity.Property", b =>
+            modelBuilder.Entity("FAEmlak.Data.Property", b =>
                 {
                     b.Property<int>("PropertyId")
                         .ValueGeneratedOnAdd()
@@ -144,12 +144,17 @@ namespace FAEmlak.Data.Migrations
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<byte>("WhichFloor")
                         .HasColumnType("tinyint");
 
                     b.HasKey("PropertyId");
 
                     b.HasIndex("StateId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Properties");
 
@@ -160,7 +165,7 @@ namespace FAEmlak.Data.Migrations
                             Area = 125,
                             BathroomCount = (byte)1,
                             BuildingAge = (byte)26,
-                            Created = new DateTime(2020, 12, 28, 12, 38, 8, 547, DateTimeKind.Utc).AddTicks(2460),
+                            Created = new DateTime(2020, 12, 30, 21, 35, 57, 909, DateTimeKind.Utc).AddTicks(8472),
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultricies commodo vehicula. Vestibulum pharetra ullamcorper ante, sit amet molestie eros imperdiet consequat. Integer dapibus urna vulputate consequat posuere. Aliquam erat volutpat. Integer non malesuada lectus. Vivamus ut mattis leo. Sed ornare nunc diam, eu sollicitudin est luctus at. Integer ante mauris, imperdiet vitae leo sit amet, semper pharetra lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
                             FloorCount = (byte)13,
                             HasBalcony = true,
@@ -173,6 +178,7 @@ namespace FAEmlak.Data.Migrations
                             StateId = 2,
                             Status = 0,
                             Title = "SAHRAYICEDİT İNTAŞ SİTESİNDE PARK MANZARALI 3+1 DAİRE",
+                            UserId = "1",
                             WhichFloor = (byte)2
                         },
                         new
@@ -181,7 +187,7 @@ namespace FAEmlak.Data.Migrations
                             Area = 125,
                             BathroomCount = (byte)1,
                             BuildingAge = (byte)26,
-                            Created = new DateTime(2020, 12, 28, 12, 38, 8, 548, DateTimeKind.Utc).AddTicks(4032),
+                            Created = new DateTime(2020, 12, 30, 21, 35, 57, 911, DateTimeKind.Utc).AddTicks(474),
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultricies commodo vehicula. Vestibulum pharetra ullamcorper ante, sit amet molestie eros imperdiet consequat. Integer dapibus urna vulputate consequat posuere. Aliquam erat volutpat. Integer non malesuada lectus. Vivamus ut mattis leo. Sed ornare nunc diam, eu sollicitudin est luctus at. Integer ante mauris, imperdiet vitae leo sit amet, semper pharetra lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
                             FloorCount = (byte)13,
                             HasBalcony = true,
@@ -194,6 +200,7 @@ namespace FAEmlak.Data.Migrations
                             StateId = 2,
                             Status = 0,
                             Title = "Uğurmumcu Süper Bina Süper Fırsat",
+                            UserId = "1",
                             WhichFloor = (byte)2
                         },
                         new
@@ -202,7 +209,7 @@ namespace FAEmlak.Data.Migrations
                             Area = 120,
                             BathroomCount = (byte)1,
                             BuildingAge = (byte)26,
-                            Created = new DateTime(2020, 12, 28, 12, 38, 8, 548, DateTimeKind.Utc).AddTicks(4281),
+                            Created = new DateTime(2020, 12, 30, 21, 35, 57, 911, DateTimeKind.Utc).AddTicks(715),
                             Description = "Isı Ve Ses Yalıtımı ile Yaz Kış Ferah ve Sessiz./nLed Spot ve Dekoratif Işıklandırma ile Şık ve Kullanış﻿lı﻿.",
                             FloorCount = (byte)10,
                             HasBalcony = true,
@@ -215,6 +222,7 @@ namespace FAEmlak.Data.Migrations
                             StateId = 2,
                             Status = 0,
                             Title = "BEYLİKDÜZÜ KALEDEN HAFTANIN EN AVANTAJLI SATILIK 2+1 DAİRESİ !!!",
+                            UserId = "1",
                             WhichFloor = (byte)5
                         },
                         new
@@ -223,7 +231,7 @@ namespace FAEmlak.Data.Migrations
                             Area = 100,
                             BathroomCount = (byte)2,
                             BuildingAge = (byte)16,
-                            Created = new DateTime(2020, 12, 28, 12, 38, 8, 548, DateTimeKind.Utc).AddTicks(4327),
+                            Created = new DateTime(2020, 12, 30, 21, 35, 57, 911, DateTimeKind.Utc).AddTicks(760),
                             Description = "Betonarme Taşıyıcı Sistemleri/nIsı Yalıtımıyla Donatılmış Dış cephe Kaplama",
                             FloorCount = (byte)13,
                             HasBalcony = true,
@@ -236,6 +244,7 @@ namespace FAEmlak.Data.Migrations
                             StateId = 2,
                             Status = 0,
                             Title = "ROTA YAPI'DAN İSKANLI,OTOPARKLI BUTİK SİTEDE 2+1 SATILIK DAİRE",
+                            UserId = "1",
                             WhichFloor = (byte)2
                         },
                         new
@@ -244,7 +253,7 @@ namespace FAEmlak.Data.Migrations
                             Area = 105,
                             BathroomCount = (byte)1,
                             BuildingAge = (byte)26,
-                            Created = new DateTime(2020, 12, 28, 12, 38, 8, 548, DateTimeKind.Utc).AddTicks(4367),
+                            Created = new DateTime(2020, 12, 30, 21, 35, 57, 911, DateTimeKind.Utc).AddTicks(801),
                             Description = "Araçlarınız Binici Fiyatından Takas Yapılabilir",
                             FloorCount = (byte)13,
                             HasBalcony = true,
@@ -257,6 +266,7 @@ namespace FAEmlak.Data.Migrations
                             StateId = 2,
                             Status = 0,
                             Title = "BEYLİKDÜZÜ'NDE DENİZ MANZARALI GENİŞ ULTRA LÜX DUBLEX FIRSATI",
+                            UserId = "1",
                             WhichFloor = (byte)2
                         },
                         new
@@ -265,7 +275,7 @@ namespace FAEmlak.Data.Migrations
                             Area = 105,
                             BathroomCount = (byte)1,
                             BuildingAge = (byte)26,
-                            Created = new DateTime(2020, 12, 28, 12, 38, 8, 548, DateTimeKind.Utc).AddTicks(4411),
+                            Created = new DateTime(2020, 12, 30, 21, 35, 57, 911, DateTimeKind.Utc).AddTicks(844),
                             Description = "Araçlarınız Binici Fiyatından Takas Yapılabilir",
                             FloorCount = (byte)2,
                             HasBalcony = true,
@@ -278,6 +288,7 @@ namespace FAEmlak.Data.Migrations
                             StateId = 2,
                             Status = 0,
                             Title = "BEYLİKDÜZÜNDE 35BİN NAKİT AYLIK 1450 TL ÖDEME İLE SATILIK DAİRE",
+                            UserId = "1",
                             WhichFloor = (byte)1
                         },
                         new
@@ -286,7 +297,7 @@ namespace FAEmlak.Data.Migrations
                             Area = 115,
                             BathroomCount = (byte)1,
                             BuildingAge = (byte)26,
-                            Created = new DateTime(2020, 12, 28, 12, 38, 8, 548, DateTimeKind.Utc).AddTicks(4449),
+                            Created = new DateTime(2020, 12, 30, 21, 35, 57, 911, DateTimeKind.Utc).AddTicks(882),
                             Description = "200m2 Yaşam Alanına Sahiptir.",
                             FloorCount = (byte)1,
                             HasBalcony = true,
@@ -299,6 +310,7 @@ namespace FAEmlak.Data.Migrations
                             StateId = 2,
                             Status = 0,
                             Title = "YILIN SON FIRSAT KELEPİR DAİRESİ 2+1 SATILIK DAİRE",
+                            UserId = "1",
                             WhichFloor = (byte)1
                         },
                         new
@@ -307,7 +319,7 @@ namespace FAEmlak.Data.Migrations
                             Area = 105,
                             BathroomCount = (byte)1,
                             BuildingAge = (byte)26,
-                            Created = new DateTime(2020, 12, 28, 12, 38, 8, 548, DateTimeKind.Utc).AddTicks(4487),
+                            Created = new DateTime(2020, 12, 30, 21, 35, 57, 911, DateTimeKind.Utc).AddTicks(920),
                             Description = "Dairemiz Merkezi Konumda Olup Oldukça geniş Ve Kullanışlı Bir Dairedir..",
                             FloorCount = (byte)5,
                             HasBalcony = true,
@@ -320,11 +332,12 @@ namespace FAEmlak.Data.Migrations
                             StateId = 2,
                             Status = 0,
                             Title = "Emlakoffice 3+1 200m2 Merkezde Satılık Geniş Daire",
+                            UserId = "1",
                             WhichFloor = (byte)2
                         });
                 });
 
-            modelBuilder.Entity("FAEmlak.Entity.State", b =>
+            modelBuilder.Entity("FAEmlak.Data.State", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -406,36 +419,385 @@ namespace FAEmlak.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("FAEmlak.Entity.FavoriteItem", b =>
+            modelBuilder.Entity("FAEmlak.Data.User", b =>
                 {
-                    b.HasOne("FAEmlak.Entity.Property", "Property")
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("User");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "a7c76394-d387-4976-be68-5decc9481b52",
+                            Created = new DateTime(2020, 12, 30, 21, 35, 57, 881, DateTimeKind.Utc).AddTicks(3),
+                            Email = "g181210106@sakarya.edu.tr",
+                            EmailConfirmed = true,
+                            FirstName = "Alperen",
+                            LastName = "Derin",
+                            LockoutEnabled = false,
+                            PasswordHash = "AQAAAAEAACcQAAAAEIbIf6/JKfIEiKhQl2yYE0Ji+N3anS0ZAPbccQnz3BEqV7i7azBWL/Ma7D43TYMymg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "9030912f-e9d9-4af2-b29f-918481637168",
+                            TwoFactorEnabled = false,
+                            UserName = "g181210106@sakarya.edu.tr"
+                        },
+                        new
+                        {
+                            Id = "8e445865-a24d-4543-a8c6-9443d048cdb9",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "0dacef13-c242-4005-af75-94a63539bcdd",
+                            Created = new DateTime(2020, 12, 30, 21, 35, 57, 892, DateTimeKind.Utc).AddTicks(6636),
+                            Email = "b181210091@sakarya.edu.tr",
+                            EmailConfirmed = true,
+                            FirstName = "Furkan",
+                            LastName = "Ergün",
+                            LockoutEnabled = false,
+                            PasswordHash = "AQAAAAEAACcQAAAAEAP7mGgL3DPxUGU5IR87LyCMCzjJpmHXxb75kmG7GQzqtzMSf4nkhgzcq1/mKNEN/w==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "0d8034b7-7c04-4db5-9f2d-2c9467c10e36",
+                            TwoFactorEnabled = false,
+                            UserName = "b181210091@sakarya.edu.tr"
+                        },
+                        new
+                        {
+                            Id = "1",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "ba024c25-8f0e-48b5-8127-1aa91921657c",
+                            Created = new DateTime(2020, 12, 30, 21, 35, 57, 900, DateTimeKind.Utc).AddTicks(5557),
+                            Email = "denemeEmlak@deneme.com",
+                            EmailConfirmed = true,
+                            FirstName = "Deneme",
+                            LastName = "Emlak",
+                            LockoutEnabled = false,
+                            PasswordHash = "AQAAAAEAACcQAAAAEM0Um23UIhvb1/UOPEJ3U/7VxAgTGJCGuDTUDr7PJ4pvUv6Kmnl3hiO+P+Z4JahS1Q==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "46339951-1e1d-49bd-b356-33002feca8f8",
+                            TwoFactorEnabled = false,
+                            UserName = "denemeEmlak@deneme.com"
+                        });
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("NormalizedName")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "2c5e174e-3b0e-446f-86af-483d56fd7210",
+                            ConcurrencyStamp = "401a9359-6137-40c1-abec-c447523d6103",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "2c5e174e-3b0e-446f-86af-483d5efd7210",
+                            ConcurrencyStamp = "ad2b88ea-1432-4898-a6f6-94a929518d74",
+                            Name = "User",
+                            NormalizedName = "USER"
+                        });
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("RoleId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "8e445865-a24d-4543-a6c6-9443d048cdb9",
+                            RoleId = "2c5e174e-3b0e-446f-86af-483d56fd7210"
+                        },
+                        new
+                        {
+                            UserId = "8e445865-a24d-4543-a8c6-9443d048cdb9",
+                            RoleId = "2c5e174e-3b0e-446f-86af-483d56fd7210"
+                        },
+                        new
+                        {
+                            UserId = "1",
+                            RoleId = "2c5e174e-3b0e-446f-86af-483d5efd7210"
+                        });
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("FAEmlak.Data.FavoriteItem", b =>
+                {
+                    b.HasOne("FAEmlak.Data.Property", "Property")
                         .WithMany()
                         .HasForeignKey("PropertyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("FAEmlak.Entity.Photo", b =>
+            modelBuilder.Entity("FAEmlak.Data.Photo", b =>
                 {
-                    b.HasOne("FAEmlak.Entity.Property", "Property")
+                    b.HasOne("FAEmlak.Data.Property", "Property")
                         .WithMany("Photos")
                         .HasForeignKey("PropertyId1");
                 });
 
-            modelBuilder.Entity("FAEmlak.Entity.Property", b =>
+            modelBuilder.Entity("FAEmlak.Data.Property", b =>
                 {
-                    b.HasOne("FAEmlak.Entity.State", "State")
+                    b.HasOne("FAEmlak.Data.State", "State")
                         .WithMany()
                         .HasForeignKey("StateId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("FAEmlak.Data.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
                 });
 
-            modelBuilder.Entity("FAEmlak.Entity.State", b =>
+            modelBuilder.Entity("FAEmlak.Data.State", b =>
                 {
-                    b.HasOne("FAEmlak.Entity.City", "City")
+                    b.HasOne("FAEmlak.Data.City", "City")
                         .WithMany("States")
                         .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.HasOne("FAEmlak.Data.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.HasOne("FAEmlak.Data.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FAEmlak.Data.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.HasOne("FAEmlak.Data.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

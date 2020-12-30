@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FAEmlak.Data
 {
@@ -13,6 +15,10 @@ namespace FAEmlak.Data
 
         [Key]
         public int PropertyId { get; set; }
+
+        public string UserId { get; set; }
+        public User User { get; set; }
+
         public string Title { get; set; }
         public int Price { get; set; }
         public int Area { get; set; }
@@ -29,12 +35,9 @@ namespace FAEmlak.Data
         public bool IsInSite { get; set; }
         public byte FloorCount { get; set; }
         public byte WhichFloor { get; set; } 
-
         public int StateId { get; set; }
         public State State { get; set; }
-
         public List<Photo> Photos { get; set; }
-
         public DateTime Created { get; internal set; }
 
     }

@@ -10,6 +10,7 @@ namespace FAEmlak.Models
         public Property property { get; set; }
         public bool IsFavorite { get; set; }
 
+        public User user { get; set; }
 
         public int ProductId { get; set; }
         public string Title { get; set; }
