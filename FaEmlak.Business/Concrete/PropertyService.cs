@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using FAEmlak.Business.Abstract;
+using FAEmlak.Data;
 using FAEmlak.Data.Abstract;
-using FAEmlak.Entity;
 
 namespace FAEmlak.Business.Concrete
 {

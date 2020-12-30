@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using FAEmlak.Entity;
+using FAEmlak.Data;
 using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
 

@@ -1,4 +1,4 @@
-﻿using FAEmlak.Entity;
+﻿using FAEmlak.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FAEmlak.Business.Abstract;
-using FAEmlak.Entity;
+using FAEmlak.Data;
 using FAEmlak.Identity;
 using FAEmlak.Models;
 using Microsoft.AspNetCore.Identity;

@@ -3,13 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.808.4
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FAEmlak.Entity", "FAEmlak.Entity\FAEmlak.Entity.csproj", "{56C9BB61-56A1-4E73-9032-30887223814E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FAEmlak", "FAEmlak\FAEmlak.csproj", "{4C3721EB-5A98-425C-BA24-6DBCEC327C60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FAEmlak", "FAEmlak\FAEmlak.csproj", "{4C3721EB-5A98-425C-BA24-6DBCEC327C60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FAEmlak.Data", "FAEmlak.Data\FAEmlak.Data.csproj", "{9DD93761-DD66-4CE0-A7BA-7520DBA2D581}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FAEmlak.Data", "FAEmlak.Data\FAEmlak.Data.csproj", "{9DD93761-DD66-4CE0-A7BA-7520DBA2D581}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FAEmlak.Business", "FAEmlak.Business\FAEmlak.Business.csproj", "{57AD5726-F735-4A8B-A633-36FF6895A030}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FAEmlak.Business", "FAEmlak.Business\FAEmlak.Business.csproj", "{57AD5726-F735-4A8B-A633-36FF6895A030}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{56C9BB61-56A1-4E73-9032-30887223814E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{56C9BB61-56A1-4E73-9032-30887223814E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{56C9BB61-56A1-4E73-9032-30887223814E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{56C9BB61-56A1-4E73-9032-30887223814E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4C3721EB-5A98-425C-BA24-6DBCEC327C60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4C3721EB-5A98-425C-BA24-6DBCEC327C60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C3721EB-5A98-425C-BA24-6DBCEC327C60}.Release|Any CPU.ActiveCfg = Release|Any CPU

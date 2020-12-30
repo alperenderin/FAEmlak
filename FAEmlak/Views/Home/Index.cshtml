@@ -1,6 +1,6 @@
 ﻿@model FAEmlak.Models.PropertyModel
 @using FAEmlak.Helpers
-@using FAEmlak.Entity
+@using FAEmlak.Data
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -11,7 +11,7 @@
         <ul class="list-group list-group-flush">
             @foreach (PropertyType propertyType in Enum.GetValues(typeof(PropertyType)))
             {
-                String title = EnumHelper<FAEmlak.Entity.PropertyType>.GetDisplayValue(propertyType);
+                String title = EnumHelper<PropertyType>.GetDisplayValue(propertyType);
                 
                 <li class="list-group-item">@title</li>
                 <ul>
@@ -115,7 +115,7 @@
         <div class="mixed-property d-flex flex-row flex-wrap">
             @foreach (var property in Model.properties)
             {
-                var propType = EnumHelper<FAEmlak.Entity.PropertyType>.GetDisplayValue(property.PropertyType);
+                var propType = EnumHelper<FAEmlak.Data.PropertyType>.GetDisplayValue(property.PropertyType);
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                     <div class="card">
                         <img class="card-img" src="https://cdn02.hemlak.com/S3g3ckwvTXNPekZ5WkVQVXk4N2owSzduR2FkUDlvRnd3SFhZUkR6NHl6SjZEdmhFaldiQ2JmWFVsRnk0TlRmNUFyOC9PUm15Q3pERFlMYnBKdnQxQkdHUTFrc0N1RVZPeGVWc3RncWtnVVk9.jpg" alt="Vans">

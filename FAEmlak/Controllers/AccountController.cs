@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using FAEmlak.Identity;
+using FAEmlak.Data;
 using FAEmlak.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;

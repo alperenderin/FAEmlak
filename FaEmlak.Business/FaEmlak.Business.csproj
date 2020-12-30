@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FAEmlak.Entity\FAEmlak.Entity.csproj" />
     <ProjectReference Include="..\FAEmlak.Data\FAEmlak.Data.csproj" />
   </ItemGroup>
 </Project>

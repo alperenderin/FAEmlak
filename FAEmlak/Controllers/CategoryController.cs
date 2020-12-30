@@ -1,6 +1,6 @@
 ﻿using System;
 using FAEmlak.Business.Abstract;
-using FAEmlak.Entity;
+using FAEmlak.Data;
 using FAEmlak.Models;
 using Microsoft.AspNetCore.Mvc;
 

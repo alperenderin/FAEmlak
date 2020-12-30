@@ -1,5 +1,4 @@
 ﻿using System;
-using FAEmlak.Entity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

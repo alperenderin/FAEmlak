@@ -1,6 +1,6 @@
-﻿using System;
+﻿using FAEmlak.Data;
+using System;
 using System.Collections.Generic;
-using FAEmlak.Entity;
 
 namespace FAEmlak.Business.Abstract
 {

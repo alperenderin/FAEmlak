@@ -1,5 +1,5 @@
 ﻿using FAEmlak.Business.Abstract;
-using FAEmlak.Entity;
+using FAEmlak.Data;
 using FAEmlak.Identity;
 using FAEmlak.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -175,7 +175,7 @@ namespace FAEmlak.Controllers
         [Route("[controller]/Cities/Create")]
         public IActionResult CreateCity(string CityName)
         {
-            _cityService.Create(new Entity.City {
+            _cityService.Create(new City {
                 Name = CityName
             });;
             return RedirectToAction("CityList");
@@ -247,7 +247,7 @@ namespace FAEmlak.Controllers
         [Route("[controller]/States/Create")]
         public IActionResult CreateState(string Name,int CityId)
         {
-            _stateService.Create(new Entity.State
+            _stateService.Create(new State
             {
                 Name = Name,
                 CityId = CityId

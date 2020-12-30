@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using FAEmlak.Entity;
 
 namespace FAEmlak.Data.Abstract
 {

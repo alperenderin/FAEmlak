@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FAEmlak.Data.Abstract;
-using FAEmlak.Entity;
 using Microsoft.EntityFrameworkCore;
 
 namespace FAEmlak.Data.Concrete.EFCore

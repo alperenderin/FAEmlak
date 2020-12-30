@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using FAEmlak.Entity;
+using FAEmlak.Data;
 
 namespace FAEmlak.Models
 {
