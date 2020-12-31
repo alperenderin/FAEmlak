@@ -36,6 +36,8 @@ namespace FAEmlak.Data.Concrete.EFCore
                 {
                     Id = "8e445865-a24d-4543-a6c6-9443d048cdb9", // primary key
                     UserName = "g181210106@sakarya.edu.tr",
+                    NormalizedEmail = "g181210106@sakarya.edu.tr".ToUpper(),
+                    NormalizedUserName = "g181210106@sakarya.edu.tr".ToUpper(),
                     Email = "g181210106@sakarya.edu.tr",
                     FirstName = "Alperen",
                     LastName = "Derin",
@@ -59,6 +61,8 @@ namespace FAEmlak.Data.Concrete.EFCore
                 {
                     Id = "8e445865-a24d-4543-a8c6-9443d048cdb9", // primary key
                     UserName = "b181210091@sakarya.edu.tr",
+                    NormalizedUserName = "b181210091@sakarya.edu.tr".ToUpper(),
+                    NormalizedEmail = "b181210091@sakarya.edu.tr".ToUpper(),
                     Email = "b181210091@sakarya.edu.tr",
                     FirstName = "Furkan",
                     LastName = "Ergün",
@@ -82,6 +86,8 @@ namespace FAEmlak.Data.Concrete.EFCore
                 {
                     Id = "1", // primary key
                     UserName = "denemeEmlak@deneme.com",
+                    NormalizedEmail = "denemeEmlak@deneme.com".ToUpper(),
+                    NormalizedUserName = "denemeEmlak@deneme.com".ToUpper(),
                     Email = "denemeEmlak@deneme.com",
                     FirstName = "Deneme",
                     LastName = "Emlak",

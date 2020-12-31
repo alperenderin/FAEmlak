@@ -75,6 +75,7 @@ namespace FAEmlak
             services.AddTransient<IFavoriteItemService, FavoriteItemService>();
             services.AddTransient<ICityService, CityService>();
             services.AddTransient<IStateService, StateService>();
+            services.AddTransient<IPhotoService, PhotoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

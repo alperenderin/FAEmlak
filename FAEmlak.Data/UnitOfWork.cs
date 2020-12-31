@@ -12,6 +12,7 @@ namespace FAEmlak.Data
         private FavoriteItemRepository _favoriteItemRepository;
         private CityRepository _cityRepository;
         private StateRepository _stateRepository;
+        private PhotoRepository _photoRepository;
 
         public UnitOfWork(ApplicationContext context) 
         {
@@ -22,6 +23,7 @@ namespace FAEmlak.Data
         public IFavoriteItemRepository FavoriteItems => _favoriteItemRepository = _favoriteItemRepository ?? new FavoriteItemRepository(_context);
         public ICityRepository Cities => _cityRepository = _cityRepository ?? new CityRepository(_context);
         public IStateRepository States => _stateRepository = _stateRepository ?? new StateRepository(_context);
+        public IPhotoRepository Photos => _photoRepository = _photoRepository ?? new PhotoRepository(_context);
 
         public async Task<int> CommitAsync()
         {

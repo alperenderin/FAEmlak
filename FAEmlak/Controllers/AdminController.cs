@@ -4,6 +4,8 @@ using FAEmlak.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Localization;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,18 +21,24 @@ namespace FAEmlak.Controllers
         private UserManager<User> _userManager;
         private ICityService _cityService;
         private IStateService _stateService;
+        private IPhotoService _photoService;
+        private readonly IHtmlLocalizer<AdminController> _localizer;
 
         public AdminController(RoleManager<IdentityRole> roleManager,
             IPropertyService propertyService,
             UserManager<User> userManager,
             ICityService cityService,
-            IStateService stateService)
+            IStateService stateService,
+            IPhotoService photoService,
+            IHtmlLocalizer<AdminController> localizer)
         {
             _roleManager = roleManager;
             _propertyService = propertyService;
             _userManager = userManager;
             _cityService = cityService;
             _stateService = stateService;
+            _photoService = photoService;
+            _localizer = localizer;
         }
 
         public IActionResult Index()
@@ -295,5 +303,38 @@ namespace FAEmlak.Controllers
 
             return NotFound();
         }
+
+
+        [Route("[controller]/Properties/Add")]
+        public async Task<IActionResult> CreateProperty()
+        {
+            ViewBag.Cities = new SelectList(await _cityService.GetCitiesAsync(), "CityId", "Name");
+            return View();
+        }
+
+
+        public async Task<IActionResult> DeleteProperty(int PropertyId)
+        {
+            var property = await _propertyService.GetPropertyByIdAsync(PropertyId);
+            if (property != null)
+            {
+                if (property.Photos.Count > 0)
+                {
+                    for (int i = 0; i < property.Photos.Count; i++)
+                    {
+                        _photoService.Delete(property.Photos[i]);
+                    }
+                }
+                _propertyService.Delete(property);
+            }
+            return RedirectToAction("PropertiesList");
+        }
+
+        public JsonResult LoadState(int CityId)
+        {
+            var states = _stateService.GetStates().Where(i => i.CityId == CityId).ToList();
+            return Json(new SelectList(states, "Id", "Name"));
+        }
+       
     }
 }
