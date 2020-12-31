@@ -10,7 +10,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using FAEmlak.Data.Concrete.EFCore;
-using FAEmlak.Data.Seeds;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
 using FAEmlak.Data.Abstract;

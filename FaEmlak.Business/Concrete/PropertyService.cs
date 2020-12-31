@@ -50,5 +50,10 @@ namespace FAEmlak.Business.Concrete
         {
             return await _unitOfWork.Properties.GetPropertyByIdAsync(id);
         }
+
+        public async Task<List<Property>> GetPropertiesByUserId(string UserId)
+        {
+            return await _unitOfWork.Properties.GetPropertiesByUserId(UserId);
+        }
     }
 }

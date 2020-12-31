@@ -13,6 +13,7 @@ namespace FAEmlak.Business.Abstract
         Property GetById(int id);
         Task<Property> GetPropertyByIdAsync(int id);
         List<Property> GetProperties();
+        Task<List<Property>> GetPropertiesByUserId(string UserId);
         List<Property> GetPropertiesByTypeAndCategory(PropertyType propertyType, PropertyCategory propertyCategory);
     }
 }

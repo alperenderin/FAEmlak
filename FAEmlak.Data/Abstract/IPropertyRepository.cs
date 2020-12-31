@@ -8,6 +8,7 @@ namespace FAEmlak.Data.Abstract
     {
         List<Property> GetProperties();
         Task<Property> GetPropertyByIdAsync(int id);
+        Task<List<Property>> GetPropertiesByUserId(string UserId);
         List<Property> GetPropertiesByTypeAndCategory(PropertyType Type, PropertyCategory Category);
     }
 }

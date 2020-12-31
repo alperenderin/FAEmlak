@@ -36,6 +36,11 @@ namespace FAEmlak.Data.Concrete.EFCore
             return await ApplicationContext.Properties.Where(i => i.PropertyId == id).Include(i => i.State).ThenInclude(i => i.City).Include(i => i.User).FirstOrDefaultAsync();
         }
 
+        public async Task<List<Property>> GetPropertiesByUserId(string UserId)
+        {
+            return await ApplicationContext.Properties.Include(i => i.State).ThenInclude(i => i.City).Include(i => i.Photos).Include(i=>i.User).Where(i => i.UserId == UserId).ToListAsync();
+        }
+
         private ApplicationContext ApplicationContext
         {
             get { return Context as ApplicationContext; }
