@@ -16,6 +16,10 @@ using FAEmlak.Data.Abstract;
 using FAEmlak.Data;
 using FAEmlak.Business.Abstract;
 using FAEmlak.Business.Concrete;
+using Microsoft.AspNetCore.Mvc.Razor;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.Extensions.Options;
 
 namespace FAEmlak
 {
@@ -31,6 +35,22 @@ namespace FAEmlak
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddLocalization(option => { option.ResourcesPath = "Resources"; });
+            services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization();
+
+            services.Configure<RequestLocalizationOptions>(option =>
+                {
+                    var supportedCultures = new List<CultureInfo>
+                    {
+                        new CultureInfo("en"),
+                        new CultureInfo("tr"),
+                    };
+                    option.DefaultRequestCulture = new RequestCulture("tr");
+                    option.SupportedCultures = supportedCultures;
+                    option.SupportedUICultures = supportedCultures;
+                }
+            );
+
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             
             services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("FAEmlak.Data")));
@@ -100,6 +120,8 @@ namespace FAEmlak
             app.UseAuthentication();
 
             app.UseAuthorization();
+
+            app.UseRequestLocalization(app.ApplicationServices.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
 
             app.UseEndpoints(endpoints =>
             {

@@ -1,15 +1,19 @@
 ﻿@model List<FAEmlak.Data.City>
 @using FAEmlak.Helpers
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
     ViewData["Title"] = "İller";
 }
 
 @section Stylesheets{
-<!-- Data Table JS
-		============================================ -->
+    <!-- Data Table JS
+            ============================================ -->
     <link rel="stylesheet" href="css/jquery.dataTables.min.css">
 }
+
+<h2>@Localizer["HelloWorld"].</h2>
 
 <div class="breadcomb-area">
     <div class="container">

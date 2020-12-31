@@ -31,5 +31,7 @@
     <Folder Include="Views\Category\" />
     <Folder Include="Views\Property\" />
     <Folder Include="wwwroot\img\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\Views\" />
   </ItemGroup>
 </Project>

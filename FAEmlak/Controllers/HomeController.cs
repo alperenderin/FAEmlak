@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using FAEmlak.Models;
 using FAEmlak.Business.Abstract;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Http;
 
 namespace FAEmlak.Controllers
 {
@@ -27,6 +29,13 @@ namespace FAEmlak.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        public IActionResult CultureManagement(string Culture, string returnUrl)
+        {
+            Response.Cookies.Append(CookieRequestCultureProvider.DefaultCookieName, CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(Culture)),
+                new CookieOptions { Expires = DateTimeOffset.Now.AddDays(30)});
+            return LocalRedirect(returnUrl);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
