@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using FAEmlak.Business.Abstract;
+using FAEmlak.Data;
 using FAEmlak.Data.Abstract;
-using FAEmlak.Entity;
 
 namespace FAEmlak.Business.Concrete
 {
@@ -35,14 +36,24 @@ namespace FAEmlak.Business.Concrete
             return _unitOfWork.Properties.GetById(id);
         }
 
-        public List<Property> GetProperties()
+        public async Task<List<Property>> GetPropertiesAsync()
         {
-            return _unitOfWork.Properties.GetProperties();
+            return await _unitOfWork.Properties.GetPropertiesAsync();
         }
 
-        public List<Property> GetPropertiesByTypeAndCategory(PropertyType propertyType, PropertyCategory propertyCategory)
+        public async Task<List<Property>> GetPropertiesByTypeAndCategoryAsync(PropertyType propertyType, PropertyCategory propertyCategory)
         {
-            return _unitOfWork.Properties.GetPropertiesByTypeAndCategory(propertyType, propertyCategory);
+            return await _unitOfWork.Properties.GetPropertiesByTypeAndCategoryAsync(propertyType, propertyCategory);
+        }
+
+        public async Task<Property> GetPropertyByIdAsync(int id)
+        {
+            return await _unitOfWork.Properties.GetPropertyByIdAsync(id);
+        }
+
+        public async Task<List<Property>> GetPropertiesByUserId(string UserId)
+        {
+            return await _unitOfWork.Properties.GetPropertiesByUserId(UserId);
         }
     }
 }

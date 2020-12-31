@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Threading.Tasks;
 using FAEmlak.Business.Abstract;
-using FAEmlak.Entity;
+using FAEmlak.Data;
 using FAEmlak.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,15 +17,17 @@ namespace FAEmlak.Controllers
         }
 
         [HttpGet]
-        public IActionResult ListCategories(string propertyType, string propertyCategory)
+        public async Task<IActionResult> ListCategories(string propertyType, string propertyCategory)
         {
             try
             {
                 PropertyType type = (PropertyType)Enum.Parse(typeof(PropertyType), propertyType);
                 PropertyCategory category = (PropertyCategory)Enum.Parse(typeof(PropertyCategory), propertyCategory);
 
-                var model = new ListCategoriesModel();
-                model.properties = _propertyService.GetPropertiesByTypeAndCategory(type, category);
+                var model = new ListCategoriesModel
+                {
+                    properties = await _propertyService.GetPropertiesByTypeAndCategoryAsync(type, category)
+                };
 
                 return View(model);
             }

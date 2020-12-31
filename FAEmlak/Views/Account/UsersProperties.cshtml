@@ -1,0 +1,43 @@
+﻿@model List<FAEmlak.Data.Property>
+@using FAEmlak.Helpers
+@{
+    ViewData["Title"] = "adlı kullanıcının ilanları";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <h5>adlı kullanıcının ilanları</h5>
+        <table class="table" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>İlan Fotoğrafı</th>
+                    <th>İlan Başlığı</th>
+                    <th>Metrekare</th>
+                    <th>Oda Sayisi</th>
+                    <th>Fiyat</th>
+                    <th>İlan Tarihi</th>
+                    <th>İl/İlçe</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var property in Model)
+                {
+                    String roomCount = EnumHelper<FAEmlak.Data.RoomCount>.GetDisplayValue(property.RoomCount);
+                <tr>
+                    <td><img src="~/img/@property.PropertyId/@property.Photos[0].PhotoPath" height="70" /></td>
+                    <td><a asp-controller="Property" asp-action="Detail" asp-route-Id="@property.PropertyId">@property.Title</a></td>
+                    <td>@property.Area</td>
+                    <td>@roomCount</td>
+                    <td>@property.Price</td>
+                    <td>@property.Created.Date.ToString("dd/MM/yyyy")</td>
+                    <td>@property.State.City.Name / @property.State.Name</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+

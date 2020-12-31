@@ -10,7 +10,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using FAEmlak.Data.Concrete.EFCore;
-using FAEmlak.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
 using FAEmlak.Data.Abstract;
@@ -33,10 +32,10 @@ namespace FAEmlak
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            
             services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("FAEmlak.Data")));
-            services.AddDbContext<IdentityAppContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("FAEmlak")));
+            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationContext>().AddDefaultTokenProviders();
 
-            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<IdentityAppContext>().AddDefaultTokenProviders();
             services.Configure<IdentityOptions>(options =>
             {
                 // password
@@ -79,7 +78,7 @@ namespace FAEmlak
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -112,7 +111,6 @@ namespace FAEmlak
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-            SeedUsers.Seed(userManager, roleManager).Wait();
         }
     }
 }

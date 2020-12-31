@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using FAEmlak.Entity;
+using System.Threading.Tasks;
 
 namespace FAEmlak.Data.Abstract
 {
     public interface IPropertyRepository : IRepository<Property>
     {
-        List<Property> GetProperties();
-        List<Property> GetPropertiesByTypeAndCategory(PropertyType Type, PropertyCategory Category);
+        Task<List<Property>> GetPropertiesAsync();
+        Task<Property> GetPropertyByIdAsync(int id);
+        Task<List<Property>> GetPropertiesByUserId(string UserId);
+        Task<List<Property>> GetPropertiesByTypeAndCategoryAsync(PropertyType Type, PropertyCategory Category);
     }
 }

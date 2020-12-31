@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
-using FAEmlak.Identity;
+using FAEmlak.Business.Abstract;
+using FAEmlak.Data;
 using FAEmlak.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -11,11 +12,13 @@ namespace FAEmlak.Controllers
     {
         private UserManager<User> _userManager;
         private SignInManager<User> _signInManager;
+        private IPropertyService _propertyService;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IPropertyService propertyService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _propertyService = propertyService;
         }
 
         public IActionResult Login(string ReturnUrl = null)
@@ -80,6 +83,13 @@ namespace FAEmlak.Controllers
         {
             await _signInManager.SignOutAsync();
             return Redirect("~/");
+        }
+
+        [Route("[controller]/{UserId}/Properties")]
+        public async Task<IActionResult> UsersProperties(string UserId)
+        {
+            var properties = await _propertyService.GetPropertiesByUserId(UserId);
+            return View(properties);
         }
 
         public IActionResult AccessDenied()

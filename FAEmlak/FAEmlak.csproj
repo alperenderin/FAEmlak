@@ -30,5 +30,6 @@
     <Folder Include="Helpers\" />
     <Folder Include="Views\Category\" />
     <Folder Include="Views\Property\" />
+    <Folder Include="wwwroot\img\" />
   </ItemGroup>
 </Project>

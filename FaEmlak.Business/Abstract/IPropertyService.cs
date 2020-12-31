@@ -1,6 +1,7 @@
-﻿using System;
+﻿using FAEmlak.Data;
+using System;
 using System.Collections.Generic;
-using FAEmlak.Entity;
+using System.Threading.Tasks;
 
 namespace FAEmlak.Business.Abstract
 {
@@ -10,7 +11,9 @@ namespace FAEmlak.Business.Abstract
         void Update(Property entity);
         void Delete(Property deneme);
         Property GetById(int id);
-        List<Property> GetProperties();
-        List<Property> GetPropertiesByTypeAndCategory(PropertyType propertyType, PropertyCategory propertyCategory);
+        Task<Property> GetPropertyByIdAsync(int id);
+        Task<List<Property>> GetPropertiesAsync();
+        Task<List<Property>> GetPropertiesByUserId(string UserId);
+        Task<List<Property>> GetPropertiesByTypeAndCategoryAsync(PropertyType propertyType, PropertyCategory propertyCategory);
     }
 }

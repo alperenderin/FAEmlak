@@ -21,11 +21,7 @@ namespace FAEmlak.Controllers
 
         public IActionResult Index()
         {
-            var model = new PropertyModel()
-            {
-                properties = _propertyService.GetProperties()
-            };
-            return View(model);
+            return View();
         }
 
         public IActionResult Privacy()

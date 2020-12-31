@@ -1,5 +1,4 @@
 ﻿using FAEmlak.Business.Abstract;
-using FAEmlak.Identity;
 using FAEmlak.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FAEmlak.Data;
 
 namespace FAEmlak.Controllers
 {
@@ -45,7 +45,7 @@ namespace FAEmlak.Controllers
                     {
                         if (!_favoriteItemService.IsFavorite(userId, PropertyId))
                         {
-                            _favoriteItemService.Create(new Entity.FavoriteItem
+                            _favoriteItemService.Create(new FavoriteItem
                             {
                                 UserId = userId,
                                 PropertyId = PropertyId,

@@ -1,6 +1,5 @@
 ﻿using FAEmlak.Business.Abstract;
-using FAEmlak.Entity;
-using FAEmlak.Identity;
+using FAEmlak.Data;
 using FAEmlak.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -47,9 +46,9 @@ namespace FAEmlak.Controllers
         }
 
         [Route("[controller]/Properties")]
-        public IActionResult PropertiesList()
+        public async Task<IActionResult> PropertiesList()
         {
-            var properties = _propertyService.GetProperties();
+            var properties = await _propertyService.GetPropertiesAsync();
             return View(properties);
         }
 
@@ -175,7 +174,7 @@ namespace FAEmlak.Controllers
         [Route("[controller]/Cities/Create")]
         public IActionResult CreateCity(string CityName)
         {
-            _cityService.Create(new Entity.City {
+            _cityService.Create(new City {
                 Name = CityName
             });;
             return RedirectToAction("CityList");
@@ -247,7 +246,7 @@ namespace FAEmlak.Controllers
         [Route("[controller]/States/Create")]
         public IActionResult CreateState(string Name,int CityId)
         {
-            _stateService.Create(new Entity.State
+            _stateService.Create(new State
             {
                 Name = Name,
                 CityId = CityId

@@ -29,28 +29,16 @@
         <div class="row">
             <div class="col-md-8">
                 <ul id="lightSlider">
-                    <li data-thumb="https://i.imgur.com/KZpuufK.jpg"> <img src="https://i.imgur.com/KZpuufK.jpg" /> </li>
-                    <li data-thumb="https://i.imgur.com/GwiUmQA.jpg"> <img src="https://i.imgur.com/GwiUmQA.jpg" /> </li>
-                    <li data-thumb="https://i.imgur.com/DhKkTrG.jpg"> <img src="https://i.imgur.com/DhKkTrG.jpg" /> </li>
-                    <li data-thumb="https://i.imgur.com/kYWqL7k.jpg"> <img src="https://i.imgur.com/kYWqL7k.jpg" /> </li>
-                    <li data-thumb="https://i.imgur.com/c9uUysL.jpg"> <img src="https://i.imgur.com/c9uUysL.jpg" /> </li>
-                    <li data-thumb="https://i.imgur.com/KZpuufK.jpg"> <img src="https://i.imgur.com/KZpuufK.jpg" /> </li>
-                    <li data-thumb="https://i.imgur.com/GwiUmQA.jpg"> <img src="https://i.imgur.com/GwiUmQA.jpg" /> </li>
-                    <li data-thumb="https://i.imgur.com/DhKkTrG.jpg"> <img src="https://i.imgur.com/DhKkTrG.jpg" /> </li>
-                    <li data-thumb="https://i.imgur.com/kYWqL7k.jpg"> <img src="https://i.imgur.com/kYWqL7k.jpg" /> </li>
-                    <li data-thumb="https://i.imgur.com/c9uUysL.jpg"> <img src="https://i.imgur.com/c9uUysL.jpg" /> </li>
-                    <li data-thumb="https://i.imgur.com/KZpuufK.jpg"> <img src="https://i.imgur.com/KZpuufK.jpg" /> </li>
-                    <li data-thumb="https://i.imgur.com/GwiUmQA.jpg"> <img src="https://i.imgur.com/GwiUmQA.jpg" /> </li>
-                    <li data-thumb="https://i.imgur.com/DhKkTrG.jpg"> <img src="https://i.imgur.com/DhKkTrG.jpg" /> </li>
-                    <li data-thumb="https://i.imgur.com/kYWqL7k.jpg"> <img src="https://i.imgur.com/kYWqL7k.jpg" /> </li>
-                    <li data-thumb="https://i.imgur.com/c9uUysL.jpg"> <img src="https://i.imgur.com/c9uUysL.jpg" /> </li>
+                    @foreach (var item in Model.Photos)
+                    {
+                        <li data-thumb="/img/@Model.ProductId/@item.PhotoPath"> <img src="~/img/@Model.ProductId/@item.PhotoPath" /> </li>
+                    }
                 </ul>
             </div>
             <div class="col-md-4 d-flex flex-column">
                 <h5 class="mb-3">@Model.Price TL</h5>
 
-                <!--REPOSITORY DÜZENLENMELİ-->
-                <h6>İstanbul / Kartal</h6>
+                <h6>@Model.State.City.Name / @Model.State.Name</h6>
 
                 <table class="table table-hover mt-3">
                     <tbody>
@@ -64,7 +52,7 @@
                         </tr>
                         <tr>
                             <td><b>@Html.LabelFor(x => x.RoomCount)</b></td>
-                            <td>@(EnumHelper<FAEmlak.Entity.RoomCount>.GetDisplayValue(Model.RoomCount))</td>
+                            <td>@(EnumHelper<FAEmlak.Data.RoomCount>.GetDisplayValue(Model.RoomCount))</td>
                         </tr>
                         <tr>
                             <td><b>@Html.LabelFor(x => x.BuildingAge)</b></td>
@@ -99,29 +87,21 @@
             </div>
         </div>
     </div>
-    <div class="col-md-3 main-section text-center">
+    <div class="col-md-3 text-right">
         <div class="row">
-            <div class="col-lg-12 col-sm-12 col-12 profile-header"></div>
-        </div>
-        <div class="row user-detail">
             <div class="col-lg-12 col-sm-12 col-12">
-                <img src="/demo/man01.png" class="rounded-circle img-thumbnail">
-                <h5>John Addison</h5>
-                <p><i class="fa fa-map-marker" aria-hidden="true"></i> New Jersey, USA.</p>
+                <h5>@Model.user.FirstName @Model.user.LastName</h5>
+                <p><i class="fa fa-map-marker" aria-hidden="true"></i> İstanbul</p>
 
                 <hr>
-                <a href="#" class="btn btn-success btn-sm">Follow</a>
-                <a href="#" class="btn btn-info btn-sm">Send Messege</a>
-
+                <a asp-controller="Account" asp-action="UsersProperties" asp-route-UserId="@Model.user.Id" class="btn btn-success btn-sm">Tüm İlanları</a>
                 <hr>
-                <span>Lorem ips consectetur adipisium ,eiusmod tempor incididuin reprehendeanim.</span>
+                <h6>Tel: 0554 957 34 26</h6>
             </div>
         </div>
         <div class="row user-social-detail">
             <div class="col-lg-12 col-sm-12 col-12">
-                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                
             </div>
         </div>
     </div>

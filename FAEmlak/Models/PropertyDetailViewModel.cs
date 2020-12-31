@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using FAEmlak.Entity;
+using FAEmlak.Data;
 
 namespace FAEmlak.Models
 {
@@ -10,6 +10,7 @@ namespace FAEmlak.Models
         public Property property { get; set; }
         public bool IsFavorite { get; set; }
 
+        public User user { get; set; }
 
         public int ProductId { get; set; }
         public string Title { get; set; }
