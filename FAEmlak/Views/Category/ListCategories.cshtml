@@ -225,6 +225,7 @@
         <table class="table" cellspacing="0">
             <thead>
                 <tr>
+                    <th>Fotoğraf</th>
                     <th>İlan Başlığı</th>
                     <th>Metrekare</th>
                     <th>Oda Sayisi</th>
@@ -237,14 +238,15 @@
                 @foreach (var property in Model.properties)
                 {
                     String roomCount = EnumHelper<FAEmlak.Data.RoomCount>.GetDisplayValue(property.RoomCount);
-                    <tr>
-                        <td><a asp-controller="Property" asp-action="Detail" asp-route-Id="@property.PropertyId">@property.Title</a></td>
-                        <td>@property.Area</td>
-                        <td>@roomCount</td>
-                        <td>@property.Price</td>
-                        <td>@property.Created.Date.ToString("dd/MM/yyyy")</td>
-                        <td>@property.State.City.Name / @property.State.Name</td>
-                    </tr>
+                <tr>
+                    <td><img src="~/img/@property.PropertyId/@property.Photos[0].PhotoPath" height="70"  /></td>
+                    <td><a asp-controller="Property" asp-action="Detail" asp-route-Id="@property.PropertyId">@property.Title</a></td>
+                    <td>@property.Area</td>
+                    <td>@roomCount</td>
+                    <td>@property.Price</td>
+                    <td>@property.Created.Date.ToString("dd/MM/yyyy")</td>
+                    <td>@property.State.City.Name / @property.State.Name</td>
+                </tr>
                 }
             </tbody>
         </table>

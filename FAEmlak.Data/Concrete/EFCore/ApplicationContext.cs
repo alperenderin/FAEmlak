@@ -289,6 +289,71 @@ namespace FAEmlak.Data.Concrete.EFCore
                 UserId = "1"
             });
 
+            modelBuilder.Entity<Photo>().HasData(new Photo {PhotoId= 1, PropertyId = 1, PhotoPath = $"1.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo {PhotoId= 2, PropertyId = 1, PhotoPath = $"2.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo {PhotoId= 3, PropertyId = 1, PhotoPath = $"3.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo {PhotoId= 4, PropertyId = 1, PhotoPath = $"4.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo {PhotoId= 5, PropertyId = 1, PhotoPath = $"5.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo {PhotoId= 6, PropertyId = 1, PhotoPath = $"6.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo {PhotoId= 7, PropertyId = 1, PhotoPath = $"7.jpg" });
+
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 8, PropertyId = 2, PhotoPath = $"1.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 9, PropertyId = 2, PhotoPath = $"2.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 10, PropertyId = 2, PhotoPath = $"3.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 11, PropertyId = 2, PhotoPath = $"4.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 12, PropertyId = 2, PhotoPath = $"5.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 13, PropertyId = 2, PhotoPath = $"6.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 14, PropertyId = 2, PhotoPath = $"7.jpg" });
+
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 15, PropertyId = 3, PhotoPath = $"1.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 16, PropertyId = 3, PhotoPath = $"2.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 17, PropertyId = 3, PhotoPath = $"3.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 18, PropertyId = 3, PhotoPath = $"4.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 19, PropertyId = 3, PhotoPath = $"5.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 20, PropertyId = 3, PhotoPath = $"6.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 21, PropertyId = 3, PhotoPath = $"7.jpg" });
+
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 22, PropertyId = 4, PhotoPath = $"1.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 23, PropertyId = 4, PhotoPath = $"2.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 24, PropertyId = 4, PhotoPath = $"3.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 25, PropertyId = 4, PhotoPath = $"4.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 26, PropertyId = 4, PhotoPath = $"5.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 27, PropertyId = 4, PhotoPath = $"6.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 28, PropertyId = 4, PhotoPath = $"7.jpg" });
+
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 29, PropertyId = 5, PhotoPath = $"1.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 30, PropertyId = 5, PhotoPath = $"2.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 31, PropertyId = 5, PhotoPath = $"3.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 32, PropertyId = 5, PhotoPath = $"4.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 33, PropertyId = 5, PhotoPath = $"5.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 34, PropertyId = 5, PhotoPath = $"6.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 35, PropertyId = 5, PhotoPath = $"7.jpg" });
+
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 36, PropertyId = 6, PhotoPath = $"1.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 37, PropertyId = 6, PhotoPath = $"2.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 38, PropertyId = 6, PhotoPath = $"3.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 39, PropertyId = 6, PhotoPath = $"4.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 40, PropertyId = 6, PhotoPath = $"5.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 41, PropertyId = 6, PhotoPath = $"6.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 42, PropertyId = 6, PhotoPath = $"7.jpg" });
+
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 43, PropertyId = 7, PhotoPath = $"1.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 44, PropertyId = 7, PhotoPath = $"2.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 45, PropertyId = 7, PhotoPath = $"3.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 46, PropertyId = 7, PhotoPath = $"4.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 47, PropertyId = 7, PhotoPath = $"5.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 48, PropertyId = 7, PhotoPath = $"6.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 49, PropertyId = 7, PhotoPath = $"7.jpg" });
+
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 50, PropertyId = 8, PhotoPath = $"1.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 51, PropertyId = 8, PhotoPath = $"2.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 52, PropertyId = 8, PhotoPath = $"3.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 53, PropertyId = 8, PhotoPath = $"4.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 54, PropertyId = 8, PhotoPath = $"5.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 55, PropertyId = 8, PhotoPath = $"6.jpg" });
+            modelBuilder.Entity<Photo>().HasData(new Photo { PhotoId = 56, PropertyId = 8, PhotoPath = $"7.jpg" });
+
+
         }
     }
 }

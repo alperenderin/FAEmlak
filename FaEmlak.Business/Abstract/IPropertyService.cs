@@ -12,8 +12,8 @@ namespace FAEmlak.Business.Abstract
         void Delete(Property deneme);
         Property GetById(int id);
         Task<Property> GetPropertyByIdAsync(int id);
-        List<Property> GetProperties();
+        Task<List<Property>> GetPropertiesAsync();
         Task<List<Property>> GetPropertiesByUserId(string UserId);
-        List<Property> GetPropertiesByTypeAndCategory(PropertyType propertyType, PropertyCategory propertyCategory);
+        Task<List<Property>> GetPropertiesByTypeAndCategoryAsync(PropertyType propertyType, PropertyCategory propertyCategory);
     }
 }

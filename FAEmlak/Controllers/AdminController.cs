@@ -46,9 +46,9 @@ namespace FAEmlak.Controllers
         }
 
         [Route("[controller]/Properties")]
-        public IActionResult PropertiesList()
+        public async Task<IActionResult> PropertiesList()
         {
-            var properties = _propertyService.GetProperties();
+            var properties = await _propertyService.GetPropertiesAsync();
             return View(properties);
         }
 

@@ -14,26 +14,26 @@ namespace FAEmlak.Data.Concrete.EFCore
 
         }
 
-        public List<Property> GetProperties()
+        public async Task<List<Property>> GetPropertiesAsync()
         {
-            var Properties = ApplicationContext.Properties.Include(i => i.State).ThenInclude(i => i.City).ToList();
-            return Properties;
+            return await ApplicationContext.Properties.Include(i => i.State).ThenInclude(i => i.City).Include(i => i.Photos).ToListAsync();
         }
 
-        public List<Property> GetPropertiesByTypeAndCategory(PropertyType Type, PropertyCategory Category)
+        public async Task<List<Property>> GetPropertiesByTypeAndCategoryAsync(PropertyType Type, PropertyCategory Category)
         {
-            var Properties = ApplicationContext.Properties.
+            var Properties = await ApplicationContext.Properties.
                 Include(i => i.State).
                 ThenInclude(i => i.City).
+                Include(i => i.Photos).
                 Where(i => i.PropertyType == Type).
-                Where(i => i.PropertyCategory == Category).ToList();
+                Where(i => i.PropertyCategory == Category).ToListAsync();
 
             return Properties;
         }
 
         public async Task<Property> GetPropertyByIdAsync(int id)
         {
-            return await ApplicationContext.Properties.Where(i => i.PropertyId == id).Include(i => i.State).ThenInclude(i => i.City).Include(i => i.User).FirstOrDefaultAsync();
+            return await ApplicationContext.Properties.Where(i => i.PropertyId == id).Include(i => i.State).ThenInclude(i => i.City).Include(i => i.User).Include(i => i.Photos).FirstOrDefaultAsync();
         }
 
         public async Task<List<Property>> GetPropertiesByUserId(string UserId)

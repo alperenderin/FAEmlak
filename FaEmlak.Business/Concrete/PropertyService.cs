@@ -36,14 +36,14 @@ namespace FAEmlak.Business.Concrete
             return _unitOfWork.Properties.GetById(id);
         }
 
-        public List<Property> GetProperties()
+        public async Task<List<Property>> GetPropertiesAsync()
         {
-            return _unitOfWork.Properties.GetProperties();
+            return await _unitOfWork.Properties.GetPropertiesAsync();
         }
 
-        public List<Property> GetPropertiesByTypeAndCategory(PropertyType propertyType, PropertyCategory propertyCategory)
+        public async Task<List<Property>> GetPropertiesByTypeAndCategoryAsync(PropertyType propertyType, PropertyCategory propertyCategory)
         {
-            return _unitOfWork.Properties.GetPropertiesByTypeAndCategory(propertyType, propertyCategory);
+            return await _unitOfWork.Properties.GetPropertiesByTypeAndCategoryAsync(propertyType, propertyCategory);
         }
 
         public async Task<Property> GetPropertyByIdAsync(int id)

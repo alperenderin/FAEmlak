@@ -46,6 +46,7 @@ namespace FAEmlak.Controllers
                 State = _property.State,
                 Created = _property.Created,
                 Description = _property.Description,
+                Photos = _property.Photos,
                 IsFavorite = isFavorite
             }) ;
         }
