@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -19,17 +20,21 @@ namespace FAEmlak.Data
         public string UserId { get; set; }
         public User User { get; set; }
 
+        [Display(Name ="Title")]
         public string Title { get; set; }
         public int Price { get; set; }
         public int Area { get; set; }
         public string Description { get; set; }
 
+        [DisplayName("Property Type")]
         public PropertyType PropertyType { get; set; }
         public PropertyCategory PropertyCategory { get; set; }
         public PropertyStatus Status { get; set; }
         public RoomCount RoomCount { get; set; }
+        [DisplayName("Has Balcony?")]
         public bool HasBalcony { get; set; }
         public bool HasStuff { get; set; }
+        [Display(Name = "Building Age")]
         public byte BuildingAge { get; set; }
         public byte BathroomCount { get; set; }
         public bool IsInSite { get; set; }

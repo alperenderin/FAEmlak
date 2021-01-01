@@ -15,7 +15,7 @@ namespace FAEmlak.Data.Concrete.EFCore
 
         public List<FavoriteItem> GetFavoriteItems(String UserId)
         {
-            var favoriteItems = ApplicationContext.FavoriteItems.Include(i => i.Property).ThenInclude(i => i.State).ThenInclude(i=> i.City).Where(i => i.UserId == UserId).ToList();
+            var favoriteItems = ApplicationContext.FavoriteItems.Include(i => i.Property).ThenInclude(i => i.State).ThenInclude(i=> i.City).Include(i=> i.Property.Photos).Where(i => i.UserId == UserId).ToList();
             return favoriteItems;
         }
 

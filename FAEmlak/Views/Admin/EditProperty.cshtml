@@ -1,0 +1,252 @@
+﻿@using FAEmlak.Helpers
+@using FAEmlak.Data
+@model Property
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "İlan Düzenle";
+}
+
+@section Stylesheets{
+    <link rel="stylesheet" href="~/admin/css/bootstrap-select/bootstrap-select.css">
+    <link rel="stylesheet" href="~/admin/lib/summernote/summernote.min.css">
+}
+
+<div class="breadcomb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="breadcomb-list">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="breadcomb-wp">
+                                <div class="breadcomb-icon">
+                                    <i class="notika-icon notika-support"></i>
+                                </div>
+                                <div class="breadcomb-ctn">
+                                    <h2>İlan Düzenle</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="data-table-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-element-list">
+                    <form method="post" enctype="multipart/form-data" asp-controller="Admin" asp-action="EditProperty">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    @Html.LabelFor(x => x.Title)
+                                    <div class="nk-int-st">
+                                        @Html.TextBoxFor(x => x.Title, new { @class = "form-control input-lg" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                <div class="form-group ic-cmp-int">
+                                    @Html.LabelFor(x => x.PropertyCategory)
+                                    <div class="nk-int-st">
+                                        <select asp-for="PropertyCategory"
+                                                class="form-control"
+                                                asp-items="Html.GetEnumSelectList<PropertyCategory>()">
+                                            <option>Select Category ...</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                <div class="form-group ic-cmp-int">
+                                    @Html.LabelFor(x => x.PropertyType)
+                                    <div class="nk-int-st">
+                                        <select asp-for="PropertyType"
+                                                class="form-control"
+                                                asp-items="Html.GetEnumSelectList<PropertyType>()">
+                                            <option>Select Type ...</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                <div class="form-group ic-cmp-int">
+                                    <label>İl</label>
+                                    <div class="nk-int-st">
+                                        <select asp-items="@ViewBag.Cities" id="CitySelector" class="form-control">
+                                            <option>İl seçiniz</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                <div class="form-group ic-cmp-int">
+                                    <label>İlçe</label>
+                                    <div class="nk-int-st">
+                                        <select id="StateList" name="StateId" class="form-control">
+                                            <option>İlçe Seçin</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                <div class="form-group ic-cmp-int">
+                                    @Html.LabelFor(x => x.RoomCount)
+                                    <div class="nk-int-st">
+                                        <select asp-for="PropertyType"
+                                                class="form-control"
+                                                asp-items="Html.GetEnumSelectList<RoomCount>()">
+                                            <option>Select Count ...</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                <div class="form-group ic-cmp-int">
+                                    @Html.LabelFor(x => x.Price)
+                                    <div class="form-group">
+                                        <div class="nk-int-st">
+                                            @Html.EditorFor(x => x.Price, new { htmlAttributes = new { @type = "number", @min = "0", @class = "form-control" } })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                <div class="form-group ic-cmp-int">
+                                    @Html.LabelFor(x => x.Area)
+                                    <div class="form-group">
+                                        <div class="nk-int-st">
+                                            @Html.EditorFor(x => x.Area, new { htmlAttributes = new { @type = "number", @min = "0", @class = "form-control" } })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                <div class="form-group ic-cmp-int">
+                                    @Html.LabelFor(x => x.FloorCount)
+                                    <div class="form-group">
+                                        <div class="nk-int-st">
+                                            @Html.EditorFor(x => x.FloorCount, new { htmlAttributes = new { @type = "number", @min = "0", @class = "form-control" } })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                <div class="form-group ic-cmp-int">
+                                    @Html.LabelFor(x => x.WhichFloor)
+                                    <div class="form-group">
+                                        <div class="nk-int-st">
+                                            @Html.EditorFor(x => x.WhichFloor, new { htmlAttributes = new { @type = "number", @min = "0", @class = "form-control" } })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                <div class="form-group ic-cmp-int">
+                                    @Html.LabelFor(x => x.BathroomCount)
+                                    <div class="form-group">
+                                        <div class="nk-int-st">
+                                            @Html.EditorFor(x => x.BathroomCount, new { htmlAttributes = new { @type = "number", @min = "0", @class = "form-control" } })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                <div class="form-group ic-cmp-int">
+                                    @Html.LabelFor(x => x.BuildingAge)
+                                    <div class="form-group">
+                                        <div class="nk-int-st">
+                                            @Html.EditorFor(x => x.BuildingAge, new { htmlAttributes = new { @type = "number", @min = "0", @class="form-control" } })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom: 20px">
+                            <div class="col-sm-2">
+                                <div class="form-check">
+                                    @Html.CheckBoxFor(x => x.HasBalcony, new { @class = "form-check-input" })
+                                    @Html.LabelFor(x => x.HasBalcony, new { @class = "form-check-label" })
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-check">
+                                    @Html.CheckBoxFor(x => x.HasStuff, new { @class = "form-check-input" })
+                                    @Html.LabelFor(x => x.HasStuff, new { @class = "form-check-label" })
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-check">
+                                    @Html.CheckBoxFor(x => x.IsInSite, new { @class = "form-check-input" })
+                                    @Html.LabelFor(x => x.IsInSite, new { @class = "form-check-label" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                @Html.LabelFor(model => model.Description)
+                                @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @row = 5 })
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>İlan Fotoğrafları (CTRL'ye basarak çoklu seçim yapabilirsiniz.)</label>
+                                <input class="form-control" name="files" multiple="multiple" type="file" />
+                            </div>
+                        </div>
+
+                        <div class="row text-center" style="margin-top: 15px;">
+                            <button type="submit" class="btn btn-primary notika-btn-primary btn-md waves-effect">Oluştur</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/admin/js/bootstrap-select/bootstrap-select.js"></script>
+    <script src="~/admin/lib/summernote/summernote.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#Description').summernote({
+                height: 200, 
+                minHeight: null,             
+                maxHeight: null,
+                focus: true
+            }); 
+
+            $("#CitySelector").change(function () {
+                $("#StateList").empty();
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("LoadState")',
+                    dataType: 'json',
+                    data: { CityId: $("#CitySelector").val() },
+                    success: function (states) {
+                        $.each(states, function (i, state) {
+                            console.log(i);
+                            $("#StateList").append('<option value="' + state.value + '">' + state.text + '</option>');
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex);
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+}

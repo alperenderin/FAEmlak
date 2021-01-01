@@ -33,5 +33,6 @@
     <Folder Include="wwwroot\img\" />
     <Folder Include="Resources\" />
     <Folder Include="Resources\Views\" />
+    <Folder Include="wwwroot\admin\lib\" />
   </ItemGroup>
 </Project>

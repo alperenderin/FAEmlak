@@ -2,12 +2,16 @@
 using FAEmlak.Data;
 using FAEmlak.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.FileProviders;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -23,6 +27,7 @@ namespace FAEmlak.Controllers
         private IStateService _stateService;
         private IPhotoService _photoService;
         private readonly IHtmlLocalizer<AdminController> _localizer;
+        private IWebHostEnvironment _environment;
 
         public AdminController(RoleManager<IdentityRole> roleManager,
             IPropertyService propertyService,
@@ -30,7 +35,9 @@ namespace FAEmlak.Controllers
             ICityService cityService,
             IStateService stateService,
             IPhotoService photoService,
-            IHtmlLocalizer<AdminController> localizer)
+            IHtmlLocalizer<AdminController> localizer,
+            IWebHostEnvironment environment
+            )
         {
             _roleManager = roleManager;
             _propertyService = propertyService;
@@ -39,6 +46,7 @@ namespace FAEmlak.Controllers
             _stateService = stateService;
             _photoService = photoService;
             _localizer = localizer;
+            _environment = environment;
         }
 
         public IActionResult Index()
@@ -310,6 +318,143 @@ namespace FAEmlak.Controllers
         {
             ViewBag.Cities = new SelectList(await _cityService.GetCitiesAsync(), "CityId", "Name");
             return View();
+        }
+
+        [HttpGet]
+        [Route("[controller]/Properties/{PropertyId}")]
+        public async Task<IActionResult> EditProperty(int PropertyId)
+        {
+            var property = await _propertyService.GetPropertyByIdAsync(PropertyId);
+            ViewBag.Cities = new SelectList(await _cityService.GetCitiesAsync(), "CityId", "Name");
+            return View(property);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Route("[controller]/Properties/{PropertyId}")]
+        public async Task<IActionResult> EditProperty(Property property, List<IFormFile> files)
+        {
+            if (files is null)
+            {
+                throw new ArgumentNullException(nameof(files));
+            }
+
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByEmailAsync(User.Identity.Name);
+                property.UserId = user.Id;
+                _propertyService.Update(property);
+
+                //Fotoğraf işlemleri
+                if (files.Count > 0)
+                {
+                    var propertyPhotos = await _photoService.GetPhotosByPropertyId(property.PropertyId);
+                    if (propertyPhotos.Count > 0)
+                    {
+                        for (int i = 0; i < property.Photos.Count; i++)
+                        {
+                            _photoService.Delete(property.Photos[i]);
+                        }
+                    }
+
+                    foreach (var file in files.ToList())
+                    {
+                        if (file.Length > 0)
+                        {
+
+                            //Dosya ismini alıyoruz
+                            var fileName = Path.GetFileName(file.FileName);
+                            //Benzersiz isim tanımlıyoruz (Guid)
+                            var uniqueFileName = Convert.ToString(Guid.NewGuid());
+                            //Dosya uzantısını alıyouz
+                            var fileExtension = Path.GetExtension(fileName);
+
+                            var newFileName = String.Concat(uniqueFileName, fileExtension);
+
+                            string wwwPath = _environment.WebRootPath;
+
+                            string folderPath = Path.Combine(wwwPath, $"img/{property.PropertyId}");
+
+                            if (!Directory.Exists(folderPath))
+                            {
+                                Directory.CreateDirectory(folderPath);
+                            }
+
+                            string filePath = Path.Combine(folderPath, newFileName);
+
+                            using (FileStream fs = System.IO.File.Create(filePath))
+                            {
+                                file.CopyTo(fs);
+                                fs.Flush();
+                            }
+
+                            _photoService.Create(new Photo
+                            {
+                                PhotoPath = newFileName,
+                                PropertyId = property.PropertyId
+                            });
+                        }
+                    }
+                }
+
+
+                return RedirectToAction("PropertiesList");
+            }
+
+            return NotFound();
+        }
+
+        [HttpPost]
+        [Route("[controller]/Properties/Add")]
+        public async Task<IActionResult> CreateProperty(Property model, List<IFormFile> files)
+        {
+            var user = await _userManager.FindByEmailAsync(User.Identity.Name);
+            model.UserId = user.Id;
+            _propertyService.Create(model);
+
+            //Fotoğraf işlemleri
+            if (files.Count > 0)
+            {
+                foreach (var file in files.ToList())
+                {
+                    if (file.Length > 0)
+                    {
+                        //Dosya ismini alıyoruz
+                        var fileName = Path.GetFileName(file.FileName);
+                        //Benzersiz isim tanımlıyoruz (Guid)
+                        var uniqueFileName = Convert.ToString(Guid.NewGuid());
+                        //Dosya uzantısını alıyouz
+                        var fileExtension = Path.GetExtension(fileName);
+
+                        var newFileName = String.Concat(uniqueFileName, fileExtension);
+
+                        string wwwPath = _environment.WebRootPath;
+
+                        string folderPath = Path.Combine(wwwPath, $"img/{model.PropertyId}");
+
+                        if (!Directory.Exists(folderPath))
+                        {
+                            Directory.CreateDirectory(folderPath);
+                        }
+
+                        string filePath = Path.Combine(folderPath, newFileName);
+
+                        using (FileStream fs = System.IO.File.Create(filePath))
+                        {
+                            file.CopyTo(fs);
+                            fs.Flush();
+                        }
+
+                        _photoService.Create(new Photo {
+                            PhotoPath = newFileName,
+                            PropertyId = model.PropertyId
+                        });
+                    }
+                }
+            }
+
+            return RedirectToAction("PropertiesList");
         }
 
 

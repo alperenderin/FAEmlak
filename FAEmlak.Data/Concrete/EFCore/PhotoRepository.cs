@@ -26,7 +26,7 @@ namespace FAEmlak.Data.Concrete.EFCore
 
         public async Task<List<Photo>> GetPhotosByPropertyId(int PropertyId)
         {
-            return await ApplicationContext.Photos.Include(i => i.PropertyId == PropertyId).ToListAsync();
+            return await ApplicationContext.Photos.Where(i => i.PropertyId == PropertyId).ToListAsync();
         }
 
         private ApplicationContext ApplicationContext

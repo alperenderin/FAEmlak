@@ -6,11 +6,12 @@
 }
 
 <div class="row">
-    <div class="col-md-10">
-        <h5>Favori İlanlarım</h5>
+    <div class="col-md-12">
+        <h5>Favori ilanlarınız</h5>
         <table class="table" cellspacing="0">
             <thead>
                 <tr>
+                    <th>Fotoğraf</th>
                     <th>İlan Başlığı</th>
                     <th>Metrekare</th>
                     <th>Oda Sayisi</th>
@@ -20,19 +21,20 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model.favoriteItems)
+                @foreach (var property in Model.favoriteItems)
                 {
+                    String roomCount = EnumHelper<FAEmlak.Data.RoomCount>.GetDisplayValue(property.Property.RoomCount);
                     <tr>
-                        <td><a asp-controller="Property" asp-action="Detail" asp-route-Id="@item.PropertyId">@item.Property.Title</a></td>
-                        <td>@item.Property.Area</td>
-                        <td>---</td>
-                        <td>@item.Property.Price</td>
-                        <td>@item.Property.Created.Date.ToString("dd/MM/yyyy")</td>
-                        <td>@item.Property.State.City.Name / @item.Property.State.Name</td>
+                        <td><img src="~/img/@property.PropertyId/@property.Property.Photos[0].PhotoPath" height="70" /></td>
+                        <td><a asp-controller="Property" asp-action="Detail" asp-route-Id="@property.PropertyId">@property.Property.Title</a></td>
+                        <td>@property.Property.Area</td>
+                        <td>@roomCount</td>
+                        <td>@property.Property.Price</td>
+                        <td>@property.Property.Created.Date.ToString("dd/MM/yyyy")</td>
+                        <td>@property.Property.State.City.Name / @property.Property.State.Name</td>
                     </tr>
                 }
             </tbody>
         </table>
     </div>
-
 </div>

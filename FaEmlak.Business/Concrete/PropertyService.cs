@@ -23,7 +23,7 @@ namespace FAEmlak.Business.Concrete
 
         public void Update(Property entity)
         {
-            throw new NotImplementedException();
+            _unitOfWork.Properties.Update(entity);
         }
 
         public void Delete(Property entity)

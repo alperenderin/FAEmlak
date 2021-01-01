@@ -1,5 +1,6 @@
 ﻿@using FAEmlak.Helpers
 @using FAEmlak.Data
+@model Property
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
     ViewData["Title"] = "İlan Ekle";
@@ -7,7 +8,7 @@
 
 @section Stylesheets{
     <link rel="stylesheet" href="~/admin/css/bootstrap-select/bootstrap-select.css">
-    <link rel="stylesheet" href="~/admin/css/summernote/summernote.css">
+    <link rel="stylesheet" href="~/admin/lib/summernote/summernote.min.css">
 }
 
 <div class="breadcomb-area">
@@ -32,20 +33,19 @@
         </div>
     </div>
 </div>
-<!-- Breadcomb area End-->
-<!-- Data Table area Start-->
+
 <div class="data-table-area">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-element-list">
-                    <form method="post" asp-controller="Admin" asp-action="CreateUser">
+                    <form method="post" enctype="multipart/form-data" asp-controller="Admin" asp-action="CreateProperty">
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label>İlan Başlığı</label>
+                                    @Html.LabelFor(x => x.Title)
                                     <div class="nk-int-st">
-                                        <input type="text" name="Title" class="form-control input-lg" placeholder="İlan Başlığı">
+                                        @Html.TextBoxFor(x => x.Title, new { @class = "form-control input-lg" })
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +103,7 @@
                                 <div class="form-group ic-cmp-int">
                                     <label>Oda Sayısı</label>
                                     <div class="nk-int-st">
-                                        <select id="role" name="PropertyType" class="form-control">
+                                        <select id="role" name="RoomCount" class="form-control">
                                             @foreach (RoomCount roomCount in Enum.GetValues(typeof(RoomCount)))
                                             {
                                                 String title = EnumHelper<RoomCount>.GetDisplayValue(roomCount);
@@ -117,72 +117,60 @@
                         <div class="row">
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                                 <div class="form-group ic-cmp-int">
-                                    <label>Fiyat</label>
-                                    <div class="nk-int-st">
-                                        <div class="form-group">
-                                            <div class="nk-int-st">
-                                                <input type="number" class="form-control" name="Price">
-                                            </div>
+                                    @Html.LabelFor(x => x.Price)
+                                    <div class="form-group">
+                                        <div class="nk-int-st">
+                                            @Html.EditorFor(x => x.Price, new { htmlAttributes = new { @type = "number", @min = "0", @class = "form-control" } })
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                                 <div class="form-group ic-cmp-int">
-                                    <label>Alan m²</label>
-                                    <div class="nk-int-st">
-                                        <div class="form-group">
-                                            <div class="nk-int-st">
-                                                <input type="number" class="form-control" name="Area">
-                                            </div>
+                                    @Html.LabelFor(x => x.Area)
+                                    <div class="form-group">
+                                        <div class="nk-int-st">
+                                            @Html.EditorFor(x => x.Area, new { htmlAttributes = new { @type = "number", @min = "0", @class = "form-control" } })
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                                 <div class="form-group ic-cmp-int">
-                                    <label>Kat Sayısı</label>
-                                    <div class="nk-int-st">
-                                        <div class="form-group">
-                                            <div class="nk-int-st">
-                                                <input type="number" class="form-control" name="FloorCount">
-                                            </div>
+                                    @Html.LabelFor(x => x.FloorCount)
+                                    <div class="form-group">
+                                        <div class="nk-int-st">
+                                            @Html.EditorFor(x => x.FloorCount, new { htmlAttributes = new { @type = "number", @min = "0", @class = "form-control" } })
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                                 <div class="form-group ic-cmp-int">
-                                    <label>Kaçıncı Kat</label>
-                                    <div class="nk-int-st">
-                                        <div class="form-group">
-                                            <div class="nk-int-st">
-                                                <input type="number" class="form-control" name="WhichFloor">
-                                            </div>
+                                    @Html.LabelFor(x => x.WhichFloor)
+                                    <div class="form-group">
+                                        <div class="nk-int-st">
+                                            @Html.EditorFor(x => x.WhichFloor, new { htmlAttributes = new { @type = "number", @min = "0", @class = "form-control" } })
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                                 <div class="form-group ic-cmp-int">
-                                    <label>Banyo Sayısı</label>
-                                    <div class="nk-int-st">
-                                        <div class="form-group">
-                                            <div class="nk-int-st">
-                                                <input type="number" class="form-control" name="WhichFloor">
-                                            </div>
+                                    @Html.LabelFor(x => x.BathroomCount)
+                                    <div class="form-group">
+                                        <div class="nk-int-st">
+                                            @Html.EditorFor(x => x.BathroomCount, new { htmlAttributes = new { @type = "number", @min = "0", @class = "form-control" } })
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                                 <div class="form-group ic-cmp-int">
-                                    <label>Bina Yaşı</label>
-                                    <div class="nk-int-st">
-                                        <div class="form-group">
-                                            <div class="nk-int-st">
-                                                <input type="number" class="form-control" name="BuildingAge">
-                                            </div>
+                                    @Html.LabelFor(x => x.BuildingAge)
+                                    <div class="form-group">
+                                        <div class="nk-int-st">
+                                            @Html.EditorFor(x => x.BuildingAge, new { htmlAttributes = new { @type = "number", @min = "0", @class="form-control" } })
                                         </div>
                                     </div>
                                 </div>
@@ -191,36 +179,38 @@
                         <div class="row" style="margin-bottom: 20px">
                             <div class="col-sm-2">
                                 <div class="form-check">
-                                    <input class="form-check-input" name="HasBalcony" type="checkbox" id="HasBalcony">
-                                    <label class="form-check-label" for="HasBalcony">
-                                        Balkonu var mı?
-                                    </label>
+                                    @Html.CheckBoxFor(x => x.HasBalcony, new { @class = "form-check-input" })
+                                    @Html.LabelFor(x => x.HasBalcony, new { @class = "form-check-label" })
                                 </div>
                             </div>
                             <div class="col-sm-2">
                                 <div class="form-check">
-                                    <input class="form-check-input" name="HasStuff" type="checkbox" id="HasStuff">
-                                    <label class="form-check-label" for="HasStuff">
-                                        Eşyalı mı?
-                                    </label>
+                                    @Html.CheckBoxFor(x => x.HasStuff, new { @class = "form-check-input" })
+                                    @Html.LabelFor(x => x.HasStuff, new { @class = "form-check-label" })
                                 </div>
                             </div>
                             <div class="col-sm-2">
                                 <div class="form-check">
-                                    <input class="form-check-input" name="IsInSite" type="checkbox" id="IsInSite">
-                                    <label class="form-check-label" for="IsInSite">
-                                        Site içinde mi?
-                                    </label>
+                                    @Html.CheckBoxFor(x => x.IsInSite, new { @class = "form-check-input" })
+                                    @Html.LabelFor(x => x.IsInSite, new { @class = "form-check-label" })
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <label>İlan Açıklaması</label>
-                                <div class="html-editor"></div>
+                                @Html.LabelFor(model => model.Description)
+                                @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @row = 5 })
                             </div>
                         </div>
-                        <div class="row text-center">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>İlan Fotoğrafları (CTRL'ye basarak çoklu seçim yapabilirsiniz.)</label>
+                                <input class="form-control" name="files" multiple="multiple" type="file" />
+                            </div>
+                        </div>
+
+                        <div class="row text-center" style="margin-top: 15px;">
                             <button type="submit" class="btn btn-primary notika-btn-primary btn-md waves-effect">Oluştur</button>
                         </div>
                     </form>
@@ -232,11 +222,18 @@
 
 @section Scripts{
     <script src="~/admin/js/bootstrap-select/bootstrap-select.js"></script>
-    <script src="~/admin/js/summernote/summernote-updated.min.js"></script>
-    <script src="~/admin/js/summernote/summernote-active.js"></script>
+    <script src="~/admin/lib/summernote/summernote.min.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
+
+            $('#Description').summernote({
+                height: 200, 
+                minHeight: null,             
+                maxHeight: null,
+                focus: true
+            }); 
+
             $("#CitySelector").change(function () {
                 $("#StateList").empty();
                 $.ajax({
