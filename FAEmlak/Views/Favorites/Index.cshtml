@@ -1,8 +1,9 @@
 ﻿@model FAEmlak.Models.ListFavoriteItemsModel
 @using FAEmlak.Helpers
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 @using FAEmlak.Data
 @{
-    ViewData["Title"] = "Favoriler";
+    ViewData["Title"] = Localizer["PageTitle"];
 }
 
 <div class="row">
@@ -11,13 +12,13 @@
         <table class="table" cellspacing="0">
             <thead>
                 <tr>
-                    <th>Fotoğraf</th>
-                    <th>İlan Başlığı</th>
-                    <th>Metrekare</th>
-                    <th>Oda Sayisi</th>
-                    <th>Fiyat</th>
-                    <th>İlan Tarihi</th>
-                    <th>İl/İlçe</th>
+                    <th>@Localizer["Photo"]</th>
+                    <th>@Localizer["Title"]</th>
+                    <th>@Localizer["Area"]</th>
+                    <th>@Localizer["RoomCount"]</th>
+                    <th>@Localizer["Price"]</th>
+                    <th>@Localizer["Created"]</th>
+                    <th>@Localizer["City"]</th>
                 </tr>
             </thead>
             <tbody>

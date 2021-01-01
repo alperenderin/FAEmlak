@@ -1,7 +1,9 @@
 ﻿@model FAEmlak.Models.AdminStateViewModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-    ViewData["Title"] = "İlçe Düzenle";
+    ViewData["Title"] = Localizer["PageTitle"];
 }
 
 @section Stylesheets{
@@ -20,7 +22,7 @@
                                     <i class="notika-icon notika-support"></i>
                                 </div>
                                 <div class="breadcomb-ctn">
-                                    <h2>Şehir Düzenle</h2>
+                                    <h2>@Localizer["PageTitle"]</h2>
                                 </div>
                             </div>
                         </div>
@@ -42,9 +44,7 @@
                             <input type="hidden" name="Id" value="@Model.state.Id">
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group ic-cmp-int">
-                                    <div class="form-ic-cmp">
-                                        <i class="notika-icon notika-support"></i>
-                                    </div>
+                                    <label>@Localizer["State"]</label>
                                     <div class="nk-int-st">
                                         <input type="text" id="Name" name="Name" class="form-control" value="@Model.state.Name" required placeholder="İlçe Adı">
                                     </div>
@@ -52,9 +52,7 @@
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group ic-cmp-int">
-                                    <div class="form-ic-cmp">
-                                        <i class="notika-icon notika-windows"></i>
-                                    </div>
+                                    <label>@Localizer["City"]</label>
                                     <div class="bootstrap-select fm-cmp-mg">
                                         <select id="role" name="CityId" class="selectpicker">
                                             @foreach (var item in Model.cities)
@@ -66,7 +64,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <button type="submit" class="btn btn-primary notika-btn-primary btn-md waves-effect">Düzenle</button>
+                                <button type="submit" class="btn btn-primary notika-btn-primary btn-md waves-effect">@Localizer["Update"]</button>
                             </div>
                         </div>
                     </form>

@@ -1,5 +1,7 @@
 ﻿@model FAEmlak.Models.PropertyDetailViewModel
 @using FAEmlak.Helpers
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
 
 @section Stylesheets {
     <link href="~/lib/lightslider/css/lightslider.min.css" rel="stylesheet" />
@@ -16,11 +18,11 @@
     </h5>
     @if (Model.IsFavorite)
     {
-        <a href="#" id="RemoveFromFavorite"><h6 id="remove-favorite">Favorilerimden Çıkar</h6></a>
+        <a href="#" id="RemoveFromFavorite"><h6 id="remove-favorite">@Localizer["RemoveFromFavorite"]</h6></a>
     }
     else
     {
-        <a href="#" id="AddToFavorite"><h6 id="add-favorite">Favorilerime Ekle</h6></a>
+        <a href="#" id="AddToFavorite"><h6 id="add-favorite">@Localizer["AddToFavorite"]</h6></a>
     }
 </div>
 
@@ -72,15 +74,15 @@
                         </tr>
                         <tr>
                             <td><b>@Html.LabelFor(x => x.HasBalcony)</b></td>
-                            <td>@(Model.HasBalcony ? "Var" : "Yok")</td>
+                            <td>@(Model.HasBalcony ? @Localizer["Yes"] : @Localizer["No"])</td>
                         </tr>
                         <tr>
                             <td><b>@Html.LabelFor(x => x.HasStuff)</b></td>
-                            <td>@(Model.HasStuff ? "Evet" : "Hayır")</td>
+                            <td>@(Model.HasStuff ? @Localizer["Yes"] : @Localizer["No"])</td>
                         </tr>
                         <tr>
                             <td><b>@Html.LabelFor(x => x.IsInSite)</b></td>
-                            <td>@(Model.IsInSite ? "Evet" : "Evet")</td>
+                            <td>@(Model.IsInSite ? @Localizer["Yes"] : @Localizer["No"])</td>
                         </tr>
                     </tbody>
                 </table>
@@ -91,17 +93,16 @@
         <div class="row">
             <div class="col-lg-12 col-sm-12 col-12">
                 <h5>@Model.user.FirstName @Model.user.LastName</h5>
-                <p><i class="fa fa-map-marker" aria-hidden="true"></i> İstanbul</p>
+                <p><i class="fa fa-map-marker" aria-hidden="true"></i> @Model.State.City.Name</p>
 
                 <hr>
-                <a asp-controller="Account" asp-action="UsersProperties" asp-route-UserId="@Model.user.Id" class="btn btn-success btn-sm">Tüm İlanları</a>
+                <a asp-controller="Account" asp-action="UsersProperties" asp-route-UserId="@Model.user.Id" class="btn btn-success btn-sm">@Localizer["AllProperties"]</a>
                 <hr>
-                <h6>Tel: 0554 957 34 26</h6>
             </div>
         </div>
         <div class="row user-social-detail">
             <div class="col-lg-12 col-sm-12 col-12">
-                
+
             </div>
         </div>
     </div>
@@ -110,7 +111,7 @@
 <div class="row mt-4">
     <div class="col-md-12 search-menu">
         <div class="nav nav-pills" id="nav-tab" role="tablist">
-            <a class="nav-link mr-2 active" id="nav-profile-tab" data-toggle="tab" href="#description" role="tab" aria-controls="nav-profile" aria-selected="false">İlan Açıklaması</a>
+            <a class="nav-link mr-2 active" id="nav-profile-tab" data-toggle="tab" href="#description" role="tab" aria-controls="nav-profile" aria-selected="false">@Localizer["PropertyDetail"]</a>
         </div>
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="home-tab">

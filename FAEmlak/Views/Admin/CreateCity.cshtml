@@ -1,8 +1,9 @@
 ﻿@using FAEmlak.Helpers
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-    ViewData["Title"] = "Şehir Ekle";
+    ViewData["Title"] = Localizer["PageTitle"];
 }
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 <div class="breadcomb-area">
     <div class="container">
@@ -16,7 +17,7 @@
                                     <i class="notika-icon notika-support"></i>
                                 </div>
                                 <div class="breadcomb-ctn">
-                                    <h2>Şehir Ekle</h2>
+                                    <h2>@Localizer["PageTitle"]</h2>
                                 </div>
                             </div>
                         </div>
@@ -37,16 +38,14 @@
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group ic-cmp-int">
-                                    <div class="form-ic-cmp">
-                                        <i class="notika-icon notika-support"></i>
-                                    </div>
+                                    <label>@Localizer["CityName"]</label>
                                     <div class="nk-int-st">
-                                        <input type="text" id="CityName" name="CityName" class="form-control" required placeholder="Şehir Adı">
+                                        <input type="text" id="CityName" name="CityName" class="form-control" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <button type="submit" class="btn btn-primary notika-btn-primary btn-md waves-effect">Oluştur</button>
+                                <button type="submit" class="btn btn-primary notika-btn-primary btn-md waves-effect">@Localizer["Create"]</button>
                             </div>
                         </div>
                     </form>

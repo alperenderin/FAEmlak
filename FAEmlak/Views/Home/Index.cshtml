@@ -3,25 +3,21 @@
 @using FAEmlak.Data
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
-@{ ViewData["Title"] = "Home Page"; }
-
-
-<h2>@Localizer["HelloWorld"].</h2>
+@{ ViewData["Title"] = Localizer["PageTitle"]; }
 
 <div class="row mb-5">
     <div class="col-md-3 d-flex flex-column">
-        <h5>Real Estate</h5>
         <ul class="list-group list-group-flush">
             @foreach (PropertyType propertyType in Enum.GetValues(typeof(PropertyType)))
             {
-                String title = EnumHelper<PropertyType>.GetDisplayValue(propertyType);
-
-<li class="list-group-item">@title</li>
+                <li class="list-group-item">@Localizer[$"{propertyType.ToString()}"]</li>
                 <ul>
-                    <li><a asp-controller="Category" asp-action="ListCategories" asp-route-propertyType="@propertyType.ToString()" asp-route-propertyCategory="ForSale">Satilik</a></li>
-                    <li><a asp-controller="Category" asp-action="ListCategories" asp-route-propertyType="@propertyType.ToString()" asp-route-propertyCategory="ForRent">Kiralik</a></li>
-                    <li><a asp-controller="Category" asp-action="ListCategories" asp-route-propertyType="@propertyType.ToString()" asp-route-propertyCategory="DailyRental">Gunluk Kiralik</a></li>
-                </ul>            }
+                    @foreach (PropertyCategory propertyCategory in Enum.GetValues(typeof(PropertyCategory)))
+                    {
+                        <li><a asp-controller="Category" asp-action="ListCategories" asp-route-propertyType="@propertyType.ToString()" asp-route-propertyCategory="@propertyCategory.ToString()">@Localizer[$"{propertyCategory.ToString()}"]</a></li>
+                    }
+                </ul>
+       }
         </ul>
     </div>
     @* ============================================================================================================================================================================================================ *@

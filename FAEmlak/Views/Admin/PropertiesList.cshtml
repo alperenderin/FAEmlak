@@ -1,13 +1,14 @@
 ﻿@model List<FAEmlak.Data.Property>
 @using FAEmlak.Helpers
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-    ViewData["Title"] = "İlanlar";
+    ViewData["Title"] = Localizer["PageTitle"];
 }
 
 @section Stylesheets{
-<!-- Data Table JS
-		============================================ -->
+    <!-- Data Table JS
+            ============================================ -->
     <link rel="stylesheet" href="css/jquery.dataTables.min.css">
 }
 
@@ -23,8 +24,8 @@
                                     <i class="notika-icon notika-house"></i>
                                 </div>
                                 <div class="breadcomb-ctn">
-                                    <h2>İlanlar</h2>
-                                    <p>Sitedeki ilanlar burada listelenir.</p>
+                                    <h2>@Localizer["PageTitle"]</h2>
+                                    <p>@Localizer["YouCanList"]</p>
                                 </div>
                             </div>
                         </div>
@@ -45,45 +46,45 @@
                         <table id="data-table-basic" class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>İlan Başlığı</th>
-                                    <th>m²</th>
-                                    <th>Oda Saysı</th>
-                                    <th>İl / İlçe</th>
-                                    <th>Fiyat</th>
-                                    <th>Oluşturma Tarihi</th>
-                                    <th>İşlemler</th>
+                                    <th>@Localizer["Title"]</th>
+                                    <th>@Localizer["Area"]</th>
+                                    <th>@Localizer["RoomCount"]</th>
+                                    <th>@Localizer["Place"]</th>
+                                    <th>@Localizer["Price"]</th>
+                                    <th>@Localizer["Created"]</th>
+                                    <th>@Localizer["Actions"]</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach (var item in Model)
                                 {
-                                <tr>
-                                    <td><a asp-controller="Property" asp-action="Detail" asp-route-Id="@item.PropertyId">@item.Title</a></td>
-                                    <td>@item.Area</td>
-                                    <td>@(EnumHelper<FAEmlak.Data.RoomCount>.GetDisplayValue(item.RoomCount))</td>
-                                    <td>@item.State.City.Name / @item.State.Name</td>
-                                    <td>@item.Price</td>
-                                    <td>@item.Created.Date.ToString("dd/MM/yyyy")</td>
-                                    <td>
-                                        <a asp-controller="Admin" asp-action="EditProperty" asp-route-PropertyId="@item.PropertyId" style="font-size: 16px; margin-right: 10px">
-                                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                                        </a>
-                                        <a asp-controller="Admin" asp-action="DeleteProperty" asp-route-PropertyId="@item.PropertyId" onclick="return confirm('Are you sure you want to delete this item')" style="font-size: 16px">
-                                            <i class="fa fa-trash" aria-hidden="true"></i>
-                                        </a>
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td><a asp-controller="Property" asp-action="Detail" asp-route-Id="@item.PropertyId">@item.Title</a></td>
+                                        <td>@item.Area</td>
+                                        <td>@(EnumHelper<FAEmlak.Data.RoomCount>.GetDisplayValue(item.RoomCount))</td>
+                                        <td>@item.State.City.Name / @item.State.Name</td>
+                                        <td>@item.Price</td>
+                                        <td>@item.Created.Date.ToString("dd/MM/yyyy")</td>
+                                        <td>
+                                            <a asp-controller="Admin" asp-action="EditProperty" asp-route-PropertyId="@item.PropertyId" style="font-size: 16px; margin-right: 10px">
+                                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                            </a>
+                                            <a asp-controller="Admin" asp-action="DeleteProperty" asp-route-PropertyId="@item.PropertyId" onclick="return confirm('@Localizer["AreYouSure"]')" style="font-size: 16px">
+                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
                                 }
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>İlan Başlığı</th>
-                                    <th>m²</th>
-                                    <th>Oda Saysı</th>
-                                    <th>İl / İlçe</th>
-                                    <th>Fiyat</th>
-                                    <th>Oluşturma Tarihi</th>
-                                    <th>İşlemler</th>
+                                    <th>@Localizer["Title"]</th>
+                                    <th>@Localizer["Area"]</th>
+                                    <th>@Localizer["RoomCount"]</th>
+                                    <th>@Localizer["Place"]</th>
+                                    <th>@Localizer["Price"]</th>
+                                    <th>@Localizer["Created"]</th>
+                                    <th>@Localizer["Actions"]</th>
                                 </tr>
                             </tfoot>
                         </table>

@@ -117,7 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="HelloWorld" xml:space="preserve">
-    <value>NABER BEN İNGİLİZCE</value>
+  <data name="Buildings" xml:space="preserve">
+    <value>Buildings</value>
+  </data>
+  <data name="Commercial" xml:space="preserve">
+    <value>Commercial</value>
+  </data>
+  <data name="DailyRental" xml:space="preserve">
+    <value>Daily Rental</value>
+  </data>
+  <data name="ForRent" xml:space="preserve">
+    <value>For Rent</value>
+  </data>
+  <data name="ForSale" xml:space="preserve">
+    <value>For Sale</value>
+  </data>
+  <data name="Land" xml:space="preserve">
+    <value>Land</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Home Page</value>
+  </data>
+  <data name="Residental" xml:space="preserve">
+    <value>Residental</value>
   </data>
 </root>

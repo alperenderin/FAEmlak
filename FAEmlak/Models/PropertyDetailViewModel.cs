@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using FAEmlak.Data;
 
 namespace FAEmlak.Models
@@ -16,35 +17,35 @@ namespace FAEmlak.Models
         public string Title { get; set; }
         public int Price { get; set; }
 
-        [DisplayName("m²")]
+        [Display(Name = "Area")]
         public int Area { get; set; }
         public string Description { get; set; }
 
         public PropertyType PropertyType { get; set; }
         public PropertyCategory PropertyCategory { get; set; }
         public PropertyStatus Status { get; set; }
-        [DisplayName("Oda Sayısı")]
+        [DisplayName("RoomCount")]
         public RoomCount RoomCount { get; set; }
 
-        [DisplayName("Balkon")]
+        [Display(Name = "HasBalcony")]
         public bool HasBalcony { get; set; }
 
-        [DisplayName("Eşyalı")]
+        [Display(Name = "HasStuff")]
         public bool HasStuff { get; set; }
 
-        [DisplayName("Bina Yaşı")]
+        [Display(Name = "BuildingAge")]
         public byte BuildingAge { get; set; }
 
-        [DisplayName("Banyo Sayısı")]
+        [Display(Name = "BahtroomCount")]
         public byte BathroomCount { get; set; }
 
-        [DisplayName("Site İçerisinde")]
+        [Display(Name = "IsInSite")]
         public bool IsInSite { get; set; }
 
-        [DisplayName("Kat Sayısı")]
+        [Display(Name = "FloorCount")]
         public byte FloorCount { get; set; }
 
-        [DisplayName("Kaçıncı Kat")]
+        [Display(Name = "WhichFloor")]
         public byte WhichFloor { get; set; }
 
         public int StateId { get; set; }
@@ -52,7 +53,7 @@ namespace FAEmlak.Models
 
         public List<Photo> Photos { get; set; }
 
-        [DisplayName("İlan Tarihi")]
+        [Display(Name = "Created")]
         public DateTime Created { get; internal set; }
     }
 }

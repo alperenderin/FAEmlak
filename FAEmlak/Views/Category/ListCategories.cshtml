@@ -1,7 +1,9 @@
 ﻿@model FAEmlak.Models.ListCategoriesModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
 @using FAEmlak.Helpers
 @{
-    ViewData["Title"] = "Category Page";
+    ViewData["Title"] = Localizer["PageTitle"];
 }
 
 
@@ -225,28 +227,28 @@
         <table class="table" cellspacing="0">
             <thead>
                 <tr>
-                    <th>Fotoğraf</th>
-                    <th>İlan Başlığı</th>
-                    <th>Metrekare</th>
-                    <th>Oda Sayisi</th>
-                    <th>Fiyat</th>
-                    <th>İlan Tarihi</th>
-                    <th>İl/İlçe</th>
+                    <th>@Localizer["Photo"]</th>
+                    <th>@Localizer["Title"]</th>
+                    <th>@Localizer["Area"]</th>
+                    <th>@Localizer["RoomCount"]</th>
+                    <th>@Localizer["Price"]</th>
+                    <th>@Localizer["Created"]</th>
+                    <th>@Localizer["City"]</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var property in Model.properties)
                 {
                     String roomCount = EnumHelper<FAEmlak.Data.RoomCount>.GetDisplayValue(property.RoomCount);
-                <tr>
-                    <td><img src="~/img/@property.PropertyId/@property.Photos[0].PhotoPath" height="70"  /></td>
-                    <td><a asp-controller="Property" asp-action="Detail" asp-route-Id="@property.PropertyId">@property.Title</a></td>
-                    <td>@property.Area</td>
-                    <td>@roomCount</td>
-                    <td>@property.Price</td>
-                    <td>@property.Created.Date.ToString("dd/MM/yyyy")</td>
-                    <td>@property.State.City.Name / @property.State.Name</td>
-                </tr>
+                    <tr>
+                        <td><img src="~/img/@property.PropertyId/@property.Photos[0].PhotoPath" height="70" /></td>
+                        <td><a asp-controller="Property" asp-action="Detail" asp-route-Id="@property.PropertyId">@property.Title</a></td>
+                        <td>@property.Area</td>
+                        <td>@roomCount</td>
+                        <td>@property.Price</td>
+                        <td>@property.Created.Date.ToString("dd/MM/yyyy")</td>
+                        <td>@property.State.City.Name / @property.State.Name</td>
+                    </tr>
                 }
             </tbody>
         </table>

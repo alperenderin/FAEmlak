@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -19,34 +20,34 @@
                 </button>
                 <div class="collapse navbar-collapse">
                     <form class="form-inline mr-auto">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Kelime, ilan no ile ara" aria-label="Kelime, ilan no ile ara">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ara</button>
+                        <input class="form-control mr-sm-2" type="search" style="width: 200px" placeholder="Kelime, ilan no ile ara" aria-label="Kelime, ilan no ile ara">
+                        <button class="btn btn-success my-2 my-sm-0" type="submit">@Localizer["Search"]</button>
                     </form>
                     <ul class="navbar-nav mr-2">
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Favorites" asp-action="Index">Favori İlanlarım</a>
+                                <a class="nav-link" asp-area="" asp-controller="Favorites" asp-action="Index">@Localizer["FavoriteProperties"]</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">@User.Identity.Name</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Logout">Çıkış Yap</a>
+                                <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Logout">@Localizer["SignOut"]</a>
                             </li>
                         }
                         else
                         {
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Register">Üye Ol</a>
+                                <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Register">@Localizer["SignUp"]</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Login">Giriş Yap</a>
+                                <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Login">@Localizer["SignIn"]</a>
                             </li>
                         }
 
                     </ul>
-                    <a class="btn btn-info">Ücretsiz İlan Ver</a>
+                    <a class="btn btn-info">@Localizer["CreateProperty"]</a>
                     <partial name="_Culture" />
                 </div>
             </div>
