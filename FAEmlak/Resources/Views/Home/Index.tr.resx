@@ -117,7 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="HelloWorld" xml:space="preserve">
-    <value>NABER BEN TR</value>
+  <data name="Buildings" xml:space="preserve">
+    <value>Bina</value>
+  </data>
+  <data name="Commercial" xml:space="preserve">
+    <value>İş Yeri</value>
+  </data>
+  <data name="DailyRental" xml:space="preserve">
+    <value>Günlük Kiralık</value>
+  </data>
+  <data name="ForRent" xml:space="preserve">
+    <value>Kiralık</value>
+  </data>
+  <data name="ForSale" xml:space="preserve">
+    <value>Satılık</value>
+  </data>
+  <data name="Land" xml:space="preserve">
+    <value>Arsa</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Ana Sayfa</value>
+  </data>
+  <data name="Residental" xml:space="preserve">
+    <value>Konut</value>
   </data>
 </root>

@@ -1,7 +1,9 @@
-﻿@model FAEmlak.Data.City 
+﻿@model FAEmlak.Data.City
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-    ViewData["Title"] = "Şehir Düzenle";
+    ViewData["Title"] = Localizer["PageTitle"];
 }
 
 <div class="breadcomb-area">
@@ -16,7 +18,7 @@
                                     <i class="notika-icon notika-support"></i>
                                 </div>
                                 <div class="breadcomb-ctn">
-                                    <h2>Şehir Düzenle</h2>
+                                    <h2>@Localizer["PageTitle"]</h2>
                                 </div>
                             </div>
                         </div>
@@ -38,16 +40,14 @@
                             <input type="hidden" name="CityId" value="@Model.CityId">
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group ic-cmp-int">
-                                    <div class="form-ic-cmp">
-                                        <i class="notika-icon notika-support"></i>
-                                    </div>
+                                    <label>@Localizer["City"]</label>
                                     <div class="nk-int-st">
-                                        <input type="text" id="Name" name="Name" class="form-control" value="@Model.Name" required placeholder="Şehir Adı">
+                                        <input type="text" id="Name" name="Name" class="form-control" value="@Model.Name" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <button type="submit" class="btn btn-primary notika-btn-primary btn-md waves-effect">Düzenle</button>
+                                <button type="submit" class="btn btn-primary notika-btn-primary btn-md waves-effect">@Localizer["Update"]</button>
                             </div>
                         </div>
                     </form>

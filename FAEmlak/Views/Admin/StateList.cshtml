@@ -1,13 +1,14 @@
 ﻿@model List<FAEmlak.Data.State>
 @using FAEmlak.Helpers
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-    ViewData["Title"] = "İlçeler";
+    ViewData["Title"] = Localizer["PageTitle"];
 }
 
 @section Stylesheets{
-<!-- Data Table JS
-		============================================ -->
+    <!-- Data Table JS
+            ============================================ -->
     <link rel="stylesheet" href="css/jquery.dataTables.min.css">
 }
 
@@ -23,8 +24,8 @@
                                     <i class="notika-icon notika-support"></i>
                                 </div>
                                 <div class="breadcomb-ctn">
-                                    <h2>İlçeler</h2>
-                                    <p>Sitedeki içleleri ve bağlı olduğu illeri burada listeyebilirsiniz.</p>
+                                    <h2>@Localizer["PageTitle"]</h2>
+                                    <p>@Localizer["YouCanList"]</p>
                                 </div>
                             </div>
                         </div>
@@ -46,9 +47,9 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>İlçe</th>
-                                    <th>Bağlı olduğu il</th>
-                                    <th>İşlemler</th>
+                                    <th>@Localizer["State"]</th>
+                                    <th>@Localizer["City"]</th>
+                                    <th>@Localizer["Action"]</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -72,9 +73,9 @@
                             <tfoot>
                                 <tr>
                                     <th>#</th>
-                                    <th>İlçe</th>
-                                    <th>Bağlı olduğu il</th>
-                                    <th>İşlemler</th>
+                                    <th>@Localizer["State"]</th>
+                                    <th>@Localizer["City"]</th>
+                                    <th>@Localizer["Action"]</th>
                                 </tr>
                             </tfoot>
                         </table>

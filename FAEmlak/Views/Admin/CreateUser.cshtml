@@ -1,8 +1,11 @@
 ﻿@model List<Microsoft.AspNetCore.Identity.IdentityRole>
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+
 @using FAEmlak.Helpers
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-    ViewData["Title"] = "Kullanıcı Ekle";
+    ViewData["Title"] = Localizer["PageTitle"];
 }
 
 @section Stylesheets{
@@ -21,7 +24,7 @@
                                     <i class="notika-icon notika-support"></i>
                                 </div>
                                 <div class="breadcomb-ctn">
-                                    <h2>Kullanıcı Ekle</h2>
+                                    <h2>@Localizer["PageTitle"]</h2>
                                 </div>
                             </div>
                         </div>
@@ -42,31 +45,25 @@
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group ic-cmp-int">
-                                    <div class="form-ic-cmp">
-                                        <i class="notika-icon notika-support"></i>
-                                    </div>
+                                    <label>@Localizer["Name"]</label>
                                     <div class="nk-int-st">
-                                        <input type="text" id="FirstName" name="FirstName" class="form-control" required placeholder="Ad">
+                                        <input type="text" id="FirstName" name="FirstName" class="form-control" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group ic-cmp-int">
-                                    <div class="form-ic-cmp">
-                                        <i class="notika-icon notika-support"></i>
-                                    </div>
+                                    <label>@Localizer["Surname"]</label>
                                     <div class="nk-int-st">
-                                        <input type="text" id="LastName" name="LastName" class="form-control" required placeholder="Soyad">
+                                        <input type="text" id="LastName" name="LastName" class="form-control" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group ic-cmp-int">
-                                    <div class="form-ic-cmp">
-                                        <i class="notika-icon notika-mail"></i>
-                                    </div>
+                                    <label>@Localizer["Email"]</label>
                                     <div class="nk-int-st">
-                                        <input type="text" class="form-control" name="Email" required placeholder="E-Posta">
+                                        <input type="text" class="form-control" name="Email" required>
                                     </div>
                                 </div>
                             </div>
@@ -74,26 +71,27 @@
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group ic-cmp-int">
-                                    <div class="form-ic-cmp">
-                                        <i class="notika-icon notika-next"></i>
-                                    </div>
+                                    <label>
+                                        @Localizer["Password"]
+                                    </label>
                                     <div class="nk-int-st">
-                                        <input type="password" class="form-control" name="Password" required placeholder="Şifre">
+                                        <input type="password" class="form-control" name="Password" required>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group ic-cmp-int">
-                                    <div class="form-ic-cmp">
-                                        <i class="notika-icon notika-next"></i>
-                                    </div>
+                                    <label>
+                                        @Localizer["ConfirmPassword"]
+                                    </label>
                                     <div class="nk-int-st">
-                                        <input type="password" class="form-control" name="ConfirmPassword" required placeholder="Şifre(Tekrar)">
+                                        <input type="password" class="form-control" name="ConfirmPassword" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <label>@Localizer["Roles"]</label>
                                 <div class="bootstrap-select fm-cmp-mg">
                                     <select id="role" name="RoleId" class="selectpicker">
                                         @foreach (var item in Model)
@@ -105,7 +103,7 @@
                             </div>
                         </div>
                         <div class="row text-center">
-                            <button type="submit" class="btn btn-primary notika-btn-primary btn-md waves-effect">Oluştur</button>
+                            <button type="submit" class="btn btn-primary notika-btn-primary btn-md waves-effect">@Localizer["Create"]</button>
                         </div>
                     </form>
                 </div>

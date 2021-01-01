@@ -1,13 +1,15 @@
 ﻿@model List<FAEmlak.Data.User>
 @using FAEmlak.Helpers
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-    ViewData["Title"] = "Üyeler";
+    ViewData["Title"] = Localizer["PageTitle"];
 }
 
 @section Stylesheets{
-<!-- Data Table JS
-		============================================ -->
+    <!-- Data Table JS
+            ============================================ -->
     <link rel="stylesheet" href="css/jquery.dataTables.min.css">
 }
 
@@ -23,8 +25,8 @@
                                     <i class="notika-icon notika-support"></i>
                                 </div>
                                 <div class="breadcomb-ctn">
-                                    <h2>Üyeler</h2>
-                                    <p>Sitedeki kullanıcıları burada listeyebilirsiniz.</p>
+                                    <h2>@Localizer["PageTitle"]</h2>
+                                    <p>@Localizer["YouCanList"]</p>
                                 </div>
                             </div>
                         </div>
@@ -45,11 +47,11 @@
                         <table id="data-table-basic" class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>Ad</th>
-                                    <th>Soyad</th>
-                                    <th>E-Posta</th>
-                                    <th>Oluşturma Tarihi</th>
-                                    <th>İşlemler</th>
+                                    <th>@Localizer["Name"]</th>
+                                    <th>@Localizer["Surname"]</th>
+                                    <th>@Localizer["Email"]</th>
+                                    <th>@Localizer["Created"]</th>
+                                    <th>@Localizer["Action"]</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -73,11 +75,11 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>Ad</th>
-                                    <th>Soyad</th>
-                                    <th>E-Posta</th>
-                                    <th>Oluşturma Tarihi</th>
-                                    <th>İşlemler</th>
+                                    <th>@Localizer["Name"]</th>
+                                    <th>@Localizer["Surname"]</th>
+                                    <th>@Localizer["Email"]</th>
+                                    <th>@Localizer["Created"]</th>
+                                    <th>@Localizer["Action"]</th>
                                 </tr>
                             </tfoot>
                         </table>
