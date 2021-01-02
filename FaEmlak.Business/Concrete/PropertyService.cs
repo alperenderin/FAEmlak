@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using FAEmlak.Business.Abstract;
 using FAEmlak.Data;
 using FAEmlak.Data.Abstract;
+using FAEmlak.Data.Entity;
 
 namespace FAEmlak.Business.Concrete
 {
@@ -54,6 +56,11 @@ namespace FAEmlak.Business.Concrete
         public async Task<List<Property>> GetPropertiesByUserId(string UserId)
         {
             return await _unitOfWork.Properties.GetPropertiesByUserId(UserId);
+        }
+
+        public IQueryable<Property> GetProperties(SearchModel searchModel)
+        {
+            return _unitOfWork.Properties.GetProperties(searchModel);
         }
     }
 }

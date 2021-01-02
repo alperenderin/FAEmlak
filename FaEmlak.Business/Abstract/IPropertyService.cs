@@ -1,6 +1,8 @@
 ﻿using FAEmlak.Data;
+using FAEmlak.Data.Entity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace FAEmlak.Business.Abstract
@@ -15,5 +17,6 @@ namespace FAEmlak.Business.Abstract
         Task<List<Property>> GetPropertiesAsync();
         Task<List<Property>> GetPropertiesByUserId(string UserId);
         Task<List<Property>> GetPropertiesByTypeAndCategoryAsync(PropertyType propertyType, PropertyCategory propertyCategory);
+        IQueryable<Property> GetProperties(SearchModel searchModel);
     }
 }

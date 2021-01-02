@@ -141,4 +141,13 @@
   <data name="Residental" xml:space="preserve">
     <value>Konut</value>
   </data>
+  <data name="SelectCity" xml:space="preserve">
+    <value>Şehir Seç</value>
+  </data>
+  <data name="SelectState" xml:space="preserve">
+    <value>İlçe Seç</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Ara</value>
+  </data>
 </root>

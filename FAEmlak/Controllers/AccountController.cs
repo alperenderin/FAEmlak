@@ -13,12 +13,18 @@ namespace FAEmlak.Controllers
         private UserManager<User> _userManager;
         private SignInManager<User> _signInManager;
         private IPropertyService _propertyService;
+        private RoleManager<IdentityRole> _roleManager;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IPropertyService propertyService)
+        public AccountController(
+            RoleManager<IdentityRole> roleManager,
+            UserManager<User> userManager,
+            SignInManager<User> signInManager,
+            IPropertyService propertyService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _propertyService = propertyService;
+            _roleManager = roleManager;
         }
 
         public IActionResult Login(string ReturnUrl = null)
@@ -78,6 +84,8 @@ namespace FAEmlak.Controllers
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
+                var role = await _roleManager.FindByNameAsync("User");
+                await _userManager.AddToRoleAsync(user, role.Name);
                 return RedirectToAction("Login", "Account");
             }
             return View(model);

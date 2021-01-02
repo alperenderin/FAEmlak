@@ -141,4 +141,13 @@
   <data name="Residental" xml:space="preserve">
     <value>Residental</value>
   </data>
+  <data name="SelectCity" xml:space="preserve">
+    <value>Select City</value>
+  </data>
+  <data name="SelectState" xml:space="preserve">
+    <value>Select State</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
 </root>

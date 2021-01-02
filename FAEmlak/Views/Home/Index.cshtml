@@ -10,14 +10,12 @@
         <ul class="list-group list-group-flush">
             @foreach (PropertyType propertyType in Enum.GetValues(typeof(PropertyType)))
             {
-                <li class="list-group-item"><b>@Localizer[$"{propertyType.ToString()}"]</b></li>
+<li class="list-group-item"><b>@Localizer[$"{propertyType.ToString()}"]</b></li>
                 <ul>
                     @foreach (PropertyCategory propertyCategory in Enum.GetValues(typeof(PropertyCategory)))
                     {
-                        <li><a asp-controller="Category" asp-action="ListCategories" asp-route-propertyType="@propertyType.ToString()" asp-route-propertyCategory="@propertyCategory.ToString()">@Localizer[$"{propertyCategory.ToString()}"]</a></li>
-                    }
-                </ul>
-       }
+    <li><a asp-controller="Category" asp-action="ListCategories" asp-route-propertyType="@propertyType.ToString()" asp-route-propertyCategory="@propertyCategory.ToString()">@Localizer[$"{propertyCategory.ToString()}"]</a></li>}
+                </ul>}
         </ul>
     </div>
     @* ============================================================================================================================================================================================================ *@
@@ -27,83 +25,99 @@
 ">
         <div class="container py-5 my-5">
             <div class="row">
-                <div class="col-md-12 search-menu">
-                    <div class="nav nav-pills" id="nav-tab" role="tablist">
-                        <a class="nav-link mr-2" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">İşyeri</a>
-                        <a class="nav-link mr-2" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Konut</a>
-                        <a class="nav-link mr-2" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Arsa</a>
-                        <a class="nav-link mr-2" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Bina</a>
-                    </div>
-                    <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                            <div class="card">
-                                <div class="card-body d-flex flex-row">
-                                    <div class="col-md-2 px-2">
-                                        <div class="form-group ">
-                                            <select id="inputState" class="form-control">
-                                                <option selected>Satılık</option>
-                                                <option>Kiralık</option>
-                                                <option>Günlük Kiralık</option>
-                                            </select>
+                <form asp-controller="Category" asp-action="Search" method="post" style="width: 100%">
+                    <div class="col-md-12 search-menu">
+                        <div class="nav nav-pills" id="nav-tab" role="tablist">
+                            <a class="nav-link mr-2" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Hızlı Ara</a>
+                        </div>
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <div class="card">
+                                    <div class="card-body d-flex flex-row">
+                                        <div class="col-md-2 px-">
+                                            <div class="form-group ">
+                                                <select name="PropertyCategory" class="form-control">
+                                                    @foreach (PropertyCategory propertyCategory in Enum.GetValues(typeof(PropertyCategory)))
+                                                    {
+                                                        String title = EnumHelper<PropertyCategory>.GetDisplayValue(propertyCategory);
+                                        <option value="@propertyCategory.ToString()">@Localizer[$"{propertyCategory.ToString()}"]</option>
+}
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-2 px-2">
-                                        <div class="form-group">
-                                            <select id="inputState" class="form-control">
-                                                <option selected>Konut</option>
-                                                <option>BMW</option>
-                                                <option>Audi</option>
-                                                <option>Maruti</option>
-                                                <option>Tesla</option>
-                                            </select>
+                                        <div class="col-md-2 px-2">
+                                            <div class="form-group">
+                                                <select name="PropertyType" class="form-control">
+                                                    @foreach (PropertyType propertyType in Enum.GetValues(typeof(PropertyType)))
+                                                    {
+                                                        String title = EnumHelper<PropertyType>.GetDisplayValue(propertyType);
+                                        <option value="@propertyType.ToString()">@Localizer[$"{propertyType.ToString()}"]</option>
+}
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-2 px-2">
-                                        <div class="form-group ">
-                                            <select id="inputState" class="form-control">
-                                                <option selected>İl</option>
-                                                <option>City</option>
-                                                <option>Jazz</option>
-                                                <option>Brio</option>
-
-                                            </select>
+                                        <div class="col-md-2 px-2">
+                                            <div class="form-group ">
+                                                <select asp-items="@ViewBag.Cities" id="CitySelector" class="form-control">
+                                                    <option>@Localizer["SelectCity"]</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-2 px-2">
-                                        <div class="form-group ">
-                                            <select id="inputState" class="form-control">
-                                                <option selected>İlçe</option>
-                                                <option>New Delhi</option>
-                                                <option>Banglore</option>
-                                                <option>Chennai</option>
-                                                <option>Jaipur</option>
-                                            </select>
+                                        <div class="col-md-2 px-2">
+                                            <div class="form-group ">
+                                                <select id="StateList" name="StateId" class="form-control">
+                                                    <option>@Localizer["SelectState"]</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-2 px-2">
-                                        <div class="form-group ">
-                                            <select id="inputState" class="form-control">
-                                                <option selected>Oda Sayısı</option>
-                                                <option>1 Lac-5 Lac</option>
-                                                <option>5 Lac-10 Lac</option>
-                                                <option>10 Lac-15 Lac</option>
-                                                <option>15 Lac-20 Lac</option>
-                                                <option>20 Lac-25 Lac</option>
-                                                <option>25 Lac & Above</option>
-                                            </select>
+                                        <div class="col-md-2 px-2">
+                                            <div class="form-group ">
+                                                <select id="role" name="RoomCount" class="form-control">
+                                                    @foreach (RoomCount roomCount in Enum.GetValues(typeof(RoomCount)))
+                                                    {
+                                                        String title = EnumHelper<RoomCount>.GetDisplayValue(roomCount);
+                                        <option value="@roomCount.ToString()">@title</option>
+}
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-2 px-2">
-                                        <button type="button" class="btn btn-dark">Ara</button>
+                                        <div class="col-md-2 px-2">
+                                            <button type="submit" class="btn btn-dark">@Localizer["Search"]</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
-                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
+
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#CitySelector").change(function () {
+                $("#StateList").empty();
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("LoadState")',
+                    dataType: 'json',
+                    data: { CityId: $("#CitySelector").val() },
+                    success: function (states) {
+                        $.each(states, function (i, state) {
+                            console.log(i);
+                            $("#StateList").append('<option value="' + state.value + '">' + state.text + '</option>');
+                        });
+                    },
+                    error: function (ex) {
+                        console.log(ex);
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+}
