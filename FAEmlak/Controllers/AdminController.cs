@@ -372,21 +372,38 @@ namespace FAEmlak.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Route("[controller]/Properties/{PropertyId}")]
-        public async Task<IActionResult> EditProperty(Property property, List<IFormFile> files)
+        public async Task<IActionResult> EditProperty(PropertyDetailViewModel model, List<IFormFile> files)
         {
             if (files is null)
             {
                 throw new ArgumentNullException(nameof(files));
             }
 
-            if (property is null)
-            {
-                throw new ArgumentNullException(nameof(property));
-            }
 
             if (ModelState.IsValid)
             {
                 var user = await _userManager.FindByEmailAsync(User.Identity.Name);
+
+                var property = new Property
+                {
+                    UserId = user.Id,
+                    Title = model.Title,
+                    Description = model.Description,
+                    Area = model.Area,
+                    BathroomCount = model.BathroomCount,
+                    BuildingAge = model.BuildingAge,
+                    FloorCount = model.FloorCount,
+                    HasBalcony = model.HasBalcony,
+                    HasStuff = model.HasStuff,
+                    IsInSite = model.IsInSite,
+                    Price = model.Price,
+                    RoomCount = model.RoomCount,
+                    WhichFloor = model.WhichFloor,
+                    StateId = model.StateId,
+                    PropertyCategory = model.PropertyCategory,
+                    PropertyType = model.PropertyType
+                };
+
                 property.UserId = user.Id;
                 _propertyService.Update(property);
 
@@ -451,54 +468,78 @@ namespace FAEmlak.Controllers
 
         [HttpPost]
         [Route("[controller]/Properties/Add")]
-        public async Task<IActionResult> CreateProperty(Property model, List<IFormFile> files)
+        public async Task<IActionResult> CreateProperty(PropertyDetailViewModel model, List<IFormFile> files)
         {
-            var user = await _userManager.FindByEmailAsync(User.Identity.Name);
-            model.UserId = user.Id;
-            _propertyService.Create(model);
-
-            //Fotoğraf işlemleri
-            if (files.Count > 0)
+            if (ModelState.IsValid)
             {
-                foreach (var file in files.ToList())
+                var user = await _userManager.FindByEmailAsync(User.Identity.Name);
+
+                var property = new Property
                 {
-                    if (file.Length > 0)
+                    UserId = user.Id,
+                    Title = model.Title,
+                    Description = model.Description,
+                    Area = model.Area,
+                    BathroomCount = model.BathroomCount,
+                    BuildingAge = model.BuildingAge,
+                    FloorCount = model.FloorCount,
+                    HasBalcony = model.HasBalcony,
+                    HasStuff = model.HasStuff,
+                    IsInSite = model.IsInSite,
+                    Price = model.Price,
+                    RoomCount = model.RoomCount,
+                    WhichFloor = model.WhichFloor,
+                    StateId = model.StateId,
+                    PropertyCategory = model.PropertyCategory,
+                    PropertyType = model.PropertyType
+                };
+
+                _propertyService.Create(property);
+
+                //Fotoğraf işlemleri
+                if (files.Count > 0)
+                {
+                    foreach (var file in files.ToList())
                     {
-                        //Dosya ismini alıyoruz
-                        var fileName = Path.GetFileName(file.FileName);
-                        //Benzersiz isim tanımlıyoruz (Guid)
-                        var uniqueFileName = Convert.ToString(Guid.NewGuid());
-                        //Dosya uzantısını alıyouz
-                        var fileExtension = Path.GetExtension(fileName);
-
-                        var newFileName = String.Concat(uniqueFileName, fileExtension);
-
-                        string wwwPath = _environment.WebRootPath;
-
-                        string folderPath = Path.Combine(wwwPath, $"img/{model.PropertyId}");
-
-                        if (!Directory.Exists(folderPath))
+                        if (file.Length > 0)
                         {
-                            Directory.CreateDirectory(folderPath);
+                            //Dosya ismini alıyoruz
+                            var fileName = Path.GetFileName(file.FileName);
+                            //Benzersiz isim tanımlıyoruz (Guid)
+                            var uniqueFileName = Convert.ToString(Guid.NewGuid());
+                            //Dosya uzantısını alıyouz
+                            var fileExtension = Path.GetExtension(fileName);
+
+                            var newFileName = String.Concat(uniqueFileName, fileExtension);
+
+                            string wwwPath = _environment.WebRootPath;
+
+                            string folderPath = Path.Combine(wwwPath, $"img/{property.PropertyId}");
+
+                            if (!Directory.Exists(folderPath))
+                            {
+                                Directory.CreateDirectory(folderPath);
+                            }
+
+                            string filePath = Path.Combine(folderPath, newFileName);
+
+                            using (FileStream fs = System.IO.File.Create(filePath))
+                            {
+                                file.CopyTo(fs);
+                                fs.Flush();
+                            }
+
+                            _photoService.Create(new Photo
+                            {
+                                PhotoPath = newFileName,
+                                PropertyId = property.PropertyId
+                            });
                         }
-
-                        string filePath = Path.Combine(folderPath, newFileName);
-
-                        using (FileStream fs = System.IO.File.Create(filePath))
-                        {
-                            file.CopyTo(fs);
-                            fs.Flush();
-                        }
-
-                        _photoService.Create(new Photo {
-                            PhotoPath = newFileName,
-                            PropertyId = model.PropertyId
-                        });
                     }
                 }
+                return RedirectToAction("PropertiesList");
             }
-
-            return RedirectToAction("PropertiesList");
+            return View();
         }
 
 

@@ -159,7 +159,7 @@ namespace FAEmlak.Controllers
                 }
                 return RedirectToRoute(new { controller = "Account", action = "UsersProperties", UserId = user.Id });
             }
-            return BadRequest();
+            return View();
         }
 
         public JsonResult LoadState(int CityId)

@@ -31,9 +31,11 @@ namespace FAEmlak.Models
         [Display(Name = "Description")]
         public string Description { get; set; }
 
+        [Required]
         [Display(Name = "PropertyType")]
         public PropertyType PropertyType { get; set; }
 
+        [Required]
         [Display(Name = "PropertyCategory")]
         public PropertyCategory PropertyCategory { get; set; }
 
@@ -43,28 +45,38 @@ namespace FAEmlak.Models
         [DisplayName("RoomCount")]
         public RoomCount RoomCount { get; set; }
 
+        [Required]
         [Display(Name = "HasBalcony")]
         public bool HasBalcony { get; set; }
 
+        [Required]
         [Display(Name = "HasStuff")]
         public bool HasStuff { get; set; }
 
+
+        [Required]
         [Display(Name = "BuildingAge")]
         public byte BuildingAge { get; set; }
 
+        [Required]
         [Display(Name = "BahtroomCount")]
         public byte BathroomCount { get; set; }
 
+        [Required]
         [Display(Name = "IsInSite")]
         public bool IsInSite { get; set; }
 
+        [Required]
         [Display(Name = "FloorCount")]
         public byte FloorCount { get; set; }
 
+        [Required]
         [Display(Name = "WhichFloor")]
         public byte WhichFloor { get; set; }
 
+        [Required]
         public int StateId { get; set; }
+
         public State State { get; set; }
 
         public List<Photo> Photos { get; set; }

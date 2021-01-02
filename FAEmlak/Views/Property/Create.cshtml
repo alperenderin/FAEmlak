@@ -19,6 +19,7 @@
                     <div class="form-group">
                         @Html.LabelFor(x => x.Title)
                         <input type="text" class="form-control form-control-lg" name="Title">
+                        <span asp-validation-for="Title" class="text-danger"></span>
                     </div>
                 </div>
             </div>
@@ -33,6 +34,7 @@
                                 <option value="@propertyCategory.ToString()">@Localizer[$"{propertyCategory.ToString()}"]</option>
                             }
                         </select>
+                        <span asp-validation-for="PropertyCategory" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-2">
@@ -45,6 +47,8 @@
                                 <option value="@propertyType.ToString()">@Localizer[$"{propertyType.ToString()}"]</option>
                             }
                         </select>
+                        <span asp-validation-for="PropertyType" class="text-danger"></span>
+
                     </div>
                 </div>
                 <div class="col-md-2">
@@ -61,6 +65,7 @@
                         <select id="StateList" name="StateId" class="form-control">
                             <option>@Localizer["SelectState"]</option>
                         </select>
+                        <span asp-validation-for="StateId" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-2">
@@ -73,6 +78,7 @@
                                 <option value="@roomCount.ToString()">@title</option>
                             }
                         </select>
+                        <span asp-validation-for="RoomCount" class="text-danger"></span>
                     </div>
                 </div>
             </div>

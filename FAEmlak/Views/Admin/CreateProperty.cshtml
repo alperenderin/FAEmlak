@@ -1,7 +1,8 @@
 ﻿@using FAEmlak.Helpers
 @using FAEmlak.Data
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
-@model Property
+@model PropertyDetailViewModel
+
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
     ViewData["Title"] = Localizer["PageTitle"];
@@ -48,6 +49,7 @@
                                     <div class="nk-int-st">
                                         @Html.TextBoxFor(x => x.Title, new { @class = "form-control input-lg" })
                                     </div>
+                                    <span asp-validation-for="Title" class="text-danger"></span>
                                 </div>
                             </div>
                         </div>
@@ -64,6 +66,7 @@
                                             }
                                         </select>
                                     </div>
+                                    <span asp-validation-for="PropertyCategory" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
@@ -74,10 +77,11 @@
                                             @foreach (PropertyType propertyType in Enum.GetValues(typeof(PropertyType)))
                                             {
                                                 String title = EnumHelper<PropertyType>.GetDisplayValue(propertyType);
-                                            <option value="@propertyType.ToString()">@Localizer[$"{propertyType.ToString()}"]</option>
+                                                <option value="@propertyType.ToString()">@Localizer[$"{propertyType.ToString()}"]</option>
                                             }
                                         </select>
                                     </div>
+                                    <span asp-validation-for="PropertyType" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
@@ -98,6 +102,7 @@
                                             <option>@Localizer["SelectState"]</option>
                                         </select>
                                     </div>
+                                    <span asp-validation-for="StateId" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
@@ -112,6 +117,7 @@
                                             }
                                         </select>
                                     </div>
+                                    <span asp-validation-for="RoomCount" class="text-danger"></span>
                                 </div>
                             </div>
                         </div>
@@ -124,17 +130,18 @@
                                             @Html.EditorFor(x => x.Price, new { htmlAttributes = new { @type = "number", @min = "0", @class = "form-control" } })
                                         </div>
                                     </div>
+                                    <span asp-validation-for="Price" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                                 <div class="form-group ic-cmp-int">
                                     <label>@Localizer["Area"]</label>
-
                                     <div class="form-group">
                                         <div class="nk-int-st">
                                             @Html.EditorFor(x => x.Area, new { htmlAttributes = new { @type = "number", @min = "0", @class = "form-control" } })
                                         </div>
                                     </div>
+                                    <span asp-validation-for="Area" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
@@ -155,6 +162,7 @@
                                             @Html.EditorFor(x => x.WhichFloor, new { htmlAttributes = new { @type = "number", @min = "0", @class = "form-control" } })
                                         </div>
                                     </div>
+                                    <span asp-validation-for="WhichFloor" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
@@ -165,6 +173,7 @@
                                             @Html.EditorFor(x => x.BathroomCount, new { htmlAttributes = new { @type = "number", @min = "0", @class = "form-control" } })
                                         </div>
                                     </div>
+                                    <span asp-validation-for="BathroomCount" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
@@ -175,6 +184,7 @@
                                             @Html.EditorFor(x => x.BuildingAge, new { htmlAttributes = new { @type = "number", @min = "0", @class = "form-control" } })
                                         </div>
                                     </div>
+                                    <span asp-validation-for="BuildingAge" class="text-danger"></span>
                                 </div>
                             </div>
                         </div>
