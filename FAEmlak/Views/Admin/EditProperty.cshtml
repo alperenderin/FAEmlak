@@ -1,9 +1,10 @@
 ﻿@using FAEmlak.Helpers
 @using FAEmlak.Data
-@model Property
+@model FAEmlak.Models.PropertyDetailViewModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-    ViewData["Title"] = "İlan Düzenle";
+    ViewData["Title"] = Localizer["PageTitle"];
 }
 
 @section Stylesheets{
@@ -23,7 +24,7 @@
                                     <i class="notika-icon notika-support"></i>
                                 </div>
                                 <div class="breadcomb-ctn">
-                                    <h2>İlan Düzenle</h2>
+                                    <h2>@Localizer["PageTitle"]</h2>
                                 </div>
                             </div>
                         </div>
@@ -77,20 +78,20 @@
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                                 <div class="form-group ic-cmp-int">
-                                    <label>İl</label>
+                                    <label>@Localizer["City"]</label>
                                     <div class="nk-int-st">
-                                        <select asp-items="@ViewBag.Cities" id="CitySelector" class="form-control">
-                                            <option>İl seçiniz</option>
+                                        <select asp-for="State.CityId" asp-items="@ViewBag.Cities" id="CitySelector" class="form-control">
+                                            <option>@Localizer["SelectCity"]</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                                 <div class="form-group ic-cmp-int">
-                                    <label>İlçe</label>
+                                    <label>@Localizer["State"]</label>
                                     <div class="nk-int-st">
-                                        <select id="StateList" name="StateId" class="form-control">
-                                            <option>İlçe Seçin</option>
+                                        <select asp-for="State.Id" id="StateList" name="StateId" class="form-control">
+                                            <option>@Localizer["SelectState"]</option>
                                         </select>
                                     </div>
                                 </div>
@@ -99,10 +100,9 @@
                                 <div class="form-group ic-cmp-int">
                                     @Html.LabelFor(x => x.RoomCount)
                                     <div class="nk-int-st">
-                                        <select asp-for="PropertyType"
+                                        <select asp-for="RoomCount"
                                                 class="form-control"
                                                 asp-items="Html.GetEnumSelectList<RoomCount>()">
-                                            <option>Select Count ...</option>
                                         </select>
                                     </div>
                                 </div>
@@ -164,7 +164,7 @@
                                     @Html.LabelFor(x => x.BuildingAge)
                                     <div class="form-group">
                                         <div class="nk-int-st">
-                                            @Html.EditorFor(x => x.BuildingAge, new { htmlAttributes = new { @type = "number", @min = "0", @class="form-control" } })
+                                            @Html.EditorFor(x => x.BuildingAge, new { htmlAttributes = new { @type = "number", @min = "0", @class = "form-control" } })
                                         </div>
                                     </div>
                                 </div>
@@ -199,13 +199,13 @@
 
                         <div class="row">
                             <div class="col-md-12">
-                                <label>İlan Fotoğrafları (CTRL'ye basarak çoklu seçim yapabilirsiniz.)</label>
+                                <label>@Localizer["AddPhoto"]</label>
                                 <input class="form-control" name="files" multiple="multiple" type="file" />
                             </div>
                         </div>
 
                         <div class="row text-center" style="margin-top: 15px;">
-                            <button type="submit" class="btn btn-primary notika-btn-primary btn-md waves-effect">Oluştur</button>
+                            <button type="submit" class="btn btn-primary notika-btn-primary btn-md waves-effect">@Localizer["Update"]</button>
                         </div>
                     </form>
                 </div>
@@ -222,11 +222,11 @@
         $(document).ready(function () {
 
             $('#Description').summernote({
-                height: 200, 
-                minHeight: null,             
+                height: 200,
+                minHeight: null,
                 maxHeight: null,
                 focus: true
-            }); 
+            });
 
             $("#CitySelector").change(function () {
                 $("#StateList").empty();

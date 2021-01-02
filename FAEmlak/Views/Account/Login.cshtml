@@ -9,14 +9,17 @@
                 <a asp-controller="Account" asp-action="Login" class="float-right btn btn-outline-primary">@Localizer["SignUp"]</a>
                 <h4 class="card-title mb-4 mt-1">@Localizer["Login"]</h4>
                 <hr>
+                <div asp-validation-summary="All"></div>
                 <form asp-controller="Account" asp-action="Login" method="post">
                     <div class="form-group">
                         @Html.LabelFor(x => x.Email)
                         <input class="form-control" asp-for="Email" type="email">
+                        <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(x => x.Password)
                         <input class="form-control" asp-for="Password" type="password">
+                        <span asp-validation-for="Password" class="text-danger"></span>
                     </div>
                     <div class="row">
                         <div class="col-md-6">

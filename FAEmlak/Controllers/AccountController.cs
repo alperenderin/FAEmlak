@@ -42,12 +42,16 @@ namespace FAEmlak.Controllers
             {
                 ModelState.AddModelError("", "No account created by mail");
             }
-            var result = await _signInManager.PasswordSignInAsync(user, model.Password, false, false);
-            if (result.Succeeded)
+            else
             {
-                return Redirect(model.ReturnUrl ?? "~/");
+                var result = await _signInManager.PasswordSignInAsync(user, model.Password, false, false);
+                if (result.Succeeded)
+                {
+                    return Redirect(model.ReturnUrl ?? "~/");
+                }
+                ModelState.AddModelError("", "Username or password is incorrect");
             }
-            ModelState.AddModelError("", "Username or password is incorrect");
+           
             return View(model);
         }
 
@@ -88,8 +92,15 @@ namespace FAEmlak.Controllers
         [Route("[controller]/{UserId}/Properties")]
         public async Task<IActionResult> UsersProperties(string UserId)
         {
-            var properties = await _propertyService.GetPropertiesByUserId(UserId);
-            return View(properties);
+            var user = await _userManager.FindByIdAsync(UserId);
+
+            if (user != null)
+            {
+                ViewBag.UserName = user.Email;
+                var properties = await _propertyService.GetPropertiesByUserId(UserId);
+                return View(properties);
+            }
+            return NotFound();
         }
 
         public IActionResult AccessDenied()

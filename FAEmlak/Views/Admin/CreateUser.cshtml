@@ -1,6 +1,4 @@
-﻿@model List<Microsoft.AspNetCore.Identity.IdentityRole>
-@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
-
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 @using FAEmlak.Helpers
 @{
@@ -41,6 +39,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-element-list">
+                    <div asp-validation-summary="All"></div>
                     <form method="post" asp-controller="Admin" asp-action="CreateUser">
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -48,6 +47,7 @@
                                     <label>@Localizer["Name"]</label>
                                     <div class="nk-int-st">
                                         <input type="text" id="FirstName" name="FirstName" class="form-control" required>
+                                        <span  class="text-danger"></span>
                                     </div>
                                 </div>
                             </div>
@@ -92,14 +92,8 @@
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <label>@Localizer["Roles"]</label>
-                                <div class="bootstrap-select fm-cmp-mg">
-                                    <select id="role" name="RoleId" class="selectpicker">
-                                        @foreach (var item in Model)
-                                        {
-                                            <option value="@item.Id">@item.Name</option>
-                                        }
-                                    </select>
-                                </div>
+                                <select name="RoleId" asp-items="@ViewBag.Roles" id="RoleId" class="form-control">
+                                </select>
                             </div>
                         </div>
                         <div class="row text-center">

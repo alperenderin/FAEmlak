@@ -117,49 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Area" xml:space="preserve">
-    <value>Alan (m²)</value>
+  <data name="AddToFavorite" xml:space="preserve">
+    <value>Add To Favorite</value>
   </data>
-  <data name="BahtroomCount" xml:space="preserve">
-    <value>Banyo Sayısı</value>
+  <data name="AllProperties" xml:space="preserve">
+    <value>All Properties</value>
   </data>
-  <data name="BuildingAge" xml:space="preserve">
-    <value>Bina Yaşı</value>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
   </data>
-  <data name="Created" xml:space="preserve">
-    <value>İlan Tarihi</value>
+  <data name="PropertyDetail" xml:space="preserve">
+    <value>Property Detail</value>
   </data>
-  <data name="FloorCount" xml:space="preserve">
-    <value>Kat Sayısı</value>
+  <data name="RemoveFromFavorite" xml:space="preserve">
+    <value>Remove From Favorite</value>
   </data>
-  <data name="HasBalcony" xml:space="preserve">
-    <value>Balkon</value>
-  </data>
-  <data name="HasStuff" xml:space="preserve">
-    <value>Eşyalı mı</value>
-  </data>
-  <data name="IsInSite" xml:space="preserve">
-    <value>Site İçerisinde</value>
-  </data>
-  <data name="RoomCount" xml:space="preserve">
-    <value>Oda Sayısı</value>
-  </data>
-  <data name="WhichFloor" xml:space="preserve">
-    <value>Kaçıncı Kat</value>
-  </data>
-  <data name="Price" xml:space="preserve">
-    <value>Fiyat</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>İlan Başlığı</value>
-  </data>
-  <data name="PropertyType" xml:space="preserve">
-    <value>İlan Tipi</value>
-  </data>
-  <data name="PropertyCategory" xml:space="preserve">
-    <value>İlan Kategorisi</value>
-  </data>
-  <data name="Description" xml:space="preserve">
-    <value>İlan Açıklaması</value>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
   </data>
 </root>

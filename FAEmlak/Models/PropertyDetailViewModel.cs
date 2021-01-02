@@ -14,16 +14,32 @@ namespace FAEmlak.Models
         public User user { get; set; }
 
         public int ProductId { get; set; }
+
+        [Required]
+        [Display(Name = "Title")]
         public string Title { get; set; }
+
+        [Required]
+        [Display(Name = "Price")]
         public int Price { get; set; }
 
+        [Required]
         [Display(Name = "Area")]
         public int Area { get; set; }
+
+        [Required]
+        [Display(Name = "Description")]
         public string Description { get; set; }
 
+        [Display(Name = "PropertyType")]
         public PropertyType PropertyType { get; set; }
+
+        [Display(Name = "PropertyCategory")]
         public PropertyCategory PropertyCategory { get; set; }
+
         public PropertyStatus Status { get; set; }
+
+        [Required]
         [DisplayName("RoomCount")]
         public RoomCount RoomCount { get; set; }
 

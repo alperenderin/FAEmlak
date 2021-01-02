@@ -10,7 +10,7 @@
         <ul class="list-group list-group-flush">
             @foreach (PropertyType propertyType in Enum.GetValues(typeof(PropertyType)))
             {
-                <li class="list-group-item">@Localizer[$"{propertyType.ToString()}"]</li>
+                <li class="list-group-item"><b>@Localizer[$"{propertyType.ToString()}"]</b></li>
                 <ul>
                     @foreach (PropertyCategory propertyCategory in Enum.GetValues(typeof(PropertyCategory)))
                     {

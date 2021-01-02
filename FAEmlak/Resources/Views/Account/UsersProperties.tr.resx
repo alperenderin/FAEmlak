@@ -118,48 +118,30 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Area" xml:space="preserve">
-    <value>Alan (m²)</value>
+    <value>Alan</value>
   </data>
-  <data name="BahtroomCount" xml:space="preserve">
-    <value>Banyo Sayısı</value>
-  </data>
-  <data name="BuildingAge" xml:space="preserve">
-    <value>Bina Yaşı</value>
+  <data name="City" xml:space="preserve">
+    <value>İl / İlçe</value>
   </data>
   <data name="Created" xml:space="preserve">
     <value>İlan Tarihi</value>
   </data>
-  <data name="FloorCount" xml:space="preserve">
-    <value>Kat Sayısı</value>
+  <data name="PageTitle" xml:space="preserve">
+    <value>İlan Listesi</value>
   </data>
-  <data name="HasBalcony" xml:space="preserve">
-    <value>Balkon</value>
-  </data>
-  <data name="HasStuff" xml:space="preserve">
-    <value>Eşyalı mı</value>
-  </data>
-  <data name="IsInSite" xml:space="preserve">
-    <value>Site İçerisinde</value>
-  </data>
-  <data name="RoomCount" xml:space="preserve">
-    <value>Oda Sayısı</value>
-  </data>
-  <data name="WhichFloor" xml:space="preserve">
-    <value>Kaçıncı Kat</value>
+  <data name="Photo" xml:space="preserve">
+    <value>Fotoğraf</value>
   </data>
   <data name="Price" xml:space="preserve">
     <value>Fiyat</value>
   </data>
+  <data name="RoomCount" xml:space="preserve">
+    <value>Oda Sayısı</value>
+  </data>
   <data name="Title" xml:space="preserve">
     <value>İlan Başlığı</value>
   </data>
-  <data name="PropertyType" xml:space="preserve">
-    <value>İlan Tipi</value>
-  </data>
-  <data name="PropertyCategory" xml:space="preserve">
-    <value>İlan Kategorisi</value>
-  </data>
-  <data name="Description" xml:space="preserve">
-    <value>İlan Açıklaması</value>
+  <data name="UsersProperties" xml:space="preserve">
+    <value>Kullanıcı ilanları</value>
   </data>
 </root>

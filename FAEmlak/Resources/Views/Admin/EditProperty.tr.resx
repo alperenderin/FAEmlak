@@ -117,49 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Area" xml:space="preserve">
-    <value>Alan (m²)</value>
+  <data name="City" xml:space="preserve">
+    <value>Şehir</value>
   </data>
-  <data name="BahtroomCount" xml:space="preserve">
-    <value>Banyo Sayısı</value>
+  <data name="State" xml:space="preserve">
+    <value>İlçe</value>
   </data>
-  <data name="BuildingAge" xml:space="preserve">
-    <value>Bina Yaşı</value>
+  <data name="ForSale" xml:space="preserve">
+    <value>Satılık</value>
   </data>
-  <data name="Created" xml:space="preserve">
-    <value>İlan Tarihi</value>
+  <data name="ForRent" xml:space="preserve">
+    <value>Kiralık</value>
   </data>
-  <data name="FloorCount" xml:space="preserve">
-    <value>Kat Sayısı</value>
+  <data name="DailyRental" xml:space="preserve">
+    <value>Günlük Kiralık</value>
   </data>
-  <data name="HasBalcony" xml:space="preserve">
-    <value>Balkon</value>
+  <data name="SelectCity" xml:space="preserve">
+    <value>Şehir Seçin</value>
   </data>
-  <data name="HasStuff" xml:space="preserve">
-    <value>Eşyalı mı</value>
+  <data name="SelectState" xml:space="preserve">
+    <value>İlçe Seçin</value>
   </data>
-  <data name="IsInSite" xml:space="preserve">
-    <value>Site İçerisinde</value>
+  <data name="Residental" xml:space="preserve">
+    <value>Konut</value>
   </data>
-  <data name="RoomCount" xml:space="preserve">
-    <value>Oda Sayısı</value>
+  <data name="Commercial" xml:space="preserve">
+    <value>İş Yeri</value>
   </data>
-  <data name="WhichFloor" xml:space="preserve">
-    <value>Kaçıncı Kat</value>
+  <data name="Land" xml:space="preserve">
+    <value>Arsa</value>
   </data>
-  <data name="Price" xml:space="preserve">
-    <value>Fiyat</value>
+  <data name="Buildings" xml:space="preserve">
+    <value>Bina</value>
+  </data> 
+ <data name="AddPhoto" xml:space="preserve">
+    <value>Fotoğraflar (CTRL ile çoklu seçim yapabilirsiniz.)</value>
   </data>
-  <data name="Title" xml:space="preserve">
-    <value>İlan Başlığı</value>
+  <data name="Update" xml:space="preserve">
+    <value>Güncelle</value>
   </data>
-  <data name="PropertyType" xml:space="preserve">
-    <value>İlan Tipi</value>
-  </data>
-  <data name="PropertyCategory" xml:space="preserve">
-    <value>İlan Kategorisi</value>
-  </data>
-  <data name="Description" xml:space="preserve">
-    <value>İlan Açıklaması</value>
+  <data name="PageTitle" xml:space="preserve">
+    <value>İlan Düzenle</value>
   </data>
 </root>

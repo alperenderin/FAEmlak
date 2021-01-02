@@ -135,4 +135,7 @@
   <data name="SignUp" xml:space="preserve">
     <value>Kayıt Ol</value>
   </data>
+  <data name="MyProperties" xml:space="preserve">
+    <value>İlanlarım</value>
+  </data>
 </root>

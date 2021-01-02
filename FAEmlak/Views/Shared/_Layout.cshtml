@@ -1,4 +1,7 @@
 ﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<FAEmlak.Data.User> userManager
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,6 +30,9 @@
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
+                                <a class="nav-link" asp-controller="Account" asp-action="UsersProperties" asp-route-UserId="@userManager.GetUserId(User)">@Localizer["MyProperties"]</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="Favorites" asp-action="Index">@Localizer["FavoriteProperties"]</a>
                             </li>
                             <li class="nav-item">
@@ -47,7 +53,7 @@
                         }
 
                     </ul>
-                    <a class="btn btn-info">@Localizer["CreateProperty"]</a>
+                    <a asp-controller="Property" asp-action="Create" class="btn btn-info">@Localizer["CreateProperty"]</a>
                     <partial name="_Culture" />
                 </div>
             </div>

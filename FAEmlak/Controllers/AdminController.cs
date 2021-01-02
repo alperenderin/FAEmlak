@@ -78,8 +78,8 @@ namespace FAEmlak.Controllers
         [Route("[controller]/Users/Create")]
         public IActionResult CreateUser()
         {
-            var roles = _roleManager.Roles.ToList();
-            return View(roles);
+            ViewBag.Roles = new SelectList(_roleManager.Roles.ToList(), "Id", "Name");
+            return View();
         }
 
         [Route("[controller]/Users/Create")]
@@ -118,17 +118,16 @@ namespace FAEmlak.Controllers
             var user = await _userManager.FindByNameAsync(UserName);
             if (user != null)
             {
-                var roles =  _roleManager.Roles.ToList();
                 var userRole = await _userManager.GetRolesAsync(user);
+                ViewBag.Roles = new SelectList(_roleManager.Roles.ToList(), "Name", "Name");
                 return View(new AdminUserViewModel
                 {
                     UserId = user.Id,
                     FirstName = user.FirstName,
                     LastName = user.LastName,
                     Email = user.Email,
-                    RoleId = userRole.ToList().ToString(),
-                    Roles = roles
-                }); ;
+                    RoleId = userRole[0].ToString(),
+                });
             }
             return NotFound();
         }
@@ -153,9 +152,12 @@ namespace FAEmlak.Controllers
                     if (result.Succeeded)
                     {
                         var userRole = await _userManager.GetRolesAsync(user);
-                        var newRole = await _roleManager.FindByIdAsync(model.RoleId);
+                        var newRole = await _roleManager.FindByNameAsync(model.RoleId);
                         await _userManager.RemoveFromRoleAsync(user, userRole.ToList()[0]);
                         await _userManager.AddToRoleAsync(user, newRole.Name);
+
+                        TempData["Message"] = "İşleminiz başarıyla tamamlandı.";
+                        TempData["Status"] = "success";
 
                         return RedirectToAction("UserList");
                     }
@@ -168,7 +170,21 @@ namespace FAEmlak.Controllers
         public async Task<IActionResult> DeleteUser(string UserId)
         {
             var user = await _userManager.FindByIdAsync(UserId);
-            await _userManager.DeleteAsync(user);
+            if (user != null)
+            {
+                var result = await _userManager.DeleteAsync(user);
+                if (result.Succeeded)
+                {
+                    TempData["Message"] = "İşleminiz başarıyla tamamlandı.";
+                    TempData["Status"] = "success";
+                }
+            }
+            else
+            {
+                TempData["Message"] = "Bir hata oluştu.";
+                TempData["Status"] = "danger";
+            }
+
             return RedirectToAction("UserList");
         }
 
@@ -286,9 +302,9 @@ namespace FAEmlak.Controllers
         public async Task<IActionResult> EditState(int StateId)
         {
             var state = _stateService.GetById(StateId);
-            var cities = await _cityService.GetCitiesAsync();
             if (state != null)
             {
+                var cities = await _cityService.GetCitiesAsync();
                 return View(new AdminStateViewModel {
                     state = state,
                     cities = cities
@@ -325,8 +341,31 @@ namespace FAEmlak.Controllers
         public async Task<IActionResult> EditProperty(int PropertyId)
         {
             var property = await _propertyService.GetPropertyByIdAsync(PropertyId);
+            if (property == null)
+            {
+                return NotFound();
+            }
             ViewBag.Cities = new SelectList(await _cityService.GetCitiesAsync(), "CityId", "Name");
-            return View(property);
+            return View(new PropertyDetailViewModel
+            {
+                Title = property.Title,
+                Price = property.Price,
+                Area = property.Area,
+                BathroomCount = property.BathroomCount,
+                BuildingAge = property.BuildingAge,
+                Description = property.Description,
+                FloorCount = property.FloorCount,
+                HasBalcony = property.HasBalcony,
+                ProductId = property.PropertyId,
+                PropertyCategory = property.PropertyCategory,
+                PropertyType = property.PropertyType,
+                HasStuff = property.HasStuff,
+                RoomCount = property.RoomCount,
+                StateId = property.StateId,
+                WhichFloor = property.WhichFloor,
+                IsInSite = property.IsInSite,
+                State = property.State
+            }); ;
         }
 
 
@@ -338,6 +377,11 @@ namespace FAEmlak.Controllers
             if (files is null)
             {
                 throw new ArgumentNullException(nameof(files));
+            }
+
+            if (property is null)
+            {
+                throw new ArgumentNullException(nameof(property));
             }
 
             if (ModelState.IsValid)

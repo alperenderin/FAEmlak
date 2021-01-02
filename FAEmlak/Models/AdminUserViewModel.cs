@@ -18,6 +18,5 @@ namespace FAEmlak.Models
         [Display(Name = "ConfirmPassword")]
         public string ConfirmPassword { get; set; }
         public string RoleId { get; set; }
-        public List<Microsoft.AspNetCore.Identity.IdentityRole> Roles { get; set; }
     }
 }

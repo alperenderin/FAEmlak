@@ -1,5 +1,4 @@
 ﻿@model FAEmlak.Models.AdminUserViewModel
-@using FAEmlak.Helpers
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 @{
@@ -40,6 +39,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-element-list">
+                    <div asp-validation-summary="All"></div>
                     <form method="post" asp-controller="Admin" asp-action="EditUser">
                         <input type="hidden" name="UserId" value="@Model.UserId">
                         <div class="row">
@@ -48,6 +48,7 @@
                                     @Html.LabelFor(x => x.FirstName)
                                     <div class="nk-int-st">
                                         <input type="text" id="FirstName" name="FirstName" class="form-control" value="@Model.FirstName" required>
+                                        <span asp-validation-for="FirstName" class="text-danger"></span>
                                     </div>
                                 </div>
                             </div>
@@ -56,6 +57,7 @@
                                     @Html.LabelFor(x => x.LastName)
                                     <div class="nk-int-st">
                                         <input type="text" id="LastName" name="LastName" class="form-control" value="@Model.LastName" required>
+                                        <span asp-validation-for="LastName" class="text-danger"></span>
                                     </div>
                                 </div>
                             </div>
@@ -64,6 +66,7 @@
                                     @Html.LabelFor(x => x.Email)
                                     <div class="nk-int-st">
                                         <input type="text" class="form-control" name="Email" value="@Model.Email" required>
+                                        <span asp-validation-for="Email" class="text-danger"></span>
                                     </div>
                                 </div>
                             </div>
@@ -73,7 +76,8 @@
                                 <div class="form-group ic-cmp-int">
                                     @Html.LabelFor(x => x.Password)
                                     <div class="nk-int-st">
-                                        <input type="password" class="form-control" name="Password" required>
+                                        <input type="password" class="form-control" name="Password">
+                                        <span asp-validation-for="Password" class="text-danger"></span>
                                     </div>
                                 </div>
                             </div>
@@ -82,21 +86,15 @@
                                 <div class="form-group ic-cmp-int">
                                     @Html.LabelFor(x => x.ConfirmPassword)
                                     <div class="nk-int-st">
-                                        <input type="password" class="form-control" name="ConfirmPassword" required>
+                                        <input type="password" class="form-control" name="ConfirmPassword">
+                                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <label>@Localizer["Roles"]</label>
-                                <div class="bootstrap-select fm-cmp-mg">
-                                    <select id="role" name="RoleId" class="selectpicker">
-                                        @foreach (var item in Model.Roles)
-                                        {
-
-                                            <option value="@item.Id">@item.Name</option>
-                                        }
-                                    </select>
-                                </div>
+                                <select asp-for="RoleId" asp-items="@ViewBag.Roles" name="RoleId" class="form-control">
+                                </select>
                             </div>
                         </div>
                         <div class="row text-center">
