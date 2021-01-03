@@ -147,7 +147,4 @@
   <data name="SelectState" xml:space="preserve">
     <value>İlçe Seç</value>
   </data>
-  <data name="Price" xml:space="preserve">
-    <value>Fiyat Aralığı</value>
-  </data>
 </root>

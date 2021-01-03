@@ -13,7 +13,7 @@ namespace FAEmlak.Models
 
         public User user { get; set; }
 
-        public int ProductId { get; set; }
+        public int PropertyId { get; set; }
 
         [Required]
         [Display(Name = "Title")]

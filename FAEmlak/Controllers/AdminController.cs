@@ -356,7 +356,7 @@ namespace FAEmlak.Controllers
                 Description = property.Description,
                 FloorCount = property.FloorCount,
                 HasBalcony = property.HasBalcony,
-                ProductId = property.PropertyId,
+                PropertyId = property.PropertyId,
                 PropertyCategory = property.PropertyCategory,
                 PropertyType = property.PropertyType,
                 HasStuff = property.HasStuff,
@@ -386,6 +386,7 @@ namespace FAEmlak.Controllers
 
                 var property = new Property
                 {
+                    PropertyId = model.PropertyId,
                     UserId = user.Id,
                     Title = model.Title,
                     Description = model.Description,

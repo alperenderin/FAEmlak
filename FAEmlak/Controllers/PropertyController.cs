@@ -64,7 +64,7 @@ namespace FAEmlak.Controllers
                     Description = _property.Description,
                     FloorCount = _property.FloorCount,
                     HasBalcony = _property.HasBalcony,
-                    ProductId = _property.PropertyId,
+                    PropertyId = _property.PropertyId,
                     PropertyCategory = _property.PropertyCategory,
                     PropertyType = _property.PropertyType,
                     HasStuff = _property.HasStuff,

@@ -33,7 +33,7 @@
                 <ul id="lightSlider">
                     @foreach (var item in Model.Photos)
                     {
-                        <li data-thumb="/img/@Model.ProductId/@item.PhotoPath"> <img src="~/img/@Model.ProductId/@item.PhotoPath" /> </li>
+                        <li data-thumb="/img/@Model.PropertyId/@item.PhotoPath"> <img src="~/img/@Model.PropertyId/@item.PhotoPath" style="width: 100%" /> </li>
                     }
                 </ul>
             </div>
@@ -129,7 +129,7 @@
                 e.preventDefault();
                 $.ajax({
                     type: "POST",
-                    url: "@Url.Action("AddFavorite", "Favorites", new { PropertyId = Model.ProductId })",
+                    url: "@Url.Action("AddFavorite", "Favorites", new { PropertyId = Model.PropertyId })",
                     dataType: "text",
                     success: function (msg) {
                         $("#add-favorite").attr("id", "remove-favorite").text("Favorilerimden Çıkar");
@@ -145,7 +145,7 @@
                 e.preventDefault();
                 $.ajax({
                     type: "POST",
-                    url: "@Url.Action("RemoveFavorite", "Favorites", new { PropertyId = Model.ProductId })",
+                    url: "@Url.Action("RemoveFavorite", "Favorites", new { PropertyId = Model.PropertyId })",
                     dataType: "text",
                     success: function (msg) {
                         $("#remove-favorite").attr("id", "add-favorite").text("Favorilerime Ekle");

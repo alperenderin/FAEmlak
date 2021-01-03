@@ -147,7 +147,4 @@
   <data name="SelectState" xml:space="preserve">
     <value>Select State</value>
   </data>
-  <data name="Price" xml:space="preserve">
-    <value>Price</value>
-  </data>
 </root>
